@@ -23,7 +23,7 @@
     home: {
       hero: {
         badge: 'Cadott, Wisconsin',
-        title: 'Mission: strengthen Cadott by working side by side.',
+        title: 'Mission: To enhance our community by strengthening business and citizen involvement.',
         body: 'We keep things simple—short meetings, printed notes, and hometown events that anyone can join or enjoy.',
         figure: {
           src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/19554523-681567728699006-1629257994525173032-n_orig.jpg',
