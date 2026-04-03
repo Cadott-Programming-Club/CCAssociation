@@ -26,9 +26,9 @@
         title: 'Mission: To enhance our community by strengthening business and citizen involvement.',
         body: 'We keep things simple—short meetings, printed notes, and hometown events that anyone can join or enjoy.',
         figure: {
-          src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/19554523-681567728699006-1629257994525173032-n_orig.jpg',
-          alt: 'Nabor Days parade rolling through downtown Cadott',
-          caption: 'Nabor Days parade floats and volunteers keep Main Street buzzing.'
+          src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg',
+          alt: 'Nabor Days parade marching band down Main Street',
+          caption: 'Local bands bringing the music down Main Street during Nabor Days.'
         }
       },
       involvement: {
