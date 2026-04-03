@@ -88,8 +88,8 @@
 /* Scroll-reveal base states */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal-on-scroll.revealed {
@@ -100,8 +100,8 @@
 /* Staggered children */
 .stagger-children > * {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .stagger-children.revealed > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
@@ -1442,7 +1442,7 @@ footer {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   PREMIUM BUTTON SYSTEM
+   PREMIUM BUTTON SYSTEM -> HOMESTYLE BUTTONS
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .button {
@@ -1451,102 +1451,84 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.9rem 1.65rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  border: 2px solid transparent;
+  font-family: serif;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  font-size: 0.92rem;
+  font-size: 1rem;
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: 
-    background var(--transition-smooth), 
-    color var(--transition-smooth), 
-    border-color var(--transition-smooth),
-    transform var(--transition-fast),
-    box-shadow var(--transition-smooth);
-}
-
-.button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent 60%);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease;
-}
-
-.button:hover::before {
-  transform: translateX(100%);
+  transition: all 0.1s ease;
 }
 
 .button.primary {
-  background: linear-gradient(135deg, var(--deep-ink) 0%, #1e293b 100%);
+  background: #8b5a2b;
   color: #fff;
-  border-color: var(--deep-ink);
-  box-shadow: 
-    0 4px 15px rgba(15, 23, 42, 0.2),
-    0 8px 25px rgba(15, 23, 42, 0.15);
+  border-color: #6e4620;
+  box-shadow: 0 4px 0 #6e4620;
 }
 
 .button.primary:hover,
 .button.primary:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 8px 25px rgba(15, 23, 42, 0.25),
-    0 12px 35px rgba(15, 23, 42, 0.2);
+  background: #7a4e25;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #6e4620;
 }
 
 .button.primary:active {
-  transform: translateY(0);
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #6e4620;
 }
 
 .button.secondary {
-  border-color: rgba(15, 23, 42, 0.2);
-  color: var(--deep-ink);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  border-color: #e6dfd1;
+  color: #4a3b32;
+  background: #fdfbf7;
+  box-shadow: 0 4px 0 #e6dfd1;
 }
 
 .button.secondary:hover,
 .button.secondary:focus-visible {
-  border-color: var(--cadott-green);
-  color: var(--cadott-green);
-  background: rgba(46, 125, 84, 0.05);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(46, 125, 84, 0.15);
+  background: #f7f3e8;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #e6dfd1;
+}
+
+.button.secondary:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #e6dfd1;
 }
 
 /* Green accent button variant */
 .button.accent {
-  background: linear-gradient(135deg, var(--cadott-green) 0%, #236644 100%);
+  background: #5d7052;
   color: #fff;
-  border-color: var(--cadott-green);
-  box-shadow: 
-    0 4px 15px rgba(46, 125, 84, 0.25),
-    0 8px 25px rgba(46, 125, 84, 0.15);
+  border-color: #4a5c41;
+  box-shadow: 0 4px 0 #4a5c41;
 }
 
 .button.accent:hover,
 .button.accent:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 8px 25px rgba(46, 125, 84, 0.3),
-    0 12px 35px rgba(46, 125, 84, 0.2);
+  background: #506146;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #4a5c41;
+}
+
+.button.accent:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #4a5c41;
 }
 
 .button.cta-pill {
-  padding: 1rem 2rem;
-  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
 }
 
 /* Focus ring for accessibility */
 .button:focus-visible {
-  outline: none;
-  box-shadow: 
-    0 0 0 3px rgba(46, 125, 84, 0.3),
-    0 8px 25px rgba(15, 23, 42, 0.2);
+  outline: 2px dashed #8b5a2b;
+  outline-offset: 4px;
 }
 
 .admin-link {

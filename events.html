@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events — Cadott Community Association</title>
-  <meta name="description" content="Nabor Days, Purse Bingo, Music in the Park — discover Cadott's hometown events calendar." />
+  <meta name="description" content="Nabor Days, Music in the Park — discover Cadott's hometown events calendar." />
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,13 +42,14 @@
 
     <!-- Page hero banner -->
     <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-cadott-green to-emerald-800 px-8 py-12 text-white shadow-lg sm:py-16">
-      <div class="absolute inset-0 opacity-10">
-        <svg class="h-full w-full" viewBox="0 0 400 400"><circle cx="350" cy="50" r="180" fill="white"/><circle cx="50" cy="350" r="120" fill="white"/></svg>
+      <div class="absolute inset-0 opacity-20">
+        <img class="h-full w-full object-cover" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/music-1.jpg?1608663177" alt="" aria-hidden="true">
       </div>
+      <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/90 to-emerald-900/60"></div>
       <div class="relative max-w-2xl space-y-4">
         <p class="text-xs font-bold uppercase tracking-[0.3em] text-green-200">🎉 Events &amp; Festivals</p>
         <h1 class="font-display text-4xl font-bold leading-tight sm:text-5xl">Hometown events that bring us together.</h1>
-        <p class="text-lg text-green-100/90">From Purse Bingo to Nabor Days parades — there's always a reason to gather in Cadott.</p>
+        <p class="text-lg text-green-100/90">From Nabor Days to Music in the Park — there's always a reason to gather in Cadott.</p>
       </div>
     </section>
 
@@ -74,8 +75,8 @@
       <article class="panel-shell space-y-5" data-module="panel-shell">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p class="section-label" data-module="section-label" data-config-text="event.kicker">Spring 2026</p>
-            <h2 class="font-display text-3xl font-bold tracking-tight" data-config-text="event.title">Purse Bingo — designer bags, daubers & fun!</h2>
+            <p class="section-label" data-module="section-label" data-config-text="event.kicker">Mid-July 2026</p>
+            <h2 class="font-display text-3xl font-bold tracking-tight" data-config-text="event.title">Nabor Days — Cadott's Summer Festival!</h2>
           </div>
           <div class="cta-cluster flex flex-wrap gap-3" data-module="cta-cluster" data-config-cta="event.heroButtons"></div>
         </div>
@@ -83,14 +84,12 @@
         <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500" data-config-text="event.location"></p>
 
         <!-- Event image -->
-        <figure class="overflow-hidden rounded-2xl shadow-md bg-gradient-to-br from-pink-50 to-fuchsia-50">
-          <div class="flex h-56 w-full items-center justify-center">
-            <div class="text-center space-y-3 p-8">
-              <span class="text-6xl">👜</span>
-              <p class="text-2xl font-bold text-cadott-ink font-display">Purse Bingo Night</p>
-              <p class="text-sm text-slate-500">Designer bags · Raffles · Cash bar</p>
-            </div>
-          </div>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-md">
+          <img class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?q=80&w=2069&auto=format&fit=crop" alt="Neighbors enjoying the Nabor Days festival in Cadott" loading="lazy">
+          <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-5 py-4 text-white">
+            <p class="text-lg font-bold font-display">Nabor Days Festival</p>
+            <p class="text-sm text-white/80">Parades · Live Music · Softball · Food Stands</p>
+          </figcaption>
         </figure>
 
         <ul class="list-none" data-config-list="event.schedule" data-list-type="text"></ul>
@@ -99,7 +98,7 @@
           <div class="mt-4" data-config-list="event.timeline" data-list-type="timeline"></div>
         </div>
         <div>
-          <h3 class="font-display text-xl font-bold">Weekend preview</h3>
+          <h3 class="font-display text-xl font-bold">What to know</h3>
           <ul class="mt-3 list-none" data-config-card-grid="event.preview"></ul>
         </div>
       </article>

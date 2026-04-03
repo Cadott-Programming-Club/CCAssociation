@@ -5,7 +5,7 @@
     branding: {
       orgName: 'Cadott Community Association',
       headerTitle: 'Neighbors building Cadott since 1970',
-      headerSubtitle: 'Purse Bingo · Music in the Park · Nabor Days',
+      headerSubtitle: 'Nabor Days · Music in the Park · Volunteering',
       footerNote: 'Built with local pride.',
       headerButtons: [
         {
@@ -18,7 +18,7 @@
     meeting: {
       banner: 'Next meeting: TBD',
       heroTitle: 'Next meeting TBD.',
-      heroBody: 'We will post the date, time, and location as soon as the board confirms it. Show up, listen, and plug into Purse Bingo, Music in the Park, or Nabor Days work.'
+      heroBody: 'We will post the date, time, and location as soon as the board confirms it. Show up, listen, and plug into Nabor Days, Music in the Park, or neighborhood volunteering.'
     },
     home: {
       hero: {
@@ -117,88 +117,89 @@
       ],
       cadence: [
         'Updates · fundraising, sponsors, quick event recaps.',
-        'Planning · Purse Bingo, Music in the Park, Nabor Days, community events.',
+        'Planning · Nabor Days, Music in the Park, community events.',
         'Open floor · needs, ideas, and causes that need a boost.'
       ]
     },
     event: {
-      kicker: 'Spring 2026',
-      title: 'Purse Bingo — designer bags, daubers & fun!',
-      description: 'Grab your friends for a night of bingo where the prizes are brand-name purses and accessories! Each game features a different designer bag. Extra dauber cards, raffles, and a cash bar keep the energy high all evening. Proceeds support Cadott Community Association events.',
-      location: 'Cadott Area — Check Facebook for venue details',
+      kicker: 'Mid-July 2026',
+      title: 'Nabor Days — Cadott\'s summer celebration!',
+      description: 'Nabor Days is the biggest event of the summer, held right here in Cadott at Riverview Park. Bring the whole family for a weekend of live music, delicious food stands, the grand parade down Main Street, a softball tournament, and much more!',
+      location: 'Riverview Park',
       heroButtons: [
         {
-          label: 'Get tickets / RSVP',
+          label: 'RSVP on Facebook',
           href: 'https://www.facebook.com/cadottcommunityassociation',
           style: 'primary'
         },
         {
-          label: 'Donate a purse',
+          label: 'Volunteer to help',
           href: 'mailto:cadott-community@googlegroups.com',
           style: 'secondary'
         }
       ],
       schedule: [
-        'Doors open · Grab your seat, buy extra dauber cards & raffle tickets',
-        'First game called · Regular bingo rounds with designer purse prizes',
-        'Intermission · Raffles, 50/50, and cash bar refills',
-        'Second half · Special rounds including blackout & pick-your-purse games',
-        'Final game & grand prize drawing'
+        'Friday evening · Vendor tents open, live music kicks off the weekend',
+        'Saturday morning · Annual Nabor Days Parade down Main Street',
+        'Saturday afternoon · Softball tournament, kid\'s games, and food stands in Riverview Park',
+        'Saturday night · Street dance and headline band performance',
+        'Sunday morning · Community breakfast and wrap-up'
       ],
       timeline: [
         {
-          title: 'Doors Open',
-          time: 'Check Facebook for times',
-          description: 'Find your seat, purchase extra bingo cards and raffle tickets. Cash bar and snacks available.'
+          title: 'Opening Ceremonies',
+          time: 'Friday Evening',
+          description: 'The weekend officially begins with food vendors opening up and the first round of live entertainment.'
         },
         {
-          title: 'Bingo Games Begin',
-          time: 'Shortly after doors',
-          description: 'Regular rounds of bingo — each game awards a different designer purse or accessory.'
+          title: 'Nabor Days Parade',
+          time: 'Saturday Morning',
+          description: 'Grab a spot on Main Street to watch the floats, marching bands, and local businesses in our annual parade.'
         },
         {
-          title: 'Intermission & Raffles',
-          time: 'Midway through the evening',
-          description: '50/50 drawing, basket raffles, and a chance to grab snacks and drinks before the second half.'
+          title: 'Park Activities',
+          time: 'Saturday Afternoon',
+          description: 'Head down to Riverview Park for the softball tournament, carnival games, and delicious local food stands.'
         },
         {
-          title: 'Special Rounds',
-          time: 'Second half of the evening',
-          description: 'Blackout bingo, pick-your-purse games, and bonus rounds with premium prizes.'
+          title: 'Street Dance',
+          time: 'Saturday Night',
+          description: 'Put on your dancing shoes for the headline performance and street dance outside. A Cadott tradition!'
         },
         {
-          title: 'Grand Prize & Wrap-up',
-          time: 'End of the evening',
-          description: 'Grand prize purse drawing, final raffle winners announced. Thanks for supporting CCA!'
+          title: 'Wrap-Up',
+          time: 'Sunday Morning',
+          description: 'Join us for a community pancake breakfast and help with the Sunday town cleanup before heading out.'
         }
       ],
       highlights: [
-        'Designer purse prizes — Coach, Kate Spade, Michael Kors & more.',
-        'Extra dauber cards and raffle tickets available at the door.',
-        'Cash bar with beer, wine, and cocktails.',
-        'All proceeds fund Cadott community events and programs.'
+        'Grand Parade down Main Street featuring local businesses and organizations.',
+        'Live music and street dances running all weekend long.',
+        'Charity softball tournament in Riverview Park.',
+        'Fantastic local food stands, beer gardens, and family activities.',
+        'Proceeds from CCA run stands go straight to community improvements.'
       ],
       preview: [
         {
-          title: 'Tickets',
-          details: 'Check our Facebook page for ticket info and pricing.'
+          title: 'Where to park',
+          details: 'Parking is available at the high school lot with a free shuttle, or on side streets near Riverview Park. Please be respectful of neighbors\' driveways.'
         },
         {
-          title: 'What to bring',
-          details: 'Just yourself and your friends! Daubers provided or bring your own lucky one.'
+          title: 'What to Expect',
+          details: 'A full weekend of family-friendly fun! Bring lawn chairs for the parade, sunscreen for the park, and get ready to catch up with old friends.'
         },
         {
-          title: 'Donations',
-          details: 'Have a new purse to donate? Email cadott-community@googlegroups.com.'
+          title: 'Enter a Float',
+          details: 'Want your business or group in the parade? Email cadott-community@googlegroups.com to register your float.'
         }
       ]
     },
     eventListings: [
       {
-        title: 'Purse Bingo',
-        timing: 'Spring 2026 · Check Facebook for date & time',
-        summary: 'A night of bingo where every prize is a designer purse or accessory. Raffles, cash bar, and great company.',
-        details: 'Tickets available on our Facebook page. Proceeds support CCA events. Purse donations welcome — email the board.'
+        title: 'Nabor Days Festival',
+        timing: 'Mid-July 2026 · Riverview Park',
+        summary: 'Cadott\'s biggest summer festival! Enjoy the grand parade, softball tournaments, live music, and food stands all weekend.',
+        details: 'Join us for this time-honored tradition. All proceeds from CCA run stands go directly back into the community.'
       },
       {
         title: 'Music in the Park',
@@ -215,8 +216,13 @@
     ],
     gallery: [
       {
+        src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/19554523-681567728699006-1629257994525173032-n_orig.jpg',
+        alt: 'Nabor Days parade rolling down Main Street in Cadott',
+        caption: 'Main Street parade — the highlight of Nabor Days weekend.'
+      },
+      {
         src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/20190727-095834_orig.jpg',
-        alt: 'Runners at the Nabor Days Fun Run start line',
+        alt: 'Kids racing in the free 800M dash at Nabor Days',
         caption: 'Fun Run/Walk sets the tone for the whole weekend.'
       },
       {
@@ -240,9 +246,34 @@
         caption: 'Queen coronation night crowns Cadott pride.'
       },
       {
+        src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/20294234-681567775365668-2539194200402116317-n_orig.jpg',
+        alt: 'Kids gathered under trees at Cadott Riverview Park during Nabor Days',
+        caption: 'Youth games and neighbor reunions beneath the park canopy.'
+      },
+      {
+        src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/60652439-941365229541547-9109737127872036864-n.jpg?1608661349',
+        alt: 'Tractor pulling sled at dusk during Nabor Days',
+        caption: 'Friday night horsepower lights up the Truck & Tractor Pull.'
+      },
+      {
+        src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/img-20170729-155254084_1.jpg?1684941294',
+        alt: 'Trucks roaring through the Cadott mud bog',
+        caption: 'Midwest Motorsports Association races through 150 feet of Cadott mud.'
+      },
+      {
         src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/park_orig.jpg',
         alt: 'Families at Riverview Park along the Yellow River',
         caption: 'Riverview Park — the heart of Cadott community life.'
+      },
+      {
+        src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/music-1.jpg?1608663177',
+        alt: 'Band performing in Riverview Park during Music in the Park',
+        caption: 'Music in the Park transforms Riverview Park into a midweek concert hall.'
+      },
+      {
+        src: 'https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/editor/muysic-2.jpg?1608663059',
+        alt: 'Crowd enjoying live music under the lights at Riverview Park',
+        caption: 'Neighbors pack lawn chairs for free shows under the lights.'
       }
     ],
     faq: {
