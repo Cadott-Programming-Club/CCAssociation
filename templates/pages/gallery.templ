@@ -1,0 +1,100 @@
+package pages
+
+import (
+	"ccassociation/internal/meta"
+	"ccassociation/templates/components"
+	"ccassociation/templates/layouts"
+)
+
+templ Gallery() {
+	@layouts.Base(meta.New("Gallery", "Photos from Nabor Days, Music in the Park, and community life in Cadott, Wisconsin."), "gallery") {
+		<div class="mx-auto max-w-6xl space-y-8 px-4 py-8">
+			<!-- Hero Banner -->
+			<section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 px-8 py-12 text-white shadow-lg sm:py-16">
+				<div class="absolute inset-0 opacity-20">
+					<img class="h-full w-full object-cover" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/2022-queens_orig.jpg" alt="" aria-hidden="true"/>
+				</div>
+				<div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60"></div>
+				<div class="relative max-w-2xl space-y-4">
+					<p class="text-xs font-bold uppercase tracking-[0.3em] text-green-300">&#128248; Photo Gallery</p>
+					<h1 class="font-display text-4xl font-bold leading-tight sm:text-5xl">Neighbors in action.</h1>
+					<p class="text-lg text-slate-300">Parades, potlucks, and everything in between — Cadott through the lens.</p>
+				</div>
+			</section>
+			<!-- Nabor Days Photos -->
+			<section class="panel-shell space-y-6">
+				<header class="space-y-2">
+					<p class="section-label">&#127914; Nabor Days</p>
+					<h2 class="font-display text-2xl font-bold tracking-tight">The last full weekend in July</h2>
+					<p class="text-slate-600">Parades, pulls, coronations, and community pride — Nabor Days is what Cadott is all about.</p>
+				</header>
+				<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					@GalleryPhoto("sm:col-span-2 lg:col-span-2", "h-64", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/19554523-681567728699006-1629257994525173032-n_orig.jpg", "Nabor Days parade rolling down Main Street in Cadott", "Main Street Parade · Nabor Days")
+					@GalleryPhoto("", "h-64", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg", "Church band marching in the Nabor Days parade", "Church Band · Nabor Days Parade")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/2022-queens_orig.jpg", "2022 Nabor Days Queens waving from parade float", "Nabor Days Royalty · 2022")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/fire-trucks_orig.jpg", "Fire trucks rolling through the Nabor Days parade", "Fire Trucks · Nabor Days Parade")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/67136947-1086973161491792-6632270262052061184-n_orig.jpg", "Nabor Days queen candidates on stage during coronation", "Queen Coronation · Nabor Days")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/20294234-681567775365668-2539194200402116317-n_orig.jpg", "Kids gathered under the trees at Riverview Park during Nabor Days", "Riverview Park · Nabor Days")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/editor/run-walk.jpg?1527728364", "Runners at the Cadott Nabor Days 5K starting line", "Fun Run/Walk · Starting Line")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/20190727-095834_orig.jpg", "Kids racing in the free 800M dash at Nabor Days", "Kids 800M Dash · Nabor Days")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/60652439-941365229541547-9109737127872036864-n.jpg?1608661349", "Tractor pulling sled at dusk during Nabor Days", "Truck & Tractor Pull · Friday Night")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/img-20170729-155254084_1.jpg?1684941294", "Trucks roaring through the Cadott mud bog", "Midwest Motorsports Mud Bog")
+				</div>
+			</section>
+			<!-- Music & Community Life -->
+			<section class="panel-shell space-y-6">
+				<header class="space-y-2">
+					<p class="section-label">&#127925; Music &amp; Community Life</p>
+					<h2 class="font-display text-2xl font-bold tracking-tight">Around town</h2>
+					<p class="text-slate-600">Music in the Park, community fitness nights, and neighbors just being neighbors.</p>
+				</header>
+				<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					@GalleryPhoto("sm:col-span-2 lg:col-span-2", "h-64", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/music-1.jpg?1608663177", "Band performing live in Riverview Park during Music in the Park", "Music in the Park · Riverview Park Bandshell")
+					@GalleryPhoto("", "h-64", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/editor/muysic-2.jpg?1608663059", "Crowd enjoying live music under the lights at Riverview Park", "Summer Evenings · Music in the Park")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/park_orig.jpg", "Families relaxing along the Yellow River at Riverview Park", "Riverview Park · Along the Yellow River")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/track_orig.jpg", "Neighbors exercising on the Cadott track", "Community Fitness · Cadott Track")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/yoga_orig.jpg", "Group yoga session in Riverview Park", "Sunset Yoga · Riverview Park")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/29250085-776904239165354-5852604148729511936-n.jpeg?1522162773", "Neighbors gathered around tables for community bingo night", "Bingo Night · Community Fundraiser")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/20476236-681948565327589-17922207873877258-n-1_1.jpeg?1522162797", "Neighbors sharing a laugh during a game night", "Game Night · Neighbors Connecting")
+				</div>
+			</section>
+			<!-- Winter & Holidays -->
+			<section class="panel-shell space-y-6">
+				<header class="space-y-2">
+					<p class="section-label">&#10052;&#65039; Winter &amp; Holidays</p>
+					<h2 class="font-display text-2xl font-bold tracking-tight">Christmas Village &amp; beyond</h2>
+					<p class="text-slate-600">Sleigh rides, Santa visits, craft fairs, and cozy bingo nights — Cadott doesn't slow down in winter.</p>
+				</header>
+				<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/editor/santa.jpg?250", "Santa greeting a child during a Cadott holiday event", "Santa Meet & Greet · Christmas Village")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/horses.jpg?1608662445", "Horse-drawn sleigh crossing Riverview Park in winter", "Sleigh Rides · Christmas Village")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/crafts.jpg?1608662399", "Holiday craft booth with handmade items on display", "Holiday Crafts · Local Makers")
+					@GalleryPhoto("", "h-56", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/29250085-776904239165354-5852604148729511936-n.jpeg?1522162773", "Winter bingo and meat raffle night", "Winter Bingo & Meat Raffles")
+				</div>
+			</section>
+			<!-- Facebook Photos Embed -->
+			<section class="panel-shell space-y-4">
+				<header class="flex flex-wrap items-center justify-between gap-3">
+					<div class="space-y-1">
+						<p class="section-label">&#128247; Facebook photos</p>
+						<h2 class="font-display text-2xl font-bold tracking-tight">More from our page</h2>
+					</div>
+					<a href="https://www.facebook.com/cadottcommunityassociation/photos" target="_blank" rel="noreferrer noopener" class="inline-flex items-center gap-2 rounded-full border border-cadott-blue/30 bg-cadott-blue/5 px-5 py-2 text-sm font-semibold text-cadott-blue transition hover:bg-cadott-blue/10">
+						@components.IconFacebook()
+						See all on Facebook
+					</a>
+				</header>
+				<div class="flex justify-center overflow-hidden rounded-2xl border border-slate-200/60">
+					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcadottcommunityassociation&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="600" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy" title="Cadott Community Association Facebook Photos"></iframe>
+				</div>
+			</section>
+		</div>
+	}
+}
+
+templ GalleryPhoto(extraClass string, heightClass string, src string, alt string, caption string) {
+	<figure class={ "gallery-figure group relative overflow-hidden rounded-2xl shadow-sm transition hover:shadow-lg", extraClass }>
+		<img class={ "w-full object-cover transition-transform duration-500 group-hover:scale-105", heightClass } src={ src } alt={ alt } loading="lazy"/>
+		<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">{ caption }</figcaption>
+	</figure>
+}

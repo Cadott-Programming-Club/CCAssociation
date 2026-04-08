@@ -1,0 +1,49 @@
+package components
+
+type NavItem struct {
+	Href  string
+	Label string
+}
+
+var NavItems = []NavItem{
+	{Href: "/", Label: "Home"},
+	{Href: "/events", Label: "Events"},
+	{Href: "/gallery", Label: "Gallery"},
+	{Href: "/faq", Label: "FAQ"},
+	{Href: "/contact", Label: "Contact"},
+}
+
+// ModernNavLinks renders the inner-page style nav (rounded pills, green active).
+templ ModernNavLinks(activePage string) {
+	for _, item := range NavItems {
+		if item.Label == activePage || (activePage == "home" && item.Href == "/") {
+			<a href={ templ.SafeURL(item.Href) } class="rounded-full bg-cadott-green/10 px-4 py-2 text-cadott-green transition">{ item.Label }</a>
+		} else {
+			<a href={ templ.SafeURL(item.Href) } class="rounded-full px-4 py-2 text-cadott-ink hover:bg-slate-100 transition">{ item.Label }</a>
+		}
+	}
+}
+
+// WarmNavLinks renders the home-page style nav (underline active, brown hover).
+templ WarmNavLinks(activePage string) {
+	for _, item := range NavItems {
+		if item.Label == activePage || (activePage == "home" && item.Href == "/") {
+			<a href={ templ.SafeURL(item.Href) } class="border-b-2 border-cadott-brown px-2 py-1 text-cadott-text transition hover:text-cadott-brown">{ item.Label }</a>
+		} else {
+			<a href={ templ.SafeURL(item.Href) } class="px-2 py-1 text-cadott-muted hover:text-cadott-brown transition">{ item.Label }</a>
+		}
+	}
+}
+
+// MobileNavToggle renders the hamburger button for mobile nav.
+templ MobileNavToggle(class string) {
+	<button
+		class={ class }
+		aria-label="Toggle navigation"
+		id="nav-toggle"
+		onclick="document.getElementById('nav-menu').classList.toggle('hidden'); document.getElementById('nav-menu').classList.toggle('flex');"
+	>
+		<span class="sr-only">Toggle navigation</span>
+		@IconHamburger()
+	</button>
+}

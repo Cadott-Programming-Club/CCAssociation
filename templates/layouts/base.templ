@@ -1,0 +1,204 @@
+package layouts
+
+import (
+	"ccassociation/internal/meta"
+	"ccassociation/templates/components"
+)
+
+templ Base(m meta.PageMeta, activePage string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			@Head(m)
+		</head>
+		<body class="bg-background text-cadott-ink font-sans">
+			<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow">Skip to main content</a>
+			@ModernHeader(activePage)
+			<main id="main">
+				{ children... }
+			</main>
+			@ModernFooter()
+			<script src="/static/js/main.js" defer></script>
+		</body>
+	</html>
+}
+
+templ HomeBase(m meta.PageMeta) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			@Head(m)
+		</head>
+		<body class="bg-cadott-cream text-cadott-text font-serif">
+			<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow">Skip to main content</a>
+			@ModernHeader("home")
+			<main id="main" class="mx-auto max-w-6xl px-4">
+				{ children... }
+			</main>
+			@WarmFooter()
+			<script src="/static/js/main.js" defer></script>
+		</body>
+	</html>
+}
+
+// Head renders the shared <head> content for all pages.
+templ Head(m meta.PageMeta) {
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	@MetaTags(m)
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+	<link rel="stylesheet" href="/static/css/output.css"/>
+	<script src="https://unpkg.com/htmx.org@2.0.4"></script>
+}
+
+// === MODERN HEADER/FOOTER (inner pages) ===
+
+templ ModernHeader(activePage string) {
+	<header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/95 backdrop-blur-md shadow-sm">
+		<div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:py-4">
+			<a href="/" class="flex items-center gap-3 no-underline">
+				<span class="text-2xl">&#127969;</span>
+				<div>
+					<span class="text-lg font-bold tracking-tight text-cadott-ink">{ meta.SiteNameFromCtx(ctx) }</span>
+					<span class="hidden text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-slate-400 md:block">Neighbors since 1970</span>
+				</div>
+			</a>
+			@components.MobileNavToggle("inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-cadott-ink sm:hidden")
+			<nav id="nav-menu" class="hidden flex-col items-end gap-1 text-sm font-semibold sm:flex sm:flex-row sm:items-center sm:gap-1">
+				@components.ModernNavLinks(activePage)
+			</nav>
+		</div>
+	</header>
+}
+
+templ ModernFooter() {
+	<footer class="mt-12 border-t border-slate-200/60 bg-white/95">
+		<div class="mx-auto max-w-6xl px-4 py-10">
+			<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+				<div class="space-y-3">
+					<span class="text-lg font-bold">{ meta.SiteNameFromCtx(ctx) }</span>
+					<p class="text-sm text-slate-500">Built with local pride.</p>
+					@ModernSocialLinks()
+				</div>
+				@FooterPages()
+				@FooterResources()
+				@FooterLocation()
+			</div>
+			<div class="mt-8 border-t border-slate-100 pt-6 text-center text-xs text-slate-400">
+				&copy; <span id="footer-year"></span> { meta.SiteNameFromCtx(ctx) } · Made with &#10084;&#65039; in Cadott
+			</div>
+		</div>
+	</footer>
+}
+
+templ ModernSocialLinks() {
+	<div class="flex gap-3">
+		<a href="https://www.facebook.com/cadottcommunityassociation" target="_blank" rel="noreferrer noopener" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition hover:bg-cadott-green hover:text-white" aria-label="Facebook">
+			@components.IconFacebook()
+		</a>
+		<a href="mailto:cadott-community@googlegroups.com" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition hover:bg-cadott-green hover:text-white" aria-label="Email">
+			@components.IconEmail()
+		</a>
+	</div>
+}
+
+// === WARM HEADER/FOOTER (home page) ===
+
+templ WarmHeader() {
+	<header class="border-b-2 border-cadott-border bg-cadott-cream shadow-sm">
+		<div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:py-5">
+			<a href="/" class="flex items-center gap-3 no-underline">
+				<span class="text-3xl text-cadott-brown">&#129383;</span>
+				<div>
+					<span class="text-xl font-bold tracking-normal text-cadott-text font-serif">{ meta.SiteNameFromCtx(ctx) }</span>
+					<span class="block text-sm font-medium text-cadott-muted">Just neighbors helping neighbors since 1970</span>
+				</div>
+			</a>
+			@components.MobileNavToggle("inline-flex h-10 w-10 items-center justify-center rounded-lg border-2 border-cadott-border text-cadott-text sm:hidden")
+			<nav id="nav-menu" class="hidden flex-col items-end gap-2 text-md font-medium sm:flex sm:flex-row sm:items-center sm:gap-4">
+				@components.WarmNavLinks("home")
+			</nav>
+		</div>
+	</header>
+}
+
+templ WarmFooter() {
+	<footer class="mt-16 border-t-4 border-cadott-border bg-cadott-panel font-serif">
+		<div class="mx-auto max-w-6xl px-4 py-12">
+			<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+				<div class="space-y-4">
+					<span class="text-xl font-semibold text-cadott-brown">{ meta.SiteNameFromCtx(ctx) }</span>
+					<p class="text-[0.95rem] text-cadott-muted">Built with local pride.</p>
+					@WarmSocialLinks()
+				</div>
+				<div>
+					<h4 class="mb-4 text-sm font-semibold uppercase tracking-widest text-cadott-brown">Around town</h4>
+					<nav class="flex flex-col gap-3 text-[0.95rem] text-cadott-muted">
+						<a href="/" class="hover:text-cadott-brown hover:underline underline-offset-4 transition">Home</a>
+						<a href="/events" class="hover:text-cadott-brown hover:underline underline-offset-4 transition">Calendar</a>
+						<a href="/gallery" class="hover:text-cadott-brown hover:underline underline-offset-4 transition">Photos</a>
+					</nav>
+				</div>
+				<div>
+					<h4 class="mb-4 text-sm font-semibold uppercase tracking-widest text-cadott-brown">Good to know</h4>
+					<nav class="flex flex-col gap-3 text-[0.95rem] text-cadott-muted">
+						<a href="/faq" class="hover:text-cadott-brown hover:underline underline-offset-4 transition">Common questions</a>
+						<a href="/contact" class="hover:text-cadott-brown hover:underline underline-offset-4 transition">Say hello</a>
+						<a href="https://landing.mailerlite.com/webforms/landing/s6z1s0" target="_blank" rel="noreferrer noopener" class="hover:text-cadott-brown hover:underline underline-offset-4 transition">Join the mailing list</a>
+					</nav>
+				</div>
+				<div>
+					<h4 class="mb-4 text-sm font-semibold uppercase tracking-widest text-cadott-brown">Rooted in Cadott</h4>
+					<p class="text-[0.95rem] leading-relaxed text-cadott-muted">Small town, big heart. Located right here in Chippewa County, we've been keeping the coffee pot on and bringing neighbors together for over fifty years.</p>
+				</div>
+			</div>
+			<div class="mt-12 border-t-2 border-cadott-border pt-8 text-center text-sm text-cadott-footer-muted">
+				&copy; <span id="footer-year"></span> { meta.SiteNameFromCtx(ctx) } · Baked with &#10084;&#65039; in Cadott
+			</div>
+		</div>
+	</footer>
+}
+
+templ WarmSocialLinks() {
+	<div class="flex gap-4 pt-2">
+		<a href="https://www.facebook.com/cadottcommunityassociation" target="_blank" rel="noreferrer noopener" class="inline-flex h-10 w-10 items-center justify-center rounded-sm border-2 border-cadott-border bg-cadott-cream text-cadott-muted transition hover:border-cadott-brown hover:text-cadott-brown" aria-label="Facebook">
+			@components.IconFacebook()
+		</a>
+		<a href="mailto:cadott-community@googlegroups.com" class="inline-flex h-10 w-10 items-center justify-center rounded-sm border-2 border-cadott-border bg-cadott-cream text-cadott-muted transition hover:border-cadott-brown hover:text-cadott-brown" aria-label="Email">
+			@components.IconEmail()
+		</a>
+	</div>
+}
+
+// === SHARED FOOTER COLUMNS (used by ModernFooter) ===
+
+templ FooterPages() {
+	<div>
+		<h4 class="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-cadott-ink">Pages</h4>
+		<nav class="flex flex-col gap-2 text-sm text-slate-500">
+			<a href="/" class="hover:text-cadott-green transition">Home</a>
+			<a href="/events" class="hover:text-cadott-green transition">Events</a>
+			<a href="/gallery" class="hover:text-cadott-green transition">Gallery</a>
+		</nav>
+	</div>
+}
+
+templ FooterResources() {
+	<div>
+		<h4 class="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-cadott-ink">Resources</h4>
+		<nav class="flex flex-col gap-2 text-sm text-slate-500">
+			<a href="/faq" class="hover:text-cadott-green transition">FAQ</a>
+			<a href="/contact" class="hover:text-cadott-green transition">Contact &amp; Meetings</a>
+			<a href="https://landing.mailerlite.com/webforms/landing/s6z1s0" target="_blank" rel="noreferrer noopener" class="hover:text-cadott-green transition">Join the mailing list</a>
+		</nav>
+	</div>
+}
+
+templ FooterLocation() {
+	<div>
+		<h4 class="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-cadott-ink">Cadott, WI</h4>
+		<p class="text-sm leading-relaxed text-slate-500">Small town, big heart. Located in Chippewa County along the Yellow River.</p>
+	</div>
+}
