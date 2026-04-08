@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: dev build test lint generate css css-watch migrate migrate-down migrate-status migrate-create setup clean run help
+.PHONY: dev build test lint check generate css css-watch migrate migrate-down migrate-status migrate-create setup clean run help
 
 BINARY_NAME=ccassociation
 MIGRATIONS_DIR=internal/database/migrations
@@ -21,6 +21,8 @@ test:
 lint:
 	golangci-lint run
 	templ fmt templates/
+
+check: generate lint test
 
 generate:
 	go generate ./...
@@ -52,6 +54,8 @@ setup:
 	go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 	go install github.com/pressly/goose/v3/cmd/goose@latest
 	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	pip install pre-commit 2>/dev/null || pipx install pre-commit 2>/dev/null || echo "Install pre-commit: https://pre-commit.com/#install"
+	pre-commit install 2>/dev/null || true
 
 clean:
 	rm -f $(BINARY_NAME)
@@ -67,6 +71,7 @@ help:
 	@echo "  build          - Build the binary"
 	@echo "  test           - Run tests"
 	@echo "  lint           - Run golangci-lint and templ fmt"
+	@echo "  check          - Generate, lint, and test (pre-push)"
 	@echo "  generate       - Generate templ and sqlc code"
 	@echo "  css            - Build Tailwind CSS"
 	@echo "  css-watch      - Watch and rebuild Tailwind CSS"

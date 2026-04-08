@@ -9,13 +9,21 @@ tmp/
 # Environment (never commit secrets)
 .envrc
 .env
+.env.local
+.env.*
 
 # SQLite database files
-data/*.db
+data/
+*.db
+*.db-shm
+*.db-wal
 
 # Generated files (can be regenerated)
 *_templ.go
 internal/database/sqlc/
+
+# Generated CSS
+static/css/output.css
 
 # Dependencies
 node_modules/
@@ -24,10 +32,11 @@ node_modules/
 .idea/
 .vscode/
 *.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Tailwind output (generated)
-static/css/output.css
+# MCP configuration (may contain tokens)
+.mcp.json
