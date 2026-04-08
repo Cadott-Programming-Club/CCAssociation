@@ -26,7 +26,7 @@ func Setup(e *echo.Echo, cfg *config.Config) {
 		ContentTypeNosniff:    "nosniff",
 		XFrameOptions:         "SAMEORIGIN",
 		HSTSMaxAge:            31536000,
-		ContentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://www.cadottcommunity.com data:; frame-src 'self' https://www.facebook.com https://www.google.com;",
+		ContentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://www.cadottcommunity.com https://www.google-analytics.com data:; frame-src 'self' https://www.facebook.com https://www.google.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;",
 	}))
 }
 
