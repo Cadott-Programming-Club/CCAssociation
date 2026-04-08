@@ -8,6 +8,14 @@ templ ButtonSecondary(href string, label string) {
 	<a href={ templ.SafeURL(href) } class="inline-flex items-center gap-2 rounded-lg border border-cca-line bg-white px-5 py-2.5 text-sm font-semibold text-cca-ink shadow-sm transition hover:border-cca-teal-600 hover:text-cca-teal-600">{ label }</a>
 }
 
+templ ButtonGhost(href string, label string) {
+	<a href={ templ.SafeURL(href) } class="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition hover:bg-white/20">{ label }</a>
+}
+
+templ ButtonWhite(href string, label string) {
+	<a href={ templ.SafeURL(href) } class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold text-cca-teal-800 shadow-sm transition hover:bg-white/90">{ label }</a>
+}
+
 templ ButtonFacebook(href string, label string) {
 	<a href={ templ.SafeURL(href) } target="_blank" rel="noreferrer noopener" class="inline-flex items-center gap-2 rounded-lg border border-cca-facebook/30 bg-cca-facebook/5 px-5 py-2.5 text-sm font-semibold text-cca-facebook transition hover:bg-cca-facebook/10">
 		@IconFacebook()

@@ -27,6 +27,20 @@ templ Head(m meta.PageMeta) {
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	@MetaTags(m)
+	<link rel="icon" type="image/x-icon" href="/static/images/favicon.ico"/>
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png"/>
+	<link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png"/>
+	<link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png"/>
+	<link rel="manifest" href="/static/site.webmanifest"/>
+	<meta name="theme-color" content="#2ABFBF"/>
+	<!-- Google Analytics (GA4) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7B6NZ6MLRS"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-7B6NZ6MLRS');
+	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -77,7 +91,6 @@ templ Footer() {
 					<nav class="flex flex-col gap-2 text-sm text-white/50">
 						<a href="/faq" class="hover:text-white transition">FAQ</a>
 						<a href="/contact" class="hover:text-white transition">Contact &amp; Meetings</a>
-						<a href="https://landing.mailerlite.com/webforms/landing/s6z1s0" target="_blank" rel="noreferrer noopener" class="hover:text-white transition">Join the mailing list</a>
 					</nav>
 				</div>
 				<div>
@@ -86,7 +99,7 @@ templ Footer() {
 				</div>
 			</div>
 			<div class="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/30">
-				&copy; <span id="footer-year"></span> { meta.SiteNameFromCtx(ctx) } · Baked with &#10084;&#65039; in Cadott
+				&copy; <span id="footer-year"></span> { meta.SiteNameFromCtx(ctx) } · Baked with ❤️ in Cadott
 			</div>
 		</div>
 	</footer>
