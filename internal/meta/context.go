@@ -1,9 +1,10 @@
 package meta
 
 import (
+	"context"
+
 	"ccassociation/internal/config"
 	"ccassociation/internal/ctxkeys"
-	"context"
 )
 
 func SiteFromCtx(ctx context.Context) config.SiteConfig {

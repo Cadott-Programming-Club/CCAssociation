@@ -1,10 +1,6 @@
 package main
 
 import (
-	"ccassociation/internal/config"
-	"ccassociation/internal/database"
-	"ccassociation/internal/handler"
-	"ccassociation/internal/middleware"
 	"context"
 	"fmt"
 	"log/slog"
@@ -16,6 +12,11 @@ import (
 
 	chimw "github.com/go-chi/chi/v5/middleware"
 	"github.com/labstack/echo/v4"
+
+	"ccassociation/internal/config"
+	"ccassociation/internal/database"
+	"ccassociation/internal/handler"
+	"ccassociation/internal/middleware"
 )
 
 func main() {

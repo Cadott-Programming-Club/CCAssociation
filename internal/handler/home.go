@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"ccassociation/templates/pages"
-
 	"github.com/labstack/echo/v4"
+
+	"ccassociation/templates/pages"
 )
 
 func (h *Handler) Health(c echo.Context) error {

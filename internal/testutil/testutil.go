@@ -1,10 +1,11 @@
 package testutil
 
 import (
-	"ccassociation/internal/config"
-	"ccassociation/internal/database"
 	"context"
 	"testing"
+
+	"ccassociation/internal/config"
+	"ccassociation/internal/database"
 )
 
 func NewTestDB(t *testing.T) *database.DB {

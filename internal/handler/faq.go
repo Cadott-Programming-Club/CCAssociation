@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"ccassociation/templates/pages"
-
 	"github.com/labstack/echo/v4"
+
+	"ccassociation/templates/pages"
 )
 
 func (h *Handler) FAQ(c echo.Context) error {

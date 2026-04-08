@@ -1,10 +1,10 @@
 package handler
 
 import (
+	"github.com/labstack/echo/v4"
+
 	"ccassociation/internal/config"
 	"ccassociation/internal/database"
-
-	"github.com/labstack/echo/v4"
 )
 
 type Handler struct {
