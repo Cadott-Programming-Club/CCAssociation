@@ -29,7 +29,6 @@ templ Home() {
 				</div>
 			</div>
 		</section>
-
 		<!-- ══════ COUNTDOWN ══════ -->
 		<section class="bg-cca-gold-500 px-4 py-5">
 			<div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-6 text-white" id="countdown">
@@ -52,17 +51,15 @@ templ Home() {
 				</div>
 			</div>
 		</section>
-
 		<!-- ══════ STATS ══════ -->
 		<section class="bg-cca-ink px-4 py-14">
 			<div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 sm:grid-cols-4">
-				@BigStat("55+", "Years strong", "cca-teal-600")
-				@BigStat("3", "Signature events", "cca-gold-500")
-				@BigStat("100+", "Friendly faces", "cca-coral")
-				@BigStat("1", "Place to call home", "cca-lime")
+				@StatTeal("55+", "Years strong")
+				@StatGold("3", "Signature events")
+				@StatCoral("100+", "Friendly faces")
+				@StatLime("1", "Place to call home")
 			</div>
 		</section>
-
 		<!-- ══════ GET INVOLVED ══════ -->
 		<section class="bg-cca-teal-800 px-4 py-16">
 			<div class="mx-auto max-w-3xl space-y-8 text-center">
@@ -82,7 +79,6 @@ templ Home() {
 				</div>
 			</div>
 		</section>
-
 		<!-- ══════ COMMUNITY PHOTOS — BENTO GRID ══════ -->
 		<section class="px-4 py-16">
 			<div class="mx-auto max-w-6xl space-y-8">
@@ -123,7 +119,6 @@ templ Home() {
 				</div>
 			</div>
 		</section>
-
 		<!-- ══════ FACEBOOK FEED ══════ -->
 		<section class="bg-cca-wash px-4 py-14">
 			<div class="mx-auto max-w-4xl space-y-6">
@@ -140,9 +135,30 @@ templ Home() {
 	}
 }
 
-templ BigStat(value string, label string, colorClass string) {
+templ StatTeal(value string, label string) {
 	<div class="text-center">
-		<span class={ "font-display text-5xl font-bold sm:text-6xl lg:text-7xl", "text-" + colorClass }>{ value }</span>
+		<span class="font-display text-5xl font-bold text-cca-teal-600 sm:text-6xl lg:text-7xl">{ value }</span>
+		<span class="mt-2 block text-sm font-medium uppercase tracking-wider text-white/50">{ label }</span>
+	</div>
+}
+
+templ StatGold(value string, label string) {
+	<div class="text-center">
+		<span class="font-display text-5xl font-bold text-cca-gold-500 sm:text-6xl lg:text-7xl">{ value }</span>
+		<span class="mt-2 block text-sm font-medium uppercase tracking-wider text-white/50">{ label }</span>
+	</div>
+}
+
+templ StatCoral(value string, label string) {
+	<div class="text-center">
+		<span class="font-display text-5xl font-bold text-cca-coral sm:text-6xl lg:text-7xl">{ value }</span>
+		<span class="mt-2 block text-sm font-medium uppercase tracking-wider text-white/50">{ label }</span>
+	</div>
+}
+
+templ StatLime(value string, label string) {
+	<div class="text-center">
+		<span class="font-display text-5xl font-bold text-cca-lime sm:text-6xl lg:text-7xl">{ value }</span>
 		<span class="mt-2 block text-sm font-medium uppercase tracking-wider text-white/50">{ label }</span>
 	</div>
 }
