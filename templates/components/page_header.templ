@@ -1,0 +1,14 @@
+package components
+
+// PageHeader renders a clean text-only page header. Replaces gradient hero banners.
+templ PageHeader(label string, title string, subtitle string) {
+	<section class="border-b border-cca-line bg-cca-wash px-4 py-10 sm:py-14">
+		<div class="mx-auto max-w-6xl space-y-3">
+			<p class="section-label">{ label }</p>
+			<h1 class="font-display text-3xl font-bold leading-tight text-cca-ink sm:text-4xl">{ title }</h1>
+			if subtitle != "" {
+				<p class="max-w-2xl text-cca-muted">{ subtitle }</p>
+			}
+		</div>
+	</section>
+}
