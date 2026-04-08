@@ -10,21 +10,20 @@ templ Home() {
 	@layouts.Base(meta.New("Neighbors Since 1970", "Cadott Community Association — Nabor Days, Music in the Park, and more. Neighbors building Cadott since 1970."), "home") {
 		<!-- ══════ HERO ══════ -->
 		<section class="relative overflow-hidden bg-cca-ink">
-			<!-- Background photo -->
 			<div class="absolute inset-0">
 				<img class="h-full w-full object-cover opacity-30" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg" alt="" aria-hidden="true"/>
 			</div>
 			<div class="relative mx-auto max-w-6xl px-4 py-16 sm:py-24">
 				<div class="max-w-2xl space-y-6">
 					<div class="inline-flex items-center gap-2 rounded-full bg-cca-teal-600/20 px-4 py-1.5 text-sm font-semibold text-cca-teal-100 backdrop-blur-sm">
-						<span>&#128205;</span>
+						<span>📍</span>
 						<span>Cadott, Wisconsin</span>
 					</div>
 					<h1 class="font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">To enhance our community by strengthening business &amp; citizen involvement.</h1>
 					<p class="text-lg leading-relaxed text-white/70">Whether it's passing the hotdish, volunteering at Nabor Days, or simply enjoying the town together — pull up a chair and stay a while.</p>
 					<div class="flex flex-wrap gap-3 pt-2">
 						@components.ButtonPrimary("/contact", "Next meeting details")
-						<a href="mailto:cadott-community@googlegroups.com" class="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white shadow-sm backdrop-blur-sm transition hover:bg-white/20">Email or message us</a>
+						@components.ButtonGhost("mailto:cadott-community@googlegroups.com", "Email or message us")
 					</div>
 				</div>
 			</div>
@@ -32,7 +31,7 @@ templ Home() {
 		<!-- ══════ COUNTDOWN ══════ -->
 		<section class="bg-cca-gold-500 px-4 py-5">
 			<div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-6 text-white" id="countdown">
-				<span class="text-sm font-bold uppercase tracking-wider">&#127881; Nabor Days</span>
+				<span class="text-sm font-bold uppercase tracking-wider">🎉 Nabor Days</span>
 				<div class="flex gap-4">
 					<div class="flex flex-col items-center">
 						<span class="countdown-value text-3xl font-bold sm:text-4xl" id="countdown-days">--</span>
@@ -74,8 +73,8 @@ templ Home() {
 					@StepCard("3", "Questions later? Email the board or message us on Facebook and we will walk you through it.")
 				</div>
 				<div class="flex flex-wrap justify-center gap-3">
-					<a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold text-cca-teal-800 shadow-sm transition hover:bg-white/90">Meetings &amp; members page</a>
-					<a href="/faq" class="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10">Simple FAQ</a>
+					@components.ButtonWhite("/contact", "Meetings & members page")
+					@components.ButtonGhost("/faq", "Simple FAQ")
 				</div>
 			</div>
 		</section>
@@ -87,25 +86,21 @@ templ Home() {
 					<h2 class="mt-2 font-display text-3xl font-bold text-cca-ink">Cadott through the lens</h2>
 				</div>
 				<div class="grid gap-3 sm:grid-cols-3 sm:grid-rows-2">
-					<!-- Large left -->
 					<a href="/gallery" class="group relative block overflow-hidden rounded-xl sm:row-span-2">
 						<img class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-full" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg" alt="Church band marching in the Nabor Days parade" loading="lazy"/>
 						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
 						<span class="absolute bottom-3 left-3 rounded-full bg-cca-teal-600 px-3 py-1 text-xs font-bold text-white opacity-0 transition group-hover:opacity-100">Nabor Days</span>
 					</a>
-					<!-- Top right -->
 					<a href="/gallery" class="group relative block overflow-hidden rounded-xl">
 						<img class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/2022-queens_orig.jpg" alt="2022 Nabor Days Queens waving in the parade" loading="lazy"/>
 						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
 						<span class="absolute bottom-3 left-3 rounded-full bg-cca-gold-500 px-3 py-1 text-xs font-bold text-white opacity-0 transition group-hover:opacity-100">Royalty 2022</span>
 					</a>
-					<!-- Top far right -->
 					<a href="/gallery" class="group relative block overflow-hidden rounded-xl">
 						<img class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/fire-trucks_orig.jpg" alt="Fire trucks rolling through the Nabor Days parade" loading="lazy"/>
 						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
 						<span class="absolute bottom-3 left-3 rounded-full bg-cca-coral px-3 py-1 text-xs font-bold text-white opacity-0 transition group-hover:opacity-100">Parade Day</span>
 					</a>
-					<!-- Bottom right -->
 					<a href="/gallery" class="group relative block overflow-hidden rounded-xl sm:col-span-2">
 						<img class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/67136947-1086973161491792-6632270262052061184-n_orig.jpg" alt="Nabor Days Queen coronation ceremony" loading="lazy"/>
 						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
@@ -119,17 +114,56 @@ templ Home() {
 				</div>
 			</div>
 		</section>
-		<!-- ══════ FACEBOOK FEED ══════ -->
+		<!-- ══════ STAY CONNECTED — SIDEBAR LAYOUT ══════ -->
 		<section class="bg-cca-wash px-4 py-14">
-			<div class="mx-auto max-w-4xl space-y-6">
-				<div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-					<div class="text-center sm:text-left">
-						<p class="section-label">What's the latest?</p>
-						<h2 class="mt-1 font-display text-2xl font-bold text-cca-ink">Town bulletin board</h2>
+			<div class="mx-auto max-w-6xl">
+				<div class="grid gap-8 lg:grid-cols-[1fr_420px]">
+					<!-- Left: Quick links & info -->
+					<div class="space-y-6">
+						<div>
+							<p class="section-label">Stay connected</p>
+							<h2 class="mt-2 font-display text-2xl font-bold text-cca-ink">Get involved with CCA</h2>
+						</div>
+						<div class="grid gap-4 sm:grid-cols-2">
+							<a href="/contact" class="flex items-center gap-4 rounded-xl border border-cca-line bg-white p-5 shadow-sm card-lift no-underline">
+								<span class="flex h-11 w-11 items-center justify-center rounded-lg bg-cca-teal-600 text-white text-lg">📅</span>
+								<div>
+									<p class="text-sm font-bold text-cca-ink">Next meeting</p>
+									<p class="text-xs text-cca-muted">First Monday · 6:30 PM · Rick's Halfway</p>
+								</div>
+							</a>
+							<a href="mailto:cadott-community@googlegroups.com" class="flex items-center gap-4 rounded-xl border border-cca-line bg-white p-5 shadow-sm card-lift no-underline">
+								<span class="flex h-11 w-11 items-center justify-center rounded-lg bg-cca-gold-500 text-white text-lg">✉️</span>
+								<div>
+									<p class="text-sm font-bold text-cca-ink">Email us</p>
+									<p class="text-xs text-cca-muted">cadott-community@googlegroups.com</p>
+								</div>
+							</a>
+							<a href="/gallery" class="flex items-center gap-4 rounded-xl border border-cca-line bg-white p-5 shadow-sm card-lift no-underline">
+								<span class="flex h-11 w-11 items-center justify-center rounded-lg bg-cca-coral text-white text-lg">📸</span>
+								<div>
+									<p class="text-sm font-bold text-cca-ink">Photo gallery</p>
+									<p class="text-xs text-cca-muted">See Cadott in action</p>
+								</div>
+							</a>
+							<a href="/events" class="flex items-center gap-4 rounded-xl border border-cca-line bg-white p-5 shadow-sm card-lift no-underline">
+								<span class="flex h-11 w-11 items-center justify-center rounded-lg bg-cca-purple text-white text-lg">🎪</span>
+								<div>
+									<p class="text-sm font-bold text-cca-ink">Nabor Days</p>
+									<p class="text-xs text-cca-muted">Last full weekend in July</p>
+								</div>
+							</a>
+						</div>
 					</div>
-					@components.ButtonFacebook("https://www.facebook.com/cadottcommunityassociation", "Keep up on Facebook")
+					<!-- Right: Facebook feed sidebar -->
+					<div class="space-y-3">
+						<div class="flex items-center justify-between">
+							<h3 class="font-display text-lg font-bold text-cca-ink">From our Facebook</h3>
+							@components.ButtonFacebook("https://www.facebook.com/cadottcommunityassociation", "Follow us")
+						</div>
+						@components.FacebookEmbed("timeline", 550, "Cadott Community Association Facebook Feed")
+					</div>
 				</div>
-				@components.FacebookEmbed("timeline", 600, "Cadott Community Association Facebook Feed")
 			</div>
 		</section>
 	}

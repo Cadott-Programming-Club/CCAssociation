@@ -2,7 +2,6 @@ package pages
 
 import (
 	"ccassociation/internal/meta"
-	"ccassociation/templates/components"
 	"ccassociation/templates/layouts"
 )
 
@@ -14,7 +13,7 @@ templ Gallery() {
 				<img class="h-full w-full object-cover opacity-25" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/2022-queens_orig.jpg" alt="" aria-hidden="true"/>
 			</div>
 			<div class="relative mx-auto max-w-6xl px-4 py-14 sm:py-20">
-				<p class="section-label-light">&#128248; Photo Gallery</p>
+				<p class="section-label-light">📸 Photo Gallery</p>
 				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Neighbors in action.</h1>
 				<p class="mt-4 max-w-xl text-lg text-white/60">Parades, potlucks, and everything in between — Cadott through the lens.</p>
 			</div>
@@ -23,7 +22,7 @@ templ Gallery() {
 		<section class="px-4 py-14">
 			<div class="mx-auto max-w-6xl space-y-6">
 				<div class="space-y-2">
-					<p class="section-label">&#127914; Nabor Days</p>
+					<p class="section-label">🎪 Nabor Days</p>
 					<h2 class="font-display text-2xl font-bold text-cca-ink">The last full weekend in July</h2>
 					<p class="text-cca-muted">Parades, pulls, coronations, and community pride — Nabor Days is what Cadott is all about.</p>
 				</div>
@@ -45,7 +44,7 @@ templ Gallery() {
 		<section class="bg-cca-ink px-4 py-14">
 			<div class="mx-auto max-w-6xl space-y-6">
 				<div class="space-y-2">
-					<p class="section-label-light">&#127925; Music &amp; Community Life</p>
+					<p class="section-label-light">🎵 Music &amp; Community Life</p>
 					<h2 class="font-display text-2xl font-bold text-white">Around town</h2>
 					<p class="text-white/50">Music in the Park, community fitness nights, and neighbors just being neighbors.</p>
 				</div>
@@ -64,7 +63,7 @@ templ Gallery() {
 		<section class="bg-cca-gold-50 px-4 py-14">
 			<div class="mx-auto max-w-6xl space-y-6">
 				<div class="space-y-2">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-600">&#10052;&#65039; Winter &amp; Holidays</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-600">❄️ Winter &amp; Holidays</p>
 					<h2 class="font-display text-2xl font-bold text-cca-ink">Christmas Village &amp; beyond</h2>
 					<p class="text-cca-muted">Sleigh rides, Santa visits, craft fairs, and cozy bingo nights — Cadott doesn't slow down in winter.</p>
 				</div>
@@ -76,25 +75,12 @@ templ Gallery() {
 				</div>
 			</div>
 		</section>
-		<!-- ══════ FACEBOOK PHOTOS ══════ -->
-		<section class="px-4 py-14">
-			<div class="mx-auto max-w-6xl space-y-4">
-				<div class="flex flex-wrap items-center justify-between gap-3">
-					<div class="space-y-1">
-						<p class="section-label">&#128247; Facebook photos</p>
-						<h2 class="font-display text-2xl font-bold text-cca-ink">More from our page</h2>
-					</div>
-					@components.ButtonFacebook("https://www.facebook.com/cadottcommunityassociation/photos", "See all on Facebook")
-				</div>
-				@components.FacebookEmbed("timeline", 600, "Cadott Community Association Facebook Photos")
-			</div>
-		</section>
 	}
 }
 
 templ GalleryPhoto(extraClass string, heightClass string, src string, alt string, caption string) {
 	<figure class={ "gallery-figure group relative overflow-hidden rounded-xl shadow-sm transition hover:shadow-lg", extraClass }>
 		<img class={ "w-full object-cover transition-transform duration-500 group-hover:scale-105", heightClass } src={ src } alt={ alt } loading="lazy"/>
-		<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">{ caption }</figcaption>
+		<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white sm:opacity-0 sm:transition sm:group-hover:opacity-100">{ caption }</figcaption>
 	</figure>
 }
