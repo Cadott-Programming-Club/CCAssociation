@@ -1,12 +1,13 @@
 package middleware
 
 import (
-	"ccassociation/internal/config"
-	"ccassociation/internal/ctxkeys"
 	"context"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
+	"ccassociation/internal/config"
+	"ccassociation/internal/ctxkeys"
 )
 
 func Setup(e *echo.Echo, cfg *config.Config) {

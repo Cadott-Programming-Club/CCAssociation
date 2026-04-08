@@ -1,0 +1,24 @@
+package components
+
+import "fmt"
+
+// FacebookEmbed renders a Facebook page plugin iframe.
+// tabs: "timeline", "events", "timeline,events"
+// height: iframe height in pixels
+// title: accessible title for the iframe
+templ FacebookEmbed(tabs string, height int, title string) {
+	<div class="flex justify-center overflow-hidden rounded-xl border border-cca-line">
+		<iframe
+			src={ fmt.Sprintf("https://www.facebook.com/plugins/page.php?href=https%%3A%%2F%%2Fwww.facebook.com%%2Fcadottcommunityassociation&tabs=%s&width=500&height=%d&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId", tabs, height) }
+			width="500"
+			height={ fmt.Sprintf("%d", height) }
+			style="border:none;overflow:hidden;max-width:100%;"
+			scrolling="no"
+			frameborder="0"
+			allowfullscreen="true"
+			allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+			loading="lazy"
+			title={ title }
+		></iframe>
+	</div>
+}

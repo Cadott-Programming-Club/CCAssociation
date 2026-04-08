@@ -13,29 +13,16 @@ var NavItems = []NavItem{
 	{Href: "/contact", Label: "Contact"},
 }
 
-// ModernNavLinks renders the inner-page style nav (rounded pills, green active).
-templ ModernNavLinks(activePage string) {
+templ NavLinks(activePage string) {
 	for _, item := range NavItems {
 		if item.Label == activePage || (activePage == "home" && item.Href == "/") {
-			<a href={ templ.SafeURL(item.Href) } class="rounded-full bg-cadott-green/10 px-4 py-2 text-cadott-green transition">{ item.Label }</a>
+			<a href={ templ.SafeURL(item.Href) } class="border-b-2 border-cca-teal-600 px-3 py-2 text-cca-teal-600 transition">{ item.Label }</a>
 		} else {
-			<a href={ templ.SafeURL(item.Href) } class="rounded-full px-4 py-2 text-cadott-ink hover:bg-slate-100 transition">{ item.Label }</a>
+			<a href={ templ.SafeURL(item.Href) } class="border-b-2 border-transparent px-3 py-2 text-cca-body hover:text-cca-teal-600 transition">{ item.Label }</a>
 		}
 	}
 }
 
-// WarmNavLinks renders the home-page style nav (underline active, brown hover).
-templ WarmNavLinks(activePage string) {
-	for _, item := range NavItems {
-		if item.Label == activePage || (activePage == "home" && item.Href == "/") {
-			<a href={ templ.SafeURL(item.Href) } class="border-b-2 border-cadott-brown px-2 py-1 text-cadott-text transition hover:text-cadott-brown">{ item.Label }</a>
-		} else {
-			<a href={ templ.SafeURL(item.Href) } class="px-2 py-1 text-cadott-muted hover:text-cadott-brown transition">{ item.Label }</a>
-		}
-	}
-}
-
-// MobileNavToggle renders the hamburger button for mobile nav.
 templ MobileNavToggle(class string) {
 	<button
 		class={ class }

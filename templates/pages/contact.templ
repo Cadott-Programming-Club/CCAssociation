@@ -7,64 +7,59 @@ import (
 )
 
 templ Contact() {
-	@layouts.Base(meta.New("Contact", "Contact the Cadott Community Association board, find meeting times, and connect on Facebook."), "contact") {
-		<div class="mx-auto max-w-6xl space-y-8 px-4 py-8">
-			<!-- Hero Banner -->
-			<section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-cadott-blue to-blue-800 px-8 py-12 text-white shadow-lg sm:py-16">
-				<div class="absolute inset-0 opacity-20">
-					<img class="h-full w-full object-cover" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/20476236-681948565327589-17922207873877258-n-1_1.jpeg?1522162797" alt="" aria-hidden="true"/>
-				</div>
-				<div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-900/60"></div>
-				<div class="relative max-w-2xl space-y-4">
-					<p class="text-xs font-bold uppercase tracking-[0.3em] text-blue-200">&#128236; Get in Touch</p>
-					<h1 class="font-display text-4xl font-bold leading-tight sm:text-5xl">We're your neighbors — say hello.</h1>
-					<p class="text-lg text-blue-100/90">Board members, meeting schedule, and all the ways to connect with Cadott Community Association.</p>
-				</div>
-			</section>
-			<!-- Contact Info -->
-			<section class="panel-shell space-y-6">
-				<header class="space-y-2">
+	@layouts.Base(meta.New("Contact", "Contact the Cadott Community Association board, find meeting times, and connect on Facebook."), "Contact") {
+		<!-- ══════ HERO ══════ -->
+		<section class="bg-cca-teal-600 px-4 py-14 sm:py-20">
+			<div class="mx-auto max-w-6xl">
+				<p class="section-label-light">&#128236; Get in Touch</p>
+				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">We're your neighbors — say hello.</h1>
+				<p class="mt-4 max-w-xl text-lg text-white/70">Board members, meeting schedule, and all the ways to connect with Cadott Community Association.</p>
+			</div>
+		</section>
+		<!-- ══════ CONTACT CARDS ══════ -->
+		<section class="px-4 py-14">
+			<div class="mx-auto max-w-6xl space-y-8">
+				<div>
 					<p class="section-label">Stay in touch</p>
-					<h2 class="font-display text-3xl font-bold tracking-tight">Contact &amp; meetings</h2>
-				</header>
-				<!-- Quick Contact Cards -->
-				<div class="grid gap-4 sm:grid-cols-3">
-					<a href="mailto:cadott-community@googlegroups.com" class="flex items-center gap-4 rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition hover:shadow-md hover:-translate-y-0.5 no-underline">
-						<span class="flex h-12 w-12 items-center justify-center rounded-full bg-cadott-green/10 text-cadott-green">
+					<h2 class="mt-2 font-display text-2xl font-bold text-cca-ink">Contact &amp; meetings</h2>
+				</div>
+				<div class="grid gap-3 sm:grid-cols-3">
+					<a href="mailto:cadott-community@googlegroups.com" class="flex items-center gap-4 rounded-xl border border-cca-line bg-white p-5 shadow-sm card-lift no-underline">
+						<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-cca-teal-600 text-white">
 							@components.IconEmail()
 						</span>
 						<div>
-							<p class="text-xs font-bold uppercase tracking-wider text-slate-400">Email</p>
-							<p class="text-sm font-semibold text-cadott-ink">cadott-community@googlegroups.com</p>
+							<p class="text-xs font-bold uppercase tracking-wider text-cca-subtle">Email</p>
+							<p class="text-sm font-semibold text-cca-ink">cadott-community@googlegroups.com</p>
 						</div>
 					</a>
-					<a href="https://www.facebook.com/cadottcommunityassociation" target="_blank" rel="noreferrer noopener" class="flex items-center gap-4 rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition hover:shadow-md hover:-translate-y-0.5 no-underline">
-						<span class="flex h-12 w-12 items-center justify-center rounded-full bg-cadott-blue/10 text-cadott-blue">
+					<a href="https://www.facebook.com/cadottcommunityassociation" target="_blank" rel="noreferrer noopener" class="flex items-center gap-4 rounded-xl border border-cca-line bg-white p-5 shadow-sm card-lift no-underline">
+						<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-cca-facebook text-white">
 							@components.IconFacebook()
 						</span>
 						<div>
-							<p class="text-xs font-bold uppercase tracking-wider text-slate-400">Facebook</p>
-							<p class="text-sm font-semibold text-cadott-ink">Cadott Community Association</p>
+							<p class="text-xs font-bold uppercase tracking-wider text-cca-subtle">Facebook</p>
+							<p class="text-sm font-semibold text-cca-ink">Cadott Community Association</p>
 						</div>
 					</a>
-					<div class="flex items-center gap-4 rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm">
-						<span class="flex h-12 w-12 items-center justify-center rounded-full bg-cadott-amber/10 text-cadott-amber">
+					<div class="flex items-center gap-4 rounded-xl border border-cca-line bg-white p-5 shadow-sm">
+						<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-cca-gold-500 text-white">
 							@components.IconLocation()
 						</span>
 						<div>
-							<p class="text-xs font-bold uppercase tracking-wider text-slate-400">Location</p>
-							<p class="text-sm font-semibold text-cadott-ink">Cadott, WI 54727</p>
+							<p class="text-xs font-bold uppercase tracking-wider text-cca-subtle">Location</p>
+							<p class="text-sm font-semibold text-cca-ink">Cadott, WI 54727</p>
 						</div>
 					</div>
 				</div>
-				<!-- Board & Meeting Info -->
-				<div class="grid gap-6 md:grid-cols-2">
-					<div class="space-y-4 rounded-2xl border border-slate-200/60 bg-white p-6 shadow-sm">
+				<!-- Board & Meetings -->
+				<div class="grid gap-4 md:grid-cols-2">
+					<div class="space-y-4 rounded-xl border border-cca-line bg-white p-6 shadow-sm">
 						<div class="flex items-center gap-3">
-							<span class="flex h-10 w-10 items-center justify-center rounded-full bg-cadott-green/10 text-lg">&#128101;</span>
-							<h3 class="font-display text-lg font-bold">Board members</h3>
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-cca-teal-50 text-lg">&#128101;</span>
+							<h3 class="font-display text-lg font-bold text-cca-ink">Board members</h3>
 						</div>
-						<ul class="space-y-2 text-sm text-slate-600">
+						<ul class="space-y-2 text-sm text-cca-body">
 							<li>Anna Goodman — President</li>
 							<li>Lucy Meinen — Vice President</li>
 							<li>Jess Buckli — Secretary</li>
@@ -74,52 +69,51 @@ templ Contact() {
 							<li>Nikki Vaughn — Director</li>
 						</ul>
 					</div>
-					<div class="space-y-4 rounded-2xl border border-slate-200/60 bg-white p-6 shadow-sm">
+					<div class="space-y-4 rounded-xl border border-cca-line bg-white p-6 shadow-sm">
 						<div class="flex items-center gap-3">
-							<span class="flex h-10 w-10 items-center justify-center rounded-full bg-cadott-blue/10 text-lg">&#128197;</span>
-							<h3 class="font-display text-lg font-bold">Meeting cadence</h3>
+							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-cca-gold-50 text-lg">&#128197;</span>
+							<h3 class="font-display text-lg font-bold text-cca-ink">Meeting cadence</h3>
 						</div>
-						<ul class="space-y-2 text-sm text-slate-600">
-							<li><span class="font-semibold text-cadott-ink">Updates</span> · fundraising, sponsors, quick event recaps.</li>
-							<li><span class="font-semibold text-cadott-ink">Planning</span> · Nabor Days, Music in the Park, community events.</li>
-							<li><span class="font-semibold text-cadott-ink">Open floor</span> · needs, ideas, and causes that need a boost.</li>
+						<ul class="space-y-2 text-sm text-cca-body">
+							<li><span class="font-semibold text-cca-ink">Updates</span> · fundraising, sponsors, quick event recaps.</li>
+							<li><span class="font-semibold text-cca-ink">Planning</span> · Nabor Days, Music in the Park, community events.</li>
+							<li><span class="font-semibold text-cca-ink">Open floor</span> · needs, ideas, and causes that need a boost.</li>
 						</ul>
 					</div>
 				</div>
 				<div class="flex flex-wrap gap-3">
-					<a href="mailto:cadott-community@googlegroups.com" class="inline-flex items-center gap-2 rounded-full bg-cadott-green px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-cadott-green/90">Email the board</a>
-					<a href="https://landing.mailerlite.com/webforms/landing/s6z1s0" target="_blank" rel="noreferrer noopener" class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-2.5 text-sm font-semibold text-cadott-ink shadow-sm transition hover:border-cadott-green hover:text-cadott-green">Sign up for the newsletter</a>
+					@components.ButtonPrimary("mailto:cadott-community@googlegroups.com", "Email the board")
+					@components.ButtonSecondary("https://landing.mailerlite.com/webforms/landing/s6z1s0", "Sign up for the newsletter")
 				</div>
-			</section>
-			<!-- Facebook Page Embed -->
-			<section class="panel-shell space-y-4">
-				<header class="flex flex-wrap items-center justify-between gap-3">
+			</div>
+		</section>
+		<!-- ══════ FACEBOOK ══════ -->
+		<section class="bg-cca-wash px-4 py-14">
+			<div class="mx-auto max-w-6xl space-y-4">
+				<div class="flex flex-wrap items-center justify-between gap-3">
 					<div class="space-y-1">
 						<p class="section-label">&#128241; Connect with us</p>
-						<h2 class="font-display text-2xl font-bold tracking-tight">Our Facebook page</h2>
+						<h2 class="font-display text-2xl font-bold text-cca-ink">Our Facebook page</h2>
 					</div>
-					<a href="https://www.facebook.com/cadottcommunityassociation" target="_blank" rel="noreferrer noopener" class="inline-flex items-center gap-2 rounded-full border border-cadott-blue/30 bg-cadott-blue/5 px-5 py-2 text-sm font-semibold text-cadott-blue transition hover:bg-cadott-blue/10">
-						@components.IconFacebook()
-						Visit page
-					</a>
-				</header>
-				<div class="flex justify-center overflow-hidden rounded-2xl border border-slate-200/60">
-					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcadottcommunityassociation&tabs=timeline%2Cevents&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="700" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy" title="Cadott Community Association Facebook Page"></iframe>
+					@components.ButtonFacebook("https://www.facebook.com/cadottcommunityassociation", "Visit page")
 				</div>
-			</section>
-			<!-- Location -->
-			<section class="rounded-2xl border border-slate-200/60 bg-white p-8 shadow-sm">
-				<div class="grid gap-6 md:grid-cols-2 md:items-center">
+				@components.FacebookEmbed("timeline,events", 700, "Cadott Community Association Facebook Page")
+			</div>
+		</section>
+		<!-- ══════ LOCATION + MAP ══════ -->
+		<section class="bg-cca-ink px-4 py-14">
+			<div class="mx-auto max-w-6xl">
+				<div class="grid gap-8 md:grid-cols-2 md:items-center">
 					<div class="space-y-3">
-						<h3 class="font-display text-xl font-bold">&#128205; Find us in Cadott</h3>
-						<p class="text-slate-600 leading-relaxed">Cadott sits at the crossroads of Highways 27 and 29 in Chippewa County, Wisconsin. Home to roughly 1,400 neighbors, the village of Cadott was platted in 1882 along the Yellow River and has been a gathering place ever since.</p>
-						<p class="text-sm text-slate-500">Meetings are held at local venues — check our Facebook for the latest location each month.</p>
+						<h3 class="font-display text-2xl font-bold text-white">&#128205; Find us in Cadott</h3>
+						<p class="text-white/60 leading-relaxed">Cadott sits at the crossroads of Highways 27 and 29 in Chippewa County, Wisconsin. Home to roughly 1,400 neighbors, the village of Cadott was platted in 1882 along the Yellow River and has been a gathering place ever since.</p>
+						<p class="text-sm text-white/40">Meetings are the first Monday of every month at 6:30 PM at Rick's Halfway.</p>
 					</div>
-					<div class="overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11395.57!2d-91.151!3d44.948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f8a3e5b5b5b5b5%3A0x0!2sCadott%2C+WI!5e0!3m2!1sen!2sus!4v1" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Cadott, WI"></iframe>
+					<div class="overflow-hidden rounded-xl shadow-lg">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11395.57!2d-91.151!3d44.948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f8a3e5b5b5b5b5%3A0x0!2sCadott%2C+WI!5e0!3m2!1sen!2sus!4v1" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Cadott, WI"></iframe>
 					</div>
 				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 	}
 }

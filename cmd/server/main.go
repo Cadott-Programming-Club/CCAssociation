@@ -1,10 +1,6 @@
 package main
 
 import (
-	"ccassociation/internal/config"
-	"ccassociation/internal/database"
-	"ccassociation/internal/handler"
-	"ccassociation/internal/middleware"
 	"context"
 	"fmt"
 	"log/slog"
@@ -16,6 +12,11 @@ import (
 
 	chimw "github.com/go-chi/chi/v5/middleware"
 	"github.com/labstack/echo/v4"
+
+	"ccassociation/internal/config"
+	"ccassociation/internal/database"
+	"ccassociation/internal/handler"
+	"ccassociation/internal/middleware"
 )
 
 func main() {
@@ -34,7 +35,8 @@ func main() {
 	e.HidePort = true
 
 	addr := ":" + cfg.Port
-	ln, err := net.Listen("tcp", addr)
+	lc := net.ListenConfig{}
+	ln, err := lc.Listen(ctx, "tcp", addr)
 	if err != nil {
 		slog.Error("port unavailable", "port", cfg.Port, "error", err)
 		os.Exit(1)
@@ -68,4 +70,3 @@ func main() {
 
 	slog.Info("server stopped")
 }
-
