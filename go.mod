@@ -3,8 +3,7 @@ module ccassociation
 go 1.24
 
 require (
-	github.com/a-h/templ v0.3.1001
-	github.com/go-chi/chi/v5 v5.2.1
+	github.com/go-chi/chi/v5 v5.2.5
 	github.com/labstack/echo/v4 v4.13.3
 	github.com/lmittmann/tint v1.1.2
 	github.com/pressly/goose/v3 v3.24.3
@@ -26,11 +25,13 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.40.0 // indirect
 	golang.org/x/exp v0.0.0-20250506013437-ce4c2cf36ca6 // indirect
+	golang.org/x/mod v0.26.0 // indirect
 	golang.org/x/net v0.42.0 // indirect
 	golang.org/x/sync v0.16.0 // indirect
 	golang.org/x/sys v0.34.0 // indirect
 	golang.org/x/text v0.27.0 // indirect
 	golang.org/x/time v0.8.0 // indirect
+	golang.org/x/tools v0.35.0 // indirect
 	modernc.org/libc v1.65.7 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
