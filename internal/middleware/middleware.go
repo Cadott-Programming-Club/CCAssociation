@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"context"
+	"strings"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -14,6 +15,7 @@ func Setup(e *echo.Echo, cfg *config.Config) {
 	e.Use(middleware.RequestID())
 	e.Use(middleware.Recover())
 	e.Use(SiteConfigMiddleware(cfg.Site))
+	e.Use(StaticCacheMiddleware())
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
 		AllowMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
@@ -35,6 +37,19 @@ func SiteConfigMiddleware(site config.SiteConfig) echo.MiddlewareFunc {
 		return func(c echo.Context) error {
 			ctx := context.WithValue(c.Request().Context(), ctxkeys.SiteConfig, site)
 			c.SetRequest(c.Request().WithContext(ctx))
+			return next(c)
+		}
+	}
+}
+
+// StaticCacheMiddleware sets Cache-Control headers for static assets.
+func StaticCacheMiddleware() echo.MiddlewareFunc {
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			path := c.Request().URL.Path
+			if strings.HasPrefix(path, "/static/") {
+				c.Response().Header().Set("Cache-Control", "public, max-age=86400, stale-while-revalidate=604800")
+			}
 			return next(c)
 		}
 	}

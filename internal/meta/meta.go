@@ -14,11 +14,17 @@ func New(title, description string) PageMeta {
 		Title:       title,
 		Description: description,
 		OGType:      "website",
+		OGImage:     "/static/images/og-default.png",
 	}
 }
 
 func (m PageMeta) WithOGImage(url string) PageMeta {
 	m.OGImage = url
+	return m
+}
+
+func (m PageMeta) WithCanonical(url string) PageMeta {
+	m.Canonical = url
 	return m
 }
 
