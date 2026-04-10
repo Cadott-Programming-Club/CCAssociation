@@ -6,7 +6,7 @@ import (
 )
 
 templ Gallery() {
-	@layouts.Base(meta.New("Gallery", "Photos from Nabor Days, Music in the Park, and community life in Cadott, Wisconsin."), "Gallery") {
+	@layouts.Base(meta.New("Photo Gallery", "Photos from Nabor Days, Music in the Park, and community life in Cadott, Wisconsin.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/gallery"), "Gallery") {
 		<!-- ══════ HERO ══════ -->
 		<section class="relative overflow-hidden bg-cca-ink">
 			<div class="absolute inset-0">
@@ -15,7 +15,7 @@ templ Gallery() {
 			<div class="relative mx-auto max-w-6xl px-4 py-14 sm:py-20">
 				<p class="section-label-light">📸 Photo Gallery</p>
 				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Neighbors in action.</h1>
-				<p class="mt-4 max-w-xl text-lg text-white/60">Parades, potlucks, and everything in between — Cadott through the lens.</p>
+				<p class="mt-4 max-w-xl text-lg text-white/70">Parades, potlucks, and everything in between — Cadott through the lens.</p>
 			</div>
 		</section>
 		<!-- ══════ NABOR DAYS ══════ -->
@@ -46,7 +46,7 @@ templ Gallery() {
 				<div class="space-y-2">
 					<p class="section-label-light">🎵 Music &amp; Community Life</p>
 					<h2 class="font-display text-2xl font-bold text-white">Around town</h2>
-					<p class="text-white/50">Music in the Park, community fitness nights, and neighbors just being neighbors.</p>
+					<p class="text-white/70">Music in the Park, community fitness nights, and neighbors just being neighbors.</p>
 				</div>
 				<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 					@GalleryPhoto("sm:col-span-2 lg:col-span-2", "h-64", "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/published/music-1.jpg?1608663177", "Band performing live in Riverview Park during Music in the Park", "Music in the Park · Riverview Park Bandshell")

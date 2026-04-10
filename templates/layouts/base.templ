@@ -12,6 +12,26 @@ templ Base(m meta.PageMeta, activePage string) {
 			@Head(m)
 		</head>
 		<body class="bg-white text-cca-body font-sans">
+			<!-- Organization JSON-LD -->
+			<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "Cadott Community Association",
+				"url": "https://cadottcommunity.dokploy.digitaldrywood.com",
+				"logo": "https://cadottcommunity.dokploy.digitaldrywood.com/static/images/cca-logo.png",
+				"sameAs": ["https://www.facebook.com/cadottcommunityassociation"],
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Cadott",
+					"addressRegion": "WI",
+					"postalCode": "54727",
+					"addressCountry": "US"
+				},
+				"email": "cadott-community@googlegroups.com",
+				"description": "Community association strengthening business and citizen involvement in Cadott, Wisconsin since 1970."
+			}
+			</script>
 			<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:shadow">Skip to main content</a>
 			@Header(activePage)
 			<main id="main">
@@ -68,7 +88,7 @@ templ Footer() {
 			<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 				<div class="space-y-3">
 					<span class="text-lg font-bold text-white">{ meta.SiteNameFromCtx(ctx) }</span>
-					<p class="text-sm text-white/50">Neighbors since 1970.</p>
+					<p class="text-sm text-white/60">Neighbors since 1970.</p>
 					<div class="flex gap-3">
 						<a href="https://www.facebook.com/cadottcommunityassociation" target="_blank" rel="noreferrer noopener" class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/40 transition hover:text-cca-teal-600 hover:border-cca-teal-600" aria-label="Facebook">
 							@components.IconFacebook()
@@ -80,7 +100,7 @@ templ Footer() {
 				</div>
 				<div>
 					<h4 class="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-cca-teal-600">Pages</h4>
-					<nav class="flex flex-col gap-2 text-sm text-white/50">
+					<nav class="flex flex-col gap-2 text-sm text-white/60">
 						<a href="/" class="hover:text-white transition">Home</a>
 						<a href="/events" class="hover:text-white transition">Events</a>
 						<a href="/gallery" class="hover:text-white transition">Gallery</a>
@@ -88,17 +108,17 @@ templ Footer() {
 				</div>
 				<div>
 					<h4 class="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-cca-gold-500">Resources</h4>
-					<nav class="flex flex-col gap-2 text-sm text-white/50">
+					<nav class="flex flex-col gap-2 text-sm text-white/60">
 						<a href="/faq" class="hover:text-white transition">FAQ</a>
 						<a href="/contact" class="hover:text-white transition">Contact &amp; Meetings</a>
 					</nav>
 				</div>
 				<div>
 					<h4 class="mb-3 text-xs font-bold uppercase tracking-[0.15em] text-cca-coral">Cadott, WI</h4>
-					<p class="text-sm leading-relaxed text-white/50">Small town, big heart. Located in Chippewa County along the Yellow River.</p>
+					<p class="text-sm leading-relaxed text-white/60">Small town, big heart. Located in Chippewa County along the Yellow River.</p>
 				</div>
 			</div>
-			<div class="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/30">
+			<div class="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/60">
 				&copy; <span id="footer-year"></span> { meta.SiteNameFromCtx(ctx) } · Baked with ❤️ in Cadott
 			</div>
 		</div>

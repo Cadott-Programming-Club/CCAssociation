@@ -7,7 +7,7 @@ import (
 )
 
 templ Events() {
-	@layouts.Base(meta.New("Events", "Nabor Days, Music in the Park — discover Cadott's hometown events calendar."), "Events") {
+	@layouts.Base(meta.New("Events & Festivals", "Nabor Days, Music in the Park — discover Cadott's hometown events calendar.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/events"), "Events") {
 		<!-- ══════ HERO ══════ -->
 		<section class="relative overflow-hidden bg-cca-ink">
 			<div class="absolute inset-0">
@@ -16,9 +16,39 @@ templ Events() {
 			<div class="relative mx-auto max-w-6xl px-4 py-14 sm:py-20">
 				<p class="section-label-light">🎉 Events &amp; Festivals</p>
 				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Hometown events that bring us together.</h1>
-				<p class="mt-4 max-w-xl text-lg text-white/60">From Nabor Days to Music in the Park — there's always a reason to gather in Cadott.</p>
+				<p class="mt-4 max-w-xl text-lg text-white/70">From Nabor Days to Music in the Park — there's always a reason to gather in Cadott.</p>
 			</div>
 		</section>
+		<!-- JSON-LD Event -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "Nabor Days — Cadott's Summer Festival",
+			"description": "Cadott's biggest summer festival featuring a grand parade, live music, softball tournament, food stands, truck and tractor pull, and more at Riverview Park.",
+			"startDate": "2026-07-24",
+			"endDate": "2026-07-26",
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+			"location": {
+				"@type": "Place",
+				"name": "Riverview Park",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Cadott",
+					"addressRegion": "WI",
+					"postalCode": "54727",
+					"addressCountry": "US"
+				}
+			},
+			"organizer": {
+				"@type": "Organization",
+				"name": "Cadott Community Association",
+				"url": "https://cadottcommunity.dokploy.digitaldrywood.com"
+			},
+			"image": "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg"
+		}
+		</script>
 		<!-- ══════ NABOR DAYS FEATURE ══════ -->
 		<section class="px-4 py-14">
 			<div class="mx-auto max-w-6xl">
@@ -55,7 +85,7 @@ templ Events() {
 					</div>
 				</div>
 				<p class="max-w-3xl text-white/70">Nabor Days is the biggest event of the summer, held right here in Cadott at Riverview Park. Bring the whole family for a weekend of live music, delicious food stands, the grand parade down Main Street, a softball tournament, and much more!</p>
-				<p class="text-xs font-bold uppercase tracking-[0.2em] text-white/30">Riverview Park</p>
+				<p class="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Riverview Park</p>
 				<figure class="group relative overflow-hidden rounded-xl">
 					<img class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg" alt="Neighbors enjoying the Nabor Days festival in Cadott" loading="lazy"/>
 					<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-white">
@@ -122,7 +152,7 @@ templ TimelineItem(title string, time string, description string) {
 		<div>
 			<p class="font-display font-bold text-white">{ title }</p>
 			<p class="text-xs font-bold uppercase tracking-wider text-cca-gold-500">{ time }</p>
-			<p class="mt-1 text-sm text-white/60">{ description }</p>
+			<p class="mt-1 text-sm text-white/70">{ description }</p>
 		</div>
 	</div>
 }
@@ -130,7 +160,7 @@ templ TimelineItem(title string, time string, description string) {
 templ InfoCard(title string, details string) {
 	<div class="rounded-xl bg-white/5 border border-white/10 p-5">
 		<h4 class="font-display font-bold text-white">{ title }</h4>
-		<p class="mt-2 text-sm text-white/60">{ details }</p>
+		<p class="mt-2 text-sm text-white/70">{ details }</p>
 	</div>
 }
 

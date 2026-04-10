@@ -7,7 +7,24 @@ import (
 )
 
 templ FAQ() {
-	@layouts.Base(meta.New("FAQ", "Answers to frequently asked questions about Cadott Community Association, Nabor Days, and volunteering."), "FAQ") {
+	@layouts.Base(meta.New("FAQ", "Answers to frequently asked questions about Cadott Community Association, Nabor Days, and volunteering.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/faq"), "FAQ") {
+		<!-- JSON-LD FAQPage -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": [
+				{"@type": "Question", "name": "How do I become a member?", "acceptedAnswer": {"@type": "Answer", "text": "Email cadott-community@googlegroups.com or walk into a meeting. We will cover dues and match you with a job."}},
+				{"@type": "Question", "name": "When and where do you meet?", "acceptedAnswer": {"@type": "Answer", "text": "First Monday of every month at 6:30 PM at Rick's Halfway in Cadott."}},
+				{"@type": "Question", "name": "Who is on the board?", "acceptedAnswer": {"@type": "Answer", "text": "Anna Goodman (President), Lucy Meinen (Vice President), Jess Buckli (Secretary), Nikki Ruhe (Treasurer), Ashley Anderson (Media), Cindy Mayer and Nikki Vaughn (Directors)."}},
+				{"@type": "Question", "name": "Can businesses join?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sponsor, host, or simply attend — the more visibility, the better."}},
+				{"@type": "Question", "name": "When is Nabor Days?", "acceptedAnswer": {"@type": "Answer", "text": "Last full weekend in July. Friday night through Sunday afternoon."}},
+				{"@type": "Question", "name": "Where is everything located?", "acceptedAnswer": {"@type": "Answer", "text": "Riverview Park hosts vendors, pulls, and music; Mud Bog lines Hwy 27; Sunday parade rolls Main Street."}},
+				{"@type": "Question", "name": "How do I register for the parade?", "acceptedAnswer": {"@type": "Answer", "text": "Email cadottchirodc@gmail.com or call 715-579-3011 with entry details."}},
+				{"@type": "Question", "name": "What else happens?", "acceptedAnswer": {"@type": "Answer", "text": "Expect bean bag and dart tournaments, bingo, duck races, beer-tent bands, fireworks, pancake breakfast, family zone, kiddie tractor pull."}}
+			]
+		}
+		</script>
 		<!-- ══════ HERO ══════ -->
 		<section class="bg-cca-gold-500 px-4 py-14 sm:py-20">
 			<div class="mx-auto max-w-6xl">
@@ -59,7 +76,7 @@ templ FAQ() {
 			<div class="mx-auto max-w-2xl text-center">
 				<span class="text-5xl">💬</span>
 				<h3 class="mt-4 font-display text-2xl font-bold text-white">Still have a question?</h3>
-				<p class="mx-auto mt-3 max-w-md text-white/60">Drop us a line — we're neighbors, not strangers. We usually reply within a day or two.</p>
+				<p class="mx-auto mt-3 max-w-md text-white/70">Drop us a line — we're neighbors, not strangers. We usually reply within a day or two.</p>
 				<div class="mt-6 flex flex-wrap justify-center gap-3">
 					<a href="mailto:cadott-community@googlegroups.com" class="inline-flex items-center gap-2 rounded-lg bg-cca-teal-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-cca-teal-700">
 						@components.IconEmail()
