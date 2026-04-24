@@ -41,6 +41,9 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 	// Pages
 	e.GET("/", h.Home)
 	e.GET("/events", h.Events)
+	e.GET("/events/nabor-days", h.EventNaborDays)
+	e.GET("/events/community-bingos", h.EventCommunityBingos)
+	e.GET("/events/sleigh-rides", h.EventSleighRides)
 	e.GET("/gallery", h.Gallery)
 	e.GET("/faq", h.FAQ)
 	e.GET("/support", h.Support)
