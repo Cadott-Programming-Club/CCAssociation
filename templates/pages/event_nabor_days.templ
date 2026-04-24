@@ -1,0 +1,129 @@
+package pages
+
+import (
+	"ccassociation/internal/meta"
+	"ccassociation/templates/components"
+	"ccassociation/templates/layouts"
+)
+
+templ EventNaborDays() {
+	@layouts.Base(meta.New("Nabor Days Festival", "Cadott's biggest summer festival — grand parade, live music, softball, Truck & Tractor Pull, Mud Bog, Fun Run, and fireworks the last full weekend in July.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/events/nabor-days"), "Events") {
+		<!-- JSON-LD Event -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Event",
+			"name": "Nabor Days — Cadott's Summer Festival",
+			"description": "Cadott's biggest summer festival featuring a grand parade, live music, softball tournament, food stands, truck and tractor pull, and more at Riverview Park.",
+			"startDate": "2026-07-24",
+			"endDate": "2026-07-26",
+			"eventStatus": "https://schema.org/EventScheduled",
+			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+			"location": {
+				"@type": "Place",
+				"name": "Riverview Park",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Cadott",
+					"addressRegion": "WI",
+					"postalCode": "54727",
+					"addressCountry": "US"
+				}
+			},
+			"organizer": {
+				"@type": "Organization",
+				"name": "Cadott Community Association",
+				"url": "https://cadottcommunity.dokploy.digitaldrywood.com"
+			},
+			"image": "https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg"
+		}
+		</script>
+		<!-- ══════ HERO ══════ -->
+		<section class="relative overflow-hidden bg-cca-ink">
+			<div class="absolute inset-0">
+				<img class="h-full w-full object-cover opacity-25" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg" alt="" aria-hidden="true"/>
+			</div>
+			<div class="relative mx-auto max-w-6xl px-4 py-14 sm:py-20">
+				<a href="/events" class="text-sm text-white/70 hover:text-white transition">← All events</a>
+				<p class="mt-4 section-label-light">🎉 Signature Event</p>
+				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Nabor Days Festival</h1>
+				<p class="mt-4 max-w-xl text-lg text-white/70">The last full weekend in July — live music, parades, horsepower, and all of Cadott in one place.</p>
+			</div>
+		</section>
+		<!-- ══════ OVERVIEW ══════ -->
+		<section class="px-4 py-14">
+			<div class="mx-auto max-w-6xl">
+				<div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+					<div class="space-y-4">
+						<p class="section-label">Nabor Days</p>
+						<h2 class="font-display text-3xl font-bold text-cca-ink">The last full weekend in July.</h2>
+						<p class="text-cca-body">Live music, sunrise runs, parades, and horsepower. Add your name to the schedule now so every lane, tent, and float feels ready when Cadott shows up.</p>
+						<div class="grid gap-2 sm:grid-cols-2">
+							@HighlightCard("🎵", "Live music, crafts, and vendor rows fill Riverview Park.")
+							@HighlightCard("🏆", "Sunday parade down Main Street plus royalty coronation.")
+							@HighlightCard("🚜", "Truck & Tractor Pull, Mud Bog, and Lions Club chicken dinner on Hwy 27.")
+							@HighlightCard("🏃", "Fun Run/Walk and family activities each morning.")
+						</div>
+						<p class="text-sm text-cca-muted">Circle the dates now — we post the full schedule each spring at meetings and online.</p>
+					</div>
+					<figure class="relative overflow-hidden rounded-xl shadow-lg">
+						<img class="h-72 w-full object-cover sm:h-96" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg" alt="Church band performing in the Nabor Days parade" loading="lazy"/>
+					</figure>
+				</div>
+			</div>
+		</section>
+		<!-- ══════ EVENT DETAIL ══════ -->
+		<section class="bg-cca-ink px-4 py-14">
+			<div class="mx-auto max-w-6xl space-y-8">
+				<div class="flex flex-wrap items-start justify-between gap-4">
+					<div>
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-500">Late July 2026</p>
+						<h2 class="mt-2 font-display text-3xl font-bold text-white">Full weekend of hometown fun</h2>
+					</div>
+					<div class="flex flex-wrap gap-3">
+						@components.ButtonPrimary("https://www.facebook.com/cadottcommunityassociation", "RSVP on Facebook")
+						@components.ButtonGhost("mailto:cadott-community@googlegroups.com", "Volunteer to help")
+						@components.ButtonGhost("/grand-marshals", "Past Grand Marshals")
+					</div>
+				</div>
+				<p class="max-w-3xl text-white/70">Nabor Days is the biggest event of the summer, held right here in Cadott at Riverview Park. Bring the whole family for a weekend of live music, delicious food stands, the grand parade down Main Street, a softball tournament, and much more!</p>
+				<p class="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Riverview Park</p>
+				<figure class="group relative overflow-hidden rounded-xl">
+					<img class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://www.cadottcommunity.com/uploads/6/4/1/1/64113323/church-band_orig.jpg" alt="Neighbors enjoying the Nabor Days festival in Cadott" loading="lazy"/>
+					<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-white">
+						<p class="font-display text-lg font-bold">Nabor Days Festival</p>
+						<p class="text-sm text-white/80">Parades · Live Music · Softball · Food Stands</p>
+					</figcaption>
+				</figure>
+				<!-- Schedule -->
+				<ul class="space-y-2">
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Friday evening</span> · Vendor tents open, live music kicks off the weekend</li>
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Saturday morning</span> · Annual Nabor Days Parade down Main Street</li>
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Saturday afternoon</span> · Softball tournament, kid's games, and food stands in Riverview Park</li>
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Saturday night</span> · Street dance and headline band performance</li>
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Sunday morning</span> · Community breakfast and wrap-up</li>
+				</ul>
+				<!-- Timeline -->
+				<div>
+					<h3 class="font-display text-xl font-bold text-white">Detailed timeline</h3>
+					<div class="mt-4 space-y-4">
+						@TimelineItem("Opening Ceremonies", "Friday Evening", "The weekend officially begins with food vendors opening up and the first round of live entertainment.")
+						@TimelineItem("Nabor Days Parade", "Saturday Morning", "Grab a spot on Main Street to watch the floats, marching bands, and local businesses in our annual parade.")
+						@TimelineItem("Park Activities", "Saturday Afternoon", "Head down to Riverview Park for the softball tournament, carnival games, and delicious local food stands.")
+						@TimelineItem("Street Dance", "Saturday Night", "Put on your dancing shoes for the headline performance and street dance outside. A Cadott tradition!")
+						@TimelineItem("Wrap-Up", "Sunday Morning", "Join us for a community pancake breakfast and help with the Sunday town cleanup before heading out.")
+					</div>
+				</div>
+				<!-- What to Know -->
+				<div>
+					<h3 class="font-display text-xl font-bold text-white">What to know</h3>
+					<div class="mt-3 grid gap-3 sm:grid-cols-3">
+						@InfoCard("Where to park", "Parking is available in all school lots and on-site at the parks. Please be respectful of neighbors' driveways.")
+						@InfoCard("What to expect", "A full weekend of family-friendly fun! Bring lawn chairs for the parade, sunscreen for the park, and get ready to catch up with old friends.")
+						@InfoCard("Enter a float", "Want your business or group in the parade? Email cadott-community@googlegroups.com to register your float.")
+					</div>
+				</div>
+			</div>
+		</section>
+	}
+}

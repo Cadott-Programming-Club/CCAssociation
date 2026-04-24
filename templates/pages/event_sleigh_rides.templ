@@ -1,0 +1,74 @@
+package pages
+
+import (
+	"ccassociation/internal/meta"
+	"ccassociation/templates/components"
+	"ccassociation/templates/layouts"
+)
+
+templ EventSleighRides() {
+	@layouts.Base(meta.New("Sleigh Rides", "Cadott's December tradition — horse-drawn sleigh rides through town with a community vendor event, live jazz, and soup fundraiser.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/events/sleigh-rides"), "Events") {
+		<!-- ══════ HERO ══════ -->
+		<section class="bg-cca-purple px-4 py-14 sm:py-20">
+			<div class="mx-auto max-w-6xl">
+				<a href="/events" class="text-sm text-white/80 hover:text-white transition">← All events</a>
+				<p class="mt-4 section-label-light">🛷 Signature Event</p>
+				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Sleigh Rides</h1>
+				<p class="mt-4 max-w-xl text-lg text-white/80">Horse-drawn sleigh rides through Cadott every December — paired with a community vendor event, live jazz, and a soup fundraiser.</p>
+			</div>
+		</section>
+		<!-- ══════ OVERVIEW ══════ -->
+		<section class="px-4 py-14">
+			<div class="mx-auto max-w-6xl">
+				<div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+					<div class="space-y-4">
+						<p class="section-label">Sleigh Rides</p>
+						<h2 class="font-display text-3xl font-bold text-cca-ink">A winter tradition worth bundling up for.</h2>
+						<p class="text-cca-body">Every December, downtown Cadott gets a little brighter. Hop on a horse-drawn sleigh for a ride through town, browse local vendors, warm up with a bowl of soup, and catch live jazz while you're at it. The exact lineup shifts year to year, but the heart stays the same.</p>
+						<div class="grid gap-2 sm:grid-cols-2">
+							@HighlightCard("🐴", "Horse-drawn sleigh rides through downtown Cadott.")
+							@HighlightCard("🛍️", "Community vendor event featuring local makers and shops.")
+							@HighlightCard("🎷", "Live jazz to set the mood.")
+							@HighlightCard("🍲", "Soup fundraiser — warm up and support CCA.")
+						</div>
+						<p class="text-sm text-cca-muted">Exact date announced each fall on Facebook. Offerings may vary year to year.</p>
+					</div>
+					<figure class="relative overflow-hidden rounded-xl bg-cca-wash shadow-lg">
+						<div class="flex h-72 w-full items-center justify-center sm:h-96">
+							<div class="text-center text-cca-muted">
+								<span class="text-5xl">📸</span>
+								<p class="mt-3 text-sm font-semibold">Photos coming soon</p>
+								<p class="mt-1 text-xs">Lucy's sending over kids-with-horses shots!</p>
+							</div>
+						</div>
+					</figure>
+				</div>
+			</div>
+		</section>
+		<!-- ══════ WHAT TO EXPECT ══════ -->
+		<section class="bg-cca-ink px-4 py-14">
+			<div class="mx-auto max-w-6xl space-y-8">
+				<div class="flex flex-wrap items-start justify-between gap-4">
+					<div>
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-500">December · Downtown Cadott</p>
+						<h2 class="mt-2 font-display text-3xl font-bold text-white">Come for the ride, stay for the soup.</h2>
+					</div>
+					<div class="flex flex-wrap gap-3">
+						@components.ButtonPrimary("https://www.facebook.com/cadottcommunityassociation", "Watch Facebook for dates")
+						@components.ButtonGhost("mailto:cadott-community@googlegroups.com", "Volunteer to help")
+					</div>
+				</div>
+				<div class="grid gap-3 sm:grid-cols-2">
+					@InfoCard("The sleigh ride", "Horse-drawn sleighs carry families and neighbors on a loop through downtown Cadott. Bring a blanket and warm layers.")
+					@InfoCard("Community vendor event", "Local makers, bakers, and small businesses set up shop — a chance to do some holiday shopping close to home.")
+					@InfoCard("Live jazz", "We've hosted live jazz alongside past rides. Exact musical lineup varies year to year.")
+					@InfoCard("Soup fundraiser", "Warm up with a bowl of soup. Proceeds help fund CCA's community programming through the year.")
+				</div>
+				<div class="rounded-xl border border-white/10 bg-white/5 p-6">
+					<h3 class="font-display text-xl font-bold text-white">Pitch in</h3>
+					<p class="mt-2 text-white/70">We always need hands — greeters, hot cocoa service, soup service, setup, and teardown. Message us on Facebook or email the board to sign up.</p>
+				</div>
+			</div>
+		</section>
+	}
+}
