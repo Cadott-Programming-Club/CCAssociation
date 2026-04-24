@@ -7,7 +7,7 @@ import (
 )
 
 templ Events() {
-	@layouts.Base(meta.New("Events & Festivals", "Nabor Days, Music in the Park — discover Cadott's hometown events calendar.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/events"), "Events") {
+	@layouts.Base(meta.New("Events & Festivals", "Nabor Days, Community Bingos, Sleigh Rides — discover Cadott's hometown events calendar.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/events"), "Events") {
 		<!-- ══════ HERO ══════ -->
 		<section class="relative overflow-hidden bg-cca-ink">
 			<div class="absolute inset-0">
@@ -16,7 +16,7 @@ templ Events() {
 			<div class="relative mx-auto max-w-6xl px-4 py-14 sm:py-20">
 				<p class="section-label-light">🎉 Events &amp; Festivals</p>
 				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Hometown events that bring us together.</h1>
-				<p class="mt-4 max-w-xl text-lg text-white/70">From Nabor Days to Music in the Park — there's always a reason to gather in Cadott.</p>
+				<p class="mt-4 max-w-xl text-lg text-white/70">From Nabor Days to Community Bingos and winter Sleigh Rides — there's always a reason to gather in Cadott.</p>
 			</div>
 		</section>
 		<!-- JSON-LD Event -->
@@ -82,6 +82,7 @@ templ Events() {
 					<div class="flex flex-wrap gap-3">
 						@components.ButtonPrimary("https://www.facebook.com/cadottcommunityassociation", "RSVP on Facebook")
 						@components.ButtonGhost("mailto:cadott-community@googlegroups.com", "Volunteer to help")
+						@components.ButtonGhost("/grand-marshals", "Past Grand Marshals")
 					</div>
 				</div>
 				<p class="max-w-3xl text-white/70">Nabor Days is the biggest event of the summer, held right here in Cadott at Riverview Park. Bring the whole family for a weekend of live music, delicious food stands, the grand parade down Main Street, a softball tournament, and much more!</p>
@@ -116,7 +117,7 @@ templ Events() {
 				<div>
 					<h3 class="font-display text-xl font-bold text-white">What to know</h3>
 					<div class="mt-3 grid gap-3 sm:grid-cols-3">
-						@InfoCard("Where to park", "Parking is available at the high school lot with a free shuttle, or on side streets near Riverview Park. Please be respectful of neighbors' driveways.")
+						@InfoCard("Where to park", "Parking is available in all school lots and on-site at the parks. Please be respectful of neighbors' driveways.")
 						@InfoCard("What to Expect", "A full weekend of family-friendly fun! Bring lawn chairs for the parade, sunscreen for the park, and get ready to catch up with old friends.")
 						@InfoCard("Enter a Float", "Want your business or group in the parade? Email cadott-community@googlegroups.com to register your float.")
 					</div>
@@ -131,9 +132,9 @@ templ Events() {
 					<h3 class="mt-2 font-display text-2xl font-bold text-cca-ink">Event listings</h3>
 				</div>
 				<div class="space-y-3">
-					@EventListing("Nabor Days Festival", "Late July 2026 · Riverview Park", "Cadott's biggest summer festival! Enjoy the grand parade, softball tournaments, live music, and food stands all weekend.", "Join us for this time-honored tradition. All proceeds from CCA run stands go directly back into the community.")
-					@EventListing("Music in the Park", "Wednesdays in June & July · 6:30 PM · Riverview Park Bandshell", "Free midweek concerts featuring local bands, Lions Club concessions, and canned good drives.", "Book bands, schedule food trucks, manage sound, and collect donations for the Cadott Food Pantry.")
-					@EventListing("Nabor Days Weekend", "Last full weekend in July · Riverview Park, Hwy 27, Main Street", "Truck & Tractor Pull, Mud Bog, Fun Run, parade, vendors, and fireworks anchor the summer.", "Needs parade marshals, beer tent crews, bingo callers, kids' zone leads, and Sunday cleanup captains.")
+					@EventListing("Nabor Days Festival", "Late July 2026 · Riverview Park, Hwy 27, Main Street", "Cadott's biggest summer festival! Grand parade, softball tournament, live music, food stands, Truck & Tractor Pull, Mud Bog, Fun Run, and fireworks anchor the summer weekend.", "All proceeds from CCA-run stands go directly back into the community. Needs parade marshals, beer tent crews, bingo callers, kids' zone leads, and Sunday cleanup captains.")
+					@EventListing("Community Bingos", "Throughout the year · watch Facebook for dates", "Our community bingo nights bring neighbors together and raise funds for CCA programming. Purse Bingo is our new headline event — we've also done meat raffles in the past, and we're always open to ideas for new bingo themes.", "Dates are announced on our Facebook page. Have a bingo theme you'd love to see? Let us know at a meeting or on Facebook. Volunteers help with setup, calling, and food service.")
+					@EventListing("Sleigh Rides", "December · downtown Cadott", "Our winter tradition: horse-drawn sleigh rides through town, typically paired with a community vendor event, live jazz, and a soup fundraiser. Exact offerings vary year to year.", "Dates announced each fall on Facebook. Volunteers help with greeting, hot cocoa service, soup service, and event setup.")
 				</div>
 			</div>
 		</section>

@@ -43,6 +43,8 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 	e.GET("/events", h.Events)
 	e.GET("/gallery", h.Gallery)
 	e.GET("/faq", h.FAQ)
+	e.GET("/support", h.Support)
+	e.GET("/grand-marshals", h.GrandMarshals)
 	e.GET("/contact", h.Contact)
 
 	// Custom 404
