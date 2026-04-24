@@ -7,7 +7,7 @@ import (
 )
 
 templ Home() {
-	@layouts.Base(meta.New("Neighbors Since 1970", "Cadott Community Association — Nabor Days, Music in the Park, and more. Neighbors building Cadott since 1970.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/"), "home") {
+	@layouts.Base(meta.New("Neighbors Since 1970", "Cadott Community Association — Nabor Days, Community Bingos, Sleigh Rides, and more. Neighbors building Cadott since 1970.").WithCanonical("https://cadottcommunity.dokploy.digitaldrywood.com/"), "home") {
 		<!-- ══════ HERO ══════ -->
 		<section class="relative overflow-hidden bg-cca-ink">
 			<div class="absolute inset-0">
@@ -55,7 +55,7 @@ templ Home() {
 			<div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 sm:grid-cols-4">
 				@StatTeal("55+", "Years strong")
 				@StatGold("3", "Signature events")
-				@StatCoral("100+", "Friendly faces")
+				@StatCoral("1,400", "Friendly faces")
 				@StatLime("1", "Place to call home")
 			</div>
 		</section>
@@ -69,8 +69,8 @@ templ Home() {
 				</div>
 				<div class="space-y-3 text-left">
 					@StepCard("1", "Meetings are the first Monday of each month at 6:30 PM at Rick's Halfway in Cadott. Just show up!")
-					@StepCard("2", "Add your name to the volunteer sheet. We pair you with bingo nights, music events, or Nabor Days shifts.")
-					@StepCard("3", "Questions later? Email the board or message us on Facebook and we will walk you through it.")
+					@StepCard("2", "Add your name to the volunteer sheet. We pair you with bingo nights, sleigh rides, or Nabor Days shifts.")
+					@StepCard("3", "Questions? Email the board or message us on Facebook and we will walk you through it.")
 				</div>
 				<div class="flex flex-wrap justify-center gap-3">
 					@components.ButtonWhite("/contact", "Meetings & members page")
