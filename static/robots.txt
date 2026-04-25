@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cadottcommunity.dokploy.digitaldrywood.com/sitemap.xml
+Sitemap: https://www.cadottcommunity.com/sitemap.xml
