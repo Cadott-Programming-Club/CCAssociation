@@ -11,5 +11,9 @@ export LOG_LEVEL="DEBUG"
 
 # Site / SEO
 export SITE_NAME="Cadott Community Association"
+# SITE_URL is the public origin, used to make og:image and twitter:image
+# absolute. In production set this to the live domain (e.g.
+# https://cadottcommunity.dokploy.digitaldrywood.com). Without it, social
+# previews on Facebook/LinkedIn/Twitter will fail to load.
 export SITE_URL="http://localhost:8000"
 export DEFAULT_OG_IMAGE="/static/images/og-default.png"
