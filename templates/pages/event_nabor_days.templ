@@ -7,7 +7,7 @@ import (
 )
 
 templ EventNaborDays() {
-	@layouts.Base(meta.New("Nabor Days Festival", "Cadott's biggest summer festival — grand parade, live music, softball, Truck & Tractor Pull, Mud Bog, Fun Run, and fireworks the last full weekend in July.").WithCanonical("https://www.cadottcommunity.com/events/nabor-days").WithOGImageInfo("/static/images/nabor-days-2025/royalty-cadott-float.jpg", "Cadott Nabor Days Queen and Princesses waving from the Cadott parade float in 2025", 1200, 630), "Events") {
+	@layouts.Base(meta.New("Nabor Days Festival", "Nabor Days is Cadott's signature 4-day celebration: Kid Zone, live music, parade, fireworks, Truck & Tractor Pull, Mud Bog, vendors, and more.").WithCanonical("https://www.cadottcommunity.com/events/nabor-days").WithOGImageInfo("/static/images/nabor-days-2025/royalty-cadott-float.jpg", "Cadott Nabor Days Queen and Princesses waving from the Cadott parade float in 2025", 1200, 630), "Events") {
 		<!-- JSON-LD Breadcrumb -->
 		<script type="application/ld+json">
 		{
@@ -26,8 +26,8 @@ templ EventNaborDays() {
 			"@context": "https://schema.org",
 			"@type": "Event",
 			"name": "Nabor Days — Cadott's Summer Festival",
-			"description": "Cadott's biggest summer festival featuring a grand parade, live music, softball tournament, food stands, truck and tractor pull, and more at Riverview Park.",
-			"startDate": "2026-07-24",
+			"description": "Cadott's signature 4-day celebration featuring the Kid Zone, live music, grand parade, fireworks, Truck & Tractor Pull, Mud Bog, vendors, and more.",
+			"startDate": "2026-07-23",
 			"endDate": "2026-07-26",
 			"eventStatus": "https://schema.org/EventScheduled",
 			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -59,7 +59,7 @@ templ EventNaborDays() {
 				<a href="/events" class="text-sm text-white/70 hover:text-white transition">← All events</a>
 				<p class="mt-4 section-label-light">🎉 Signature Event</p>
 				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Nabor Days Festival</h1>
-				<p class="mt-4 max-w-xl text-lg text-white/70">The last full weekend in July — live music, parades, horsepower, and all of Cadott in one place.</p>
+				<p class="mt-4 max-w-xl text-lg text-white/70">Cadott's signature 4-day celebration filled with fun for all ages — Kid Zone, live music, parade, fireworks, Truck &amp; Tractor Pull, Mud Bog, vendors, and more.</p>
 			</div>
 		</section>
 		<!-- ══════ OVERVIEW ══════ -->
@@ -68,15 +68,15 @@ templ EventNaborDays() {
 				<div class="grid gap-8 lg:grid-cols-2 lg:items-center">
 					<div class="space-y-4">
 						<p class="section-label">Nabor Days</p>
-						<h2 class="font-display text-3xl font-bold text-cca-ink">The last full weekend in July.</h2>
-						<p class="text-cca-body">Live music, sunrise runs, parades, and horsepower. Add your name to the schedule now so every lane, tent, and float feels ready when Cadott shows up.</p>
+						<h2 class="font-display text-3xl font-bold text-cca-ink">Four days of fun for all ages.</h2>
+						<p class="text-cca-body">Nabor Days is our community's signature 4-day celebration filled with fun for all ages. From the Kid Zone and live music to the parade, fireworks, Truck &amp; Tractor Pull, Mud Bog, vendors, and more — there's something for everyone to enjoy!</p>
 						<div class="grid gap-2 sm:grid-cols-2">
-							@HighlightCard("🎵", "Live music, crafts, and vendor rows fill Riverview Park.")
+							@HighlightCard("🎪", "Kid Zone, live music, vendors, and food stands.")
 							@HighlightCard("🏆", "Sunday parade down Main Street plus royalty coronation.")
-							@HighlightCard("🚜", "Truck & Tractor Pull, Mud Bog, and Lions Club chicken dinner on Hwy 27.")
-							@HighlightCard("🏃", "Fun Run/Walk and family activities each morning.")
+							@HighlightCard("🚜", "Truck &amp; Tractor Pull and Mud Bog action.")
+							@HighlightCard("🎆", "Fireworks light up the sky over Riverview Park.")
 						</div>
-						<p class="text-sm text-cca-muted">Circle the dates now — we post the full schedule each spring at meetings and online.</p>
+						<p class="text-sm text-cca-muted">Events run Thursday through Sunday. The most up-to-date schedule lives on our <a href="https://www.facebook.com/cadottcommunityassociation" class="text-cca-teal-600 underline decoration-cca-teal-600/30 hover:decoration-cca-teal-600 transition">Facebook page</a>.</p>
 					</div>
 					<figure class="relative overflow-hidden rounded-xl shadow-lg">
 						<img class="h-72 w-full object-cover sm:h-96" src="/static/images/nabor-days-2025/royalty-cadott-float.jpg" alt="Cadott Nabor Days Queen and Princesses waving from the Cadott float in the 2025 parade" loading="lazy"/>
@@ -98,7 +98,7 @@ templ EventNaborDays() {
 						@components.ButtonGhost("/grand-marshals", "Past Grand Marshals")
 					</div>
 				</div>
-				<p class="max-w-3xl text-white/70">Nabor Days is the biggest event of the summer, held right here in Cadott at Riverview Park. Bring the whole family for a weekend of live music, delicious food stands, the grand parade down Main Street, a softball tournament, and much more!</p>
+				<p class="max-w-3xl text-white/70">Nabor Days is our community's signature 4-day celebration filled with fun for all ages. From the Kid Zone and live music to the parade, fireworks, Truck &amp; Tractor Pull, Mud Bog, vendors, and more — there's something for everyone to enjoy!</p>
 				<p class="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Riverview Park</p>
 				<figure class="group relative overflow-hidden rounded-xl">
 					<img class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/chiropractic-rodeo-float.jpg" alt='Themed parade float reading "Chiropractic Care: Not our first rodeo!" rolls down Main Street at Nabor Days 2025' loading="lazy"/>
@@ -109,40 +109,54 @@ templ EventNaborDays() {
 				</figure>
 				<!-- Schedule -->
 				<ul class="space-y-2">
-					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Friday evening</span> · Vendor tents open, live music kicks off the weekend</li>
-					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Saturday morning</span> · Annual Nabor Days Parade down Main Street</li>
-					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Saturday afternoon</span> · Softball tournament, kid's games, and food stands in Riverview Park</li>
-					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Saturday night</span> · Street dance and headline band performance</li>
-					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Sunday morning</span> · Community breakfast and wrap-up</li>
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Thursday evening</span> · Events kick off — opening night festivities</li>
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Friday</span> · Vendor tents open, live music, Kid Zone, and food stands</li>
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Saturday</span> · Truck &amp; Tractor Pull, Mud Bog, live music, and fireworks</li>
+					<li class="text-white/70"><span class="font-semibold text-cca-teal-600">Sunday at noon</span> · Annual Nabor Days Parade — Main Street from Hwy X to Mills Street</li>
 				</ul>
 				<!-- Timeline -->
 				<div>
 					<h3 class="font-display text-xl font-bold text-white">Detailed timeline</h3>
 					<div class="mt-4 space-y-4">
-						@TimelineItem("Opening Ceremonies", "Friday Evening", "The weekend officially begins with food vendors opening up and the first round of live entertainment.")
-						@TimelineItem("Nabor Days Parade", "Saturday Morning", "Grab a spot on Main Street to watch the floats, marching bands, and local businesses in our annual parade.")
-						@TimelineItem("Park Activities", "Saturday Afternoon", "Head down to Riverview Park for the softball tournament, carnival games, and delicious local food stands.")
-						@TimelineItem("Street Dance", "Saturday Night", "Put on your dancing shoes for the headline performance and street dance outside. A Cadott tradition!")
-						@TimelineItem("Wrap-Up", "Sunday Morning", "Join us for a community pancake breakfast and help with the Sunday town cleanup before heading out.")
+						@TimelineItem("Opening Night", "Thursday Evening", "Events kick off Thursday night — watch Facebook for the full lineup as it firms up each year.")
+						@TimelineItem("Park Activities", "Friday & Saturday", "Riverview Park fills with the Kid Zone, live music, vendor tents, and food stands all weekend.")
+						@TimelineItem("Truck & Tractor Pull · Mud Bog", "Saturday", "Horsepower hits Hwy 27 with the Truck & Tractor Pull and Mud Bog.")
+						@TimelineItem("Fireworks", "Saturday Night", "Fireworks light up the sky over Riverview Park.")
+						@TimelineItem("Nabor Days Parade", "Sunday at Noon", "The parade rolls down Main Street from Hwy X to Mills Street. Grab your spot early — this is the highlight of the weekend.")
+					</div>
+				</div>
+				<!-- Parade Registration -->
+				<div class="rounded-xl border border-white/10 bg-white/5 p-6 sm:p-8">
+					<div class="grid gap-6 sm:grid-cols-[1fr_220px] sm:items-center">
+						<div class="space-y-3">
+							<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-500">Sunday at Noon</p>
+							<h3 class="font-display text-2xl font-bold text-white">Register for the parade</h3>
+							<p class="text-white/70">Want your business, group, or family in the Nabor Days parade? Scan the QR code (or grab the link from a printed flyer or our Facebook page) to fill out the registration form.</p>
+							<p class="text-sm text-white/60">Questions? Email <a href="mailto:cadott-community@googlegroups.com" class="text-cca-teal-600 underline decoration-cca-teal-600/30 hover:decoration-cca-teal-600 transition">cadott-community@googlegroups.com</a>.</p>
+						</div>
+						<figure class="mx-auto w-44 sm:w-full">
+							<img class="w-full rounded-lg bg-white p-3" src="/static/images/nabor-days/parade-registration-qr.jpg" alt="QR code linking to the Nabor Days parade registration form" loading="lazy"/>
+						</figure>
 					</div>
 				</div>
 				<!-- What to Know -->
 				<div>
 					<h3 class="font-display text-xl font-bold text-white">What to know</h3>
 					<div class="mt-3 grid gap-3 sm:grid-cols-3">
+						@InfoCard("Where everything is", "The majority of events are in and around Riverview Park. The Sunday parade travels Main Street from Hwy X to Mills Street.")
 						@InfoCard("Where to park", "Parking is available in all school lots and on-site at the parks. Please be respectful of neighbors' driveways.")
-						@InfoCard("What to expect", "A full weekend of family-friendly fun! Bring lawn chairs for the parade, sunscreen for the park, and get ready to catch up with old friends.")
-						@InfoCard("Enter a float", "Want your business or group in the parade? Email cadott-community@googlegroups.com to register your float.")
+						@InfoCard("What to expect", "A 4-day celebration of family-friendly fun. Bring lawn chairs for the parade, sunscreen for the park, and get ready to catch up with old friends.")
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- ══════ MOMENTS FROM 2025 ══════ -->
+		<!-- ══════ MOMENTS ══════ -->
 		<section class="px-4 py-16">
 			<div class="mx-auto max-w-6xl space-y-8">
 				<div class="text-center">
-					<p class="section-label">Moments from Nabor Days 2025</p>
-					<h2 class="mt-2 font-display text-3xl font-bold text-cca-ink">Last year's weekend, in pictures.</h2>
+					<p class="section-label">Memories from Nabor Days</p>
+					<h2 class="mt-2 font-display text-3xl font-bold text-cca-ink">A look back at some of our favorite moments.</h2>
+					<p class="mx-auto mt-3 max-w-2xl text-cca-muted">Fun, laughter, community, and traditions that bring us together year after year.</p>
 				</div>
 				<div class="grid gap-3 sm:grid-cols-3 sm:grid-rows-2">
 					<figure class="group relative block overflow-hidden rounded-xl sm:row-span-2">
@@ -198,6 +212,38 @@ templ EventNaborDays() {
 					<figure class="group relative overflow-hidden rounded-xl">
 						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/dart-winners.jpg" alt="Dart tournament winners holding their cash winnings in front of the Bull Shooter boards" loading="lazy"/>
 						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">Dart Winners</figcaption>
+					</figure>
+					<figure class="group relative overflow-hidden rounded-xl">
+						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/grand-marshals-2025-alborado.jpg" alt="Al and Donna Alborado, the 2025 Cadott Nabor Days Grand Marshals, holding their plaque" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">Grand Marshals 2025</figcaption>
+					</figure>
+					<figure class="group relative overflow-hidden rounded-xl">
+						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/royalty-2025-side-view.jpg" alt="The 2025 Cadott royalty float decorated in black and gold with the Queen and Princesses" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">Royalty Float</figcaption>
+					</figure>
+					<figure class="group relative overflow-hidden rounded-xl">
+						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/cadott-ems.jpg" alt="Cadott Community Emergency Medical Services ambulance rolling in the parade" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">Cadott EMS</figcaption>
+					</figure>
+					<figure class="group relative overflow-hidden rounded-xl">
+						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/cadott-wrestling.jpg" alt="Cadott Wrestling team and supporters marching with their parade trailer" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">Cadott Wrestling</figcaption>
+					</figure>
+					<figure class="group relative overflow-hidden rounded-xl">
+						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/close-farms.jpg" alt="Close Farms parade entry with a green John Deere utility vehicle and family members" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">Close Farms</figcaption>
+					</figure>
+					<figure class="group relative overflow-hidden rounded-xl">
+						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/cvec-bucket-truck.jpg" alt="Chippewa Valley Electric Cooperative bucket truck with American flag in the parade" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">CVEC Bucket Truck</figcaption>
+					</figure>
+					<figure class="group relative overflow-hidden rounded-xl">
+						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/styles-on-main-float.jpg" alt="Styles on Main 1970s-themed parade float with women in vibrant outfits, balloons, and bright colors" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">Styles on Main</figcaption>
+					</figure>
+					<figure class="group relative overflow-hidden rounded-xl">
+						<img class="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/zubells-sugar-shack.jpg" alt="Zubell's Sugar Shack antique steam tractor pulling a wagon through the parade" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 text-sm font-medium text-white opacity-0 transition group-hover:opacity-100">Zubell's Sugar Shack</figcaption>
 					</figure>
 				</div>
 				<div class="text-center">

@@ -43,7 +43,11 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 	e.GET("/events", h.Events)
 	e.GET("/events/nabor-days", h.EventNaborDays)
 	e.GET("/events/community-bingos", h.EventCommunityBingos)
-	e.GET("/events/sleigh-rides", h.EventSleighRides)
+	e.GET("/events/wagon-rides", h.EventWagonRides)
+	// Permanent redirect from the old sleigh-rides slug to wagon-rides
+	e.GET("/events/sleigh-rides", func(c echo.Context) error {
+		return c.Redirect(http.StatusMovedPermanently, "/events/wagon-rides")
+	})
 	e.GET("/gallery", h.Gallery)
 	e.GET("/faq", h.FAQ)
 	e.GET("/support", h.Support)

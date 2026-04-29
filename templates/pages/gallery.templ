@@ -6,7 +6,7 @@ import (
 )
 
 templ Gallery() {
-	@layouts.Base(meta.New("Photo Gallery", "Photos from Nabor Days, Community Bingos, Sleigh Rides, and community life in Cadott, Wisconsin.").WithCanonical("https://www.cadottcommunity.com/gallery").WithOGImageInfo("/static/images/nabor-days-2025/movie-in-the-park.jpg", "Families gathered for Movie in the Park at Riverview Park during Cadott Nabor Days", 1200, 630), "Gallery") {
+	@layouts.Base(meta.New("Photo Gallery", "Photos from Nabor Days, Community Bingos, Wagon Rides, and community life in Cadott, Wisconsin.").WithCanonical("https://www.cadottcommunity.com/gallery").WithOGImageInfo("/static/images/nabor-days-2025/movie-in-the-park.jpg", "Families gathered for Movie in the Park at Riverview Park during Cadott Nabor Days", 1200, 630), "Gallery") {
 		<!-- ══════ HERO ══════ -->
 		<section class="relative overflow-hidden bg-cca-ink">
 			<div class="absolute inset-0">
@@ -23,8 +23,8 @@ templ Gallery() {
 			<div class="mx-auto max-w-6xl space-y-6">
 				<div class="space-y-2">
 					<p class="section-label">🎪 Nabor Days 2025</p>
-					<h2 class="font-display text-2xl font-bold text-cca-ink">Last year's weekend</h2>
-					<p class="text-cca-muted">Royalty, parade floats, dart tournaments, the tractor pull, and all the moments that made 2025 memorable.</p>
+					<h2 class="font-display text-2xl font-bold text-cca-ink">A look back at some of our favorite memories</h2>
+					<p class="text-cca-muted">Fun, laughter, community, and traditions that bring us together year after year.</p>
 				</div>
 				<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 					@GalleryPhoto("sm:col-span-2 lg:col-span-2", "h-64", "/static/images/nabor-days-2025/royalty-cadott-float.jpg", "2025 Cadott Nabor Days Queen and Princesses waving from the Cadott float", "Royalty on the Cadott Float · 2025")
@@ -42,6 +42,14 @@ templ Gallery() {
 					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/beer-tent.jpg", "Friends gathered under the Nabor Days beer tent at night", "Beer Tent · 2025")
 					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/safety-vest-volunteers.jpg", "Two volunteers in neon safety vests on a Cadott street during Nabor Days", "Safety Crew · 2025")
 					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/dart-throw.jpg", "A dart player lines up a throw during the Nabor Days tournament", "On the Oche · 2025")
+					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/grand-marshals-2025-alborado.jpg", "Al and Donna Alborado, the 2025 Cadott Nabor Days Grand Marshals, holding their plaque", "Grand Marshals · 2025")
+					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/royalty-2025-side-view.jpg", "The 2025 Cadott royalty float in black and gold with the Queen and Princesses", "Royalty Float · 2025")
+					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/cadott-ems.jpg", "Cadott Community Emergency Medical Services ambulance rolling in the parade", "Cadott EMS · 2025")
+					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/cadott-wrestling.jpg", "Cadott Wrestling team and supporters marching with their parade trailer", "Cadott Wrestling · 2025")
+					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/close-farms.jpg", "Close Farms parade entry with a green John Deere utility vehicle and family members", "Close Farms · 2025")
+					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/cvec-bucket-truck.jpg", "Chippewa Valley Electric Cooperative bucket truck with American flag in the parade", "CVEC · 2025")
+					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/styles-on-main-float.jpg", "Styles on Main 1970s-themed parade float with women in vibrant outfits, balloons, and bright colors", "Styles on Main · 2025")
+					@GalleryPhoto("", "h-52", "/static/images/nabor-days-2025/zubells-sugar-shack.jpg", "Zubell's Sugar Shack antique steam tractor pulling a wagon through the parade", "Zubell's Sugar Shack · 2025")
 				</div>
 			</div>
 		</section>
@@ -93,11 +101,11 @@ templ Gallery() {
 				<div class="space-y-2">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-600">❄️ Winter &amp; Holidays</p>
 					<h2 class="font-display text-2xl font-bold text-cca-ink">Christmas Village &amp; beyond</h2>
-					<p class="text-cca-muted">Sleigh rides, Santa visits, craft fairs, and cozy bingo nights — Cadott doesn't slow down in winter.</p>
+					<p class="text-cca-muted">Wagon rides, Santa visits, craft fairs, and cozy bingo nights — Cadott doesn't slow down in winter.</p>
 				</div>
 				<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
 					@GalleryPhoto("", "h-52", "/static/images/legacy/santa-meet-greet.jpg", "Santa greeting a child during a Cadott holiday event", "Santa Meet & Greet · Christmas Village")
-					@GalleryPhoto("", "h-52", "/static/images/legacy/sleigh-rides-classic.jpg", "Horse-drawn sleigh crossing Riverview Park in winter", "Sleigh Rides · Christmas Village")
+					@GalleryPhoto("", "h-52", "/static/images/legacy/wagon-rides-classic.jpg", "Horse-drawn wagon at the Cadott winter event", "Wagon Rides · Christmas Village")
 					@GalleryPhoto("", "h-52", "/static/images/legacy/holiday-crafts.jpg", "Holiday craft booth with handmade items on display", "Holiday Crafts · Local Makers")
 					@GalleryPhoto("", "h-52", "/static/images/legacy/bingo-night-classic.jpg", "Winter bingo and meat raffle night", "Winter Bingo & Meat Raffles")
 				</div>

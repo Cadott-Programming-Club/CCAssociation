@@ -6,8 +6,71 @@ import (
 	"ccassociation/templates/layouts"
 )
 
+type GrandMarshalEntry struct {
+	Year string
+	Name string
+}
+
+var GrandMarshalHistory = []GrandMarshalEntry{
+	{"2025", "Al & Donna Alborado"},
+	{"2024", "Gary & Donna Rykal"},
+	{"2023", "Cedric Boettcher"},
+	{"2022", "Eugene & Ann Bell"},
+	{"2021", "Kenneth & Dorothy Krouse"},
+	{"2020", "None — COVID-19"},
+	{"2019", "Joseph (Joe) Semanko"},
+	{"2018", "Gerald (Jerry) Rykal"},
+	{"2017", "Robert (Bob) Thorson"},
+	{"2016", "Ron & Michelle Duncan"},
+	{"2015", "Larry Seidling"},
+	{"2014", "Huntz Geissler"},
+	{"2013", "Ray & Sandy Weiland"},
+	{"2012", "Ken & Connie Lancor"},
+	{"2011", "Jean Carlson"},
+	{"2010", "Harold & Phyllis Moldrem"},
+	{"2009", "Jim & Chris Michelson"},
+	{"2008", "Ed & Pat Lenard"},
+	{"2007", "Merle & Joyce Huhn"},
+	{"2006", "Bill & Janet DeJung"},
+	{"2005", "George & Pauline Olinske"},
+	{"2004", "A. Pat & Doreen Mrotek"},
+	{"2003", "Gene & Dolores Harm"},
+	{"2002", "Lila McConville"},
+	{"2001", "Vesta Buetow"},
+	{"2000", "Nancy Knitter"},
+	{"1999", "Ted & LaVern Arneson"},
+	{"1998", "Lester & Millie Timmerman"},
+	{"1997", "John & Helen Klay"},
+	{"1996", "Ken & Tony Kenealy"},
+	{"1995", "Gordy & Georginia Peterson"},
+	{"1994", "Thelma Josifek"},
+	{"1993", "Raymond Post"},
+	{"1992", "Gerhardt Raether"},
+	{"1991", "Edith Couey"},
+	{"1990", "Ken & Emma Luebstorf"},
+	{"1989", "Winifred Ludwig"},
+	{"1988", "Buster Heinle"},
+	{"1987", "Virgil & Lucille Schmitt"},
+	{"1986", "Tom & Helen Tobola"},
+	{"1985", "Helen Emerson"},
+	{"1984", "Charles Naiberg"},
+	{"1983", "Bill Nesvacil"},
+	{"1982", "Mr. & Mrs. Fred Miller"},
+	{"1981", "Eugene & Margaret King"},
+	{"1980", "Vic & Bessie Stanek"},
+	{"1979", "Alice Wagner"},
+	{"1978", "Geraldine Huhn"},
+	{"1977", "Vincent Miller"},
+	{"1976", "Joe & Ann Roshell"},
+	{"1975", "Laura Ziehr"},
+	{"1974", "Hazel Rykal"},
+	{"1973", "Mr. & Mrs. N.F. Panzenhagen"},
+	{"1972", "Mr. & Mrs. Herman Knitter"},
+	{"1970", "Eunice Liddell"},
+}
+
 templ GrandMarshals() {
-	@layouts.Base(meta.New("Grand Marshals", "Celebrating the Nabor Days Grand Marshals — Cadott neighbors honored for service, stories, and community spirit.").WithCanonical("https://www.cadottcommunity.com/grand-marshals"), "Grand Marshals") {
+	@layouts.Base(meta.New("Grand Marshals", "Celebrating the Nabor Days Grand Marshals — Cadott neighbors honored for service, stories, and community spirit.").WithCanonical("https://www.cadottcommunity.com/grand-marshals").WithOGImageInfo("/static/images/nabor-days-2025/grand-marshals-2025-alborado.jpg", "Al and Donna Alborado, the 2025 Cadott Nabor Days Grand Marshals", 1200, 630), "Grand Marshals") {
 		<!-- JSON-LD Breadcrumb -->
 		<script type="application/ld+json">
 		{
@@ -15,7 +78,8 @@ templ GrandMarshals() {
 			"@type": "BreadcrumbList",
 			"itemListElement": [
 				{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cadottcommunity.com/"},
-				{"@type": "ListItem", "position": 2, "name": "Grand Marshals", "item": "https://www.cadottcommunity.com/grand-marshals"}
+				{"@type": "ListItem", "position": 2, "name": "Events", "item": "https://www.cadottcommunity.com/events"},
+				{"@type": "ListItem", "position": 3, "name": "Grand Marshals", "item": "https://www.cadottcommunity.com/grand-marshals"}
 			]
 		}
 		</script>
@@ -24,33 +88,48 @@ templ GrandMarshals() {
 			<div class="mx-auto max-w-6xl">
 				<p class="text-xs font-bold uppercase tracking-[0.2em] text-white/80">👑 Nabor Days Honor</p>
 				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Our Grand Marshals</h1>
-				<p class="mt-4 max-w-xl text-lg text-white/80">Every Nabor Days parade is led by a Grand Marshal — a Cadott neighbor recognized for years of service, community spirit, or the kind of quiet good work that keeps a small town running.</p>
+				<p class="mt-4 max-w-xl text-lg text-white/80">Every Nabor Days parade is led by a Grand Marshal — a Cadott neighbor recognized for service, stories, and community spirit.</p>
 			</div>
 		</section>
 		<!-- ══════ NOMINATE ══════ -->
 		<section class="px-4 py-14">
-			<div class="mx-auto max-w-4xl space-y-6">
-				<div>
-					<p class="section-label">Nominations</p>
-					<h2 class="mt-2 font-display text-2xl font-bold text-cca-ink">Know someone who should lead the parade?</h2>
-				</div>
-				<p class="text-cca-body">Grand Marshal nominations are accepted each spring ahead of Nabor Days. Send us the nominee's name and a short note about why they belong at the front of the parade.</p>
-				<div class="flex flex-wrap gap-3">
-					@components.ButtonPrimary("mailto:cadott-community@googlegroups.com?subject=Grand%20Marshal%20Nomination", "Submit a nomination")
-					@components.ButtonGhost("/events", "Back to events")
+			<div class="mx-auto max-w-4xl">
+				<div class="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
+					<div class="space-y-4">
+						<p class="section-label">Nominations</p>
+						<h2 class="font-display text-2xl font-bold text-cca-ink">Know someone who should lead the parade?</h2>
+						<p class="text-cca-body">Grand Marshal nominations are collected from <strong>May 1st to May 31st</strong> every year. For more information or to nominate someone, please reach out to <strong>Ashley Anderson</strong> at <a href="mailto:cadottchirodc@gmail.com" class="text-cca-teal-600 underline decoration-cca-teal-600/30 hover:decoration-cca-teal-600 transition">cadottchirodc@gmail.com</a>.</p>
+						<div class="flex flex-wrap gap-3 pt-2">
+							@components.ButtonPrimary("mailto:cadottchirodc@gmail.com?subject=Grand%20Marshal%20Nomination", "Email Ashley")
+							@components.ButtonGhost("/events/nabor-days", "Back to Nabor Days")
+						</div>
+					</div>
+					<figure class="overflow-hidden rounded-xl shadow-lg">
+						<img class="h-72 w-full object-cover" src="/static/images/nabor-days-2025/grand-marshals-2025-alborado.jpg" alt="Al and Donna Alborado, the 2025 Cadott Nabor Days Grand Marshals, holding their plaque" loading="lazy"/>
+						<figcaption class="bg-cca-ink px-4 py-3 text-sm text-white/80">2025 Grand Marshals · Al &amp; Donna Alborado</figcaption>
+					</figure>
 				</div>
 			</div>
 		</section>
-		<!-- ══════ HISTORY (placeholder) ══════ -->
+		<!-- ══════ HISTORY ══════ -->
 		<section class="bg-cca-wash px-4 py-14">
 			<div class="mx-auto max-w-4xl space-y-6">
 				<div>
 					<p class="section-label">History</p>
 					<h2 class="mt-2 font-display text-2xl font-bold text-cca-ink">Past Grand Marshals</h2>
+					<p class="mt-2 text-cca-muted">A roll call of the neighbors who've led the Nabor Days parade since 1970.</p>
 				</div>
-				<div class="rounded-xl border border-cca-line bg-white p-6 shadow-sm">
-					<p class="text-cca-body">The full Grand Marshal history is coming soon. Have a name, year, or photo to add? <a href="mailto:cadott-community@googlegroups.com" class="text-cca-teal-600 underline decoration-cca-teal-600/30 hover:decoration-cca-teal-600 transition">Send it our way</a> and we'll honor them here.</p>
+				<div class="overflow-hidden rounded-xl border border-cca-line bg-white shadow-sm">
+					<dl class="divide-y divide-cca-line">
+						for _, entry := range GrandMarshalHistory {
+							<div class="grid grid-cols-[80px_1fr] gap-4 px-5 py-3 text-sm sm:grid-cols-[100px_1fr]">
+								<dt class="font-display font-bold text-cca-gold-600">{ entry.Year }</dt>
+								<dd class="text-cca-body">{ entry.Name }</dd>
+							</div>
+						}
+					</dl>
 				</div>
+				<p class="text-xs text-cca-muted">Spot a name that's missing or wrong? <a href="mailto:cadott-community@googlegroups.com" class="text-cca-teal-600 underline decoration-cca-teal-600/30 hover:decoration-cca-teal-600 transition">Let us know</a> and we'll fix it.</p>
 			</div>
 		</section>
 	}
