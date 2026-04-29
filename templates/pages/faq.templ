@@ -14,14 +14,12 @@ templ FAQ() {
 			"@context": "https://schema.org",
 			"@type": "FAQPage",
 			"mainEntity": [
-				{"@type": "Question", "name": "How do I become a member?", "acceptedAnswer": {"@type": "Answer", "text": "Email cadott-community@googlegroups.com or walk into a meeting. We will cover dues and match you with a job."}},
-				{"@type": "Question", "name": "When and where do you meet?", "acceptedAnswer": {"@type": "Answer", "text": "First Monday of every month at 6:30 PM at Rick's Halfway in Cadott."}},
-				{"@type": "Question", "name": "Who is on the board?", "acceptedAnswer": {"@type": "Answer", "text": "Anna Goodman (President), Lucy Meinen (Vice President), Jess Buckli (Secretary), Nikki Ruhe (Treasurer), Ashley Anderson (Media), Cindy Mayer and Nikki Vaughn (Directors)."}},
-				{"@type": "Question", "name": "Can businesses join?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Sponsor, host, or simply attend — the more visibility, the better."}},
-				{"@type": "Question", "name": "When is Nabor Days?", "acceptedAnswer": {"@type": "Answer", "text": "Last full weekend in July. Friday night through Sunday afternoon."}},
-				{"@type": "Question", "name": "Where is everything located?", "acceptedAnswer": {"@type": "Answer", "text": "Riverview Park hosts vendors, pulls, and music; Mud Bog lines Hwy 27; Sunday parade rolls Main Street."}},
-				{"@type": "Question", "name": "How do I register for the parade?", "acceptedAnswer": {"@type": "Answer", "text": "Email cadottchirodc@gmail.com or call 715-579-3011 with entry details."}},
-				{"@type": "Question", "name": "What else happens?", "acceptedAnswer": {"@type": "Answer", "text": "Expect bean bag and dart tournaments, bingo, duck races, beer-tent bands, fireworks, pancake breakfast, family zone, kiddie tractor pull."}}
+				{"@type": "Question", "name": "How do I become a member?", "acceptedAnswer": {"@type": "Answer", "text": "First, attend one of our meetings and if you're still interested in becoming a member we will get you the membership application."}},
+				{"@type": "Question", "name": "When and where do you meet?", "acceptedAnswer": {"@type": "Answer", "text": "First Monday of every month at 6:30 PM at Rick's Halfway Hall in Cadott."}},
+				{"@type": "Question", "name": "Can businesses join?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely! Please attend one of our meetings for more information."}},
+				{"@type": "Question", "name": "When is Nabor Days?", "acceptedAnswer": {"@type": "Answer", "text": "Last full weekend in July. Events start Thursday night and run through Sunday afternoon."}},
+				{"@type": "Question", "name": "Where is everything located?", "acceptedAnswer": {"@type": "Answer", "text": "There are many events that take place throughout the weekend, but the majority of the events are located in and around Riverview Park. The parade on Sunday travels on Main Street from Hwy X to Mills Street."}},
+				{"@type": "Question", "name": "What else happens?", "acceptedAnswer": {"@type": "Answer", "text": "The most up-to-date information lives on our Facebook page. Watch there for the latest poster, schedule, and announcements."}}
 			]
 		}
 		</script>
@@ -48,10 +46,9 @@ templ FAQ() {
 							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-cca-teal-50 text-lg">🏘️</span>
 							<h3 class="font-display text-xl font-bold text-cca-ink">Community</h3>
 						</div>
-						@FAQItem("How do I become a member?", "Email cadott-community@googlegroups.com or walk into a meeting. We will cover dues and match you with a job.")
-						@FAQItem("When and where do you meet?", "First Monday of every month at 6:30 PM at Rick's Halfway in Cadott.")
-						@FAQItem("Who is on the board?", "Anna Goodman (President), Lucy Meinen (Vice President), Jess Buckli (Secretary), Nikki Ruhe (Treasurer), Ashley Anderson (Media), Cindy Mayer & Nikki Vaughn (Directors).")
-						@FAQItem("Can businesses join?", "Yes. Sponsor, host, or simply attend—the more visibility, the better.")
+						@FAQItem("How do I become a member?", "First, attend one of our meetings and if you're still interested in becoming a member we will get you the membership application.")
+						@FAQItem("When and where do you meet?", "First Monday of every month at 6:30 PM at Rick's Halfway Hall in Cadott.")
+						@FAQItem("Can businesses join?", "Absolutely! Please attend one of our meetings for more information.")
 					</div>
 					<!-- Festival FAQs -->
 					<div class="space-y-3">
@@ -59,10 +56,17 @@ templ FAQ() {
 							<span class="flex h-10 w-10 items-center justify-center rounded-lg bg-cca-gold-50 text-lg">🎪</span>
 							<h3 class="font-display text-xl font-bold text-cca-ink">Festival</h3>
 						</div>
-						@FAQItem("When is Nabor Days?", "Last full weekend in July. Friday night through Sunday afternoon.")
-						@FAQItem("Where is everything located?", "Riverview Park hosts vendors, pulls, and music; Mud Bog lines Hwy 27; Sunday parade rolls Main Street.")
-						@FAQItem("How do I register for the parade?", "Email cadottchirodc@gmail.com or call 715-579-3011 with entry details.")
-						@FAQItem("What else happens?", "Expect bean bag + dart tournaments, bingo, duck races, beer-tent bands, fireworks, pancake breakfast, family zone, kiddie tractor pull.")
+						@FAQItem("When is Nabor Days?", "Last full weekend in July. Events start Thursday night and run through Sunday afternoon.")
+						@FAQItem("Where is everything located?", "There are many events that take place throughout the weekend, but the majority of the events are located in and around Riverview Park. The parade on Sunday travels on Main Street from Hwy X to Mills Street.")
+						<details class="faq-item rounded-xl border border-cca-line bg-white shadow-sm card-lift">
+							<summary class="flex items-center justify-between gap-4 p-4 font-semibold text-cca-ink">
+								<span>What else happens?</span>
+								@components.IconChevronDown()
+							</summary>
+							<div class="border-t border-cca-line px-4 py-3 text-sm text-cca-body">
+								The most up-to-date information lives on our <a href="https://www.facebook.com/cadottcommunityassociation" class="text-cca-teal-600 underline decoration-cca-teal-600/30 hover:decoration-cca-teal-600 transition">Facebook page</a>. Watch there for the latest poster, schedule, and announcements.
+							</div>
+						</details>
 					</div>
 				</div>
 				<div class="flex flex-wrap gap-3 pt-2">

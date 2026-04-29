@@ -6,8 +6,8 @@ import (
 	"ccassociation/templates/layouts"
 )
 
-templ EventSleighRides() {
-	@layouts.Base(meta.New("Sleigh Rides", "Cadott's December tradition — horse-drawn sleigh rides through town with a community vendor event, live jazz, and soup fundraiser.").WithCanonical("https://www.cadottcommunity.com/events/sleigh-rides"), "Events") {
+templ EventWagonRides() {
+	@layouts.Base(meta.New("Wagon Rides", "Free horse-drawn wagon rides through Cadott's Riverview Park, paired with a community vendor event, live jazz music, and a soup fundraiser.").WithCanonical("https://www.cadottcommunity.com/events/wagon-rides"), "Events") {
 		<!-- JSON-LD Breadcrumb -->
 		<script type="application/ld+json">
 		{
@@ -16,7 +16,7 @@ templ EventSleighRides() {
 			"itemListElement": [
 				{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cadottcommunity.com/"},
 				{"@type": "ListItem", "position": 2, "name": "Events", "item": "https://www.cadottcommunity.com/events"},
-				{"@type": "ListItem", "position": 3, "name": "Sleigh Rides", "item": "https://www.cadottcommunity.com/events/sleigh-rides"}
+				{"@type": "ListItem", "position": 3, "name": "Wagon Rides", "item": "https://www.cadottcommunity.com/events/wagon-rides"}
 			]
 		}
 		</script>
@@ -24,9 +24,9 @@ templ EventSleighRides() {
 		<section class="bg-cca-purple px-4 py-14 sm:py-20">
 			<div class="mx-auto max-w-6xl">
 				<a href="/events" class="text-sm text-white/80 hover:text-white transition">← All events</a>
-				<p class="mt-4 section-label-light">🛷 Signature Event</p>
-				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Sleigh Rides</h1>
-				<p class="mt-4 max-w-xl text-lg text-white/80">Horse-drawn sleigh rides through Cadott every December — paired with a community vendor event, live jazz, and a soup fundraiser.</p>
+				<p class="mt-4 section-label-light">🐴 Signature Event</p>
+				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Wagon Rides</h1>
+				<p class="mt-4 max-w-xl text-lg text-white/80">Free horse-drawn wagon rides through Riverview Park, paired with a community vendor event, live jazz music, and a soup fundraiser.</p>
 			</div>
 		</section>
 		<!-- ══════ OVERVIEW ══════ -->
@@ -34,25 +34,19 @@ templ EventSleighRides() {
 			<div class="mx-auto max-w-6xl">
 				<div class="grid gap-8 lg:grid-cols-2 lg:items-center">
 					<div class="space-y-4">
-						<p class="section-label">Sleigh Rides</p>
+						<p class="section-label">Wagon Rides</p>
 						<h2 class="font-display text-3xl font-bold text-cca-ink">A winter tradition worth bundling up for.</h2>
-						<p class="text-cca-body">Every December, downtown Cadott gets a little brighter. Hop on a horse-drawn sleigh for a ride through town, browse local vendors, warm up with a bowl of soup, and catch live jazz while you're at it. The exact lineup shifts year to year, but the heart stays the same.</p>
+						<p class="text-cca-body">Free horse-drawn wagon rides through Riverview Park, paired with a community vendor event, live jazz music, and a soup fundraiser. Hop on a wagon, browse local makers, warm up with a bowl of soup, and catch live jazz while you're at it.</p>
 						<div class="grid gap-2 sm:grid-cols-2">
-							@HighlightCard("🐴", "Horse-drawn sleigh rides through downtown Cadott.")
+							@HighlightCard("🐴", "Free horse-drawn wagon rides through Riverview Park.")
 							@HighlightCard("🛍️", "Community vendor event featuring local makers and shops.")
 							@HighlightCard("🎷", "Live jazz to set the mood.")
-							@HighlightCard("🍲", "Soup fundraiser — warm up and support CCA.")
+							@HighlightCard("🍲", "Soup fundraiser run by community partners.")
 						</div>
 						<p class="text-sm text-cca-muted">Exact date announced each fall on Facebook. Offerings may vary year to year.</p>
 					</div>
-					<figure class="relative overflow-hidden rounded-xl bg-cca-wash shadow-lg">
-						<div class="flex h-72 w-full items-center justify-center sm:h-96">
-							<div class="text-center text-cca-muted">
-								<span class="text-5xl">📸</span>
-								<p class="mt-3 text-sm font-semibold">Photos coming soon</p>
-								<p class="mt-1 text-xs">Lucy's sending over kids-with-horses shots!</p>
-							</div>
-						</div>
+					<figure class="relative overflow-hidden rounded-xl shadow-lg">
+						<img class="h-72 w-full object-cover sm:h-96" src="/static/images/legacy/wagon-rides-classic.jpg" alt="Horse-drawn wagon ride through Cadott during the winter community event" loading="lazy"/>
 					</figure>
 				</div>
 			</div>
@@ -62,7 +56,7 @@ templ EventSleighRides() {
 			<div class="mx-auto max-w-6xl space-y-8">
 				<div class="flex flex-wrap items-start justify-between gap-4">
 					<div>
-						<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-500">December · Downtown Cadott</p>
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-500">December · Riverview Park</p>
 						<h2 class="mt-2 font-display text-3xl font-bold text-white">Come for the ride, stay for the soup.</h2>
 					</div>
 					<div class="flex flex-wrap gap-3">
@@ -71,14 +65,14 @@ templ EventSleighRides() {
 					</div>
 				</div>
 				<div class="grid gap-3 sm:grid-cols-2">
-					@InfoCard("The sleigh ride", "Horse-drawn sleighs carry families and neighbors on a loop through downtown Cadott. Bring a blanket and warm layers.")
+					@InfoCard("The wagon ride", "Free horse-drawn wagons carry families and neighbors on a loop through Riverview Park. Bring a blanket and warm layers.")
 					@InfoCard("Community vendor event", "Local makers, bakers, and small businesses set up shop — a chance to do some holiday shopping close to home.")
 					@InfoCard("Live jazz", "We've hosted live jazz alongside past rides. Exact musical lineup varies year to year.")
-					@InfoCard("Soup fundraiser", "Warm up with a bowl of soup. Proceeds help fund CCA's community programming through the year.")
+					@InfoCard("Soup fundraiser", "A bowl of soup to warm up between rides. Run by community partners — proceeds support their cause.")
 				</div>
 				<div class="rounded-xl border border-white/10 bg-white/5 p-6">
 					<h3 class="font-display text-xl font-bold text-white">Pitch in</h3>
-					<p class="mt-2 text-white/70">We always need hands — greeters, hot cocoa service, soup service, setup, and teardown. Message us on Facebook or email the board to sign up.</p>
+					<p class="mt-2 text-white/70">We always need hands — greeters, hot cocoa service, setup, and teardown. Message us on Facebook or email the board to sign up.</p>
 				</div>
 			</div>
 		</section>

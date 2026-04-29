@@ -18,6 +18,6 @@ func (h *Handler) EventCommunityBingos(c echo.Context) error {
 	return pages.EventCommunityBingos().Render(c.Request().Context(), c.Response().Writer)
 }
 
-func (h *Handler) EventSleighRides(c echo.Context) error {
-	return pages.EventSleighRides().Render(c.Request().Context(), c.Response().Writer)
+func (h *Handler) EventWagonRides(c echo.Context) error {
+	return pages.EventWagonRides().Render(c.Request().Context(), c.Response().Writer)
 }

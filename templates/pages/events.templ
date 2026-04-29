@@ -6,7 +6,7 @@ import (
 )
 
 templ Events() {
-	@layouts.Base(meta.New("Events & Festivals", "Nabor Days, Community Bingos, Sleigh Rides — discover Cadott's hometown events calendar.").WithCanonical("https://www.cadottcommunity.com/events").WithOGImageInfo("/static/images/nabor-days-2025/parade-committee.jpg", "Cadott Nabor Days Parade Committee gathered together in matching shirts", 1200, 630), "Events") {
+	@layouts.Base(meta.New("Events & Festivals", "Nabor Days, Community Bingos, Wagon Rides — discover Cadott's hometown events calendar.").WithCanonical("https://www.cadottcommunity.com/events").WithOGImageInfo("/static/images/nabor-days-2025/parade-committee.jpg", "Cadott Nabor Days Parade Committee gathered together in matching shirts", 1200, 630), "Events") {
 		<!-- ══════ HERO ══════ -->
 		<section class="relative overflow-hidden bg-cca-ink">
 			<div class="absolute inset-0">
@@ -15,7 +15,7 @@ templ Events() {
 			<div class="relative mx-auto max-w-6xl px-4 py-14 sm:py-20">
 				<p class="section-label-light">🎉 Events &amp; Festivals</p>
 				<h1 class="mt-3 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">Hometown events that bring us together.</h1>
-				<p class="mt-4 max-w-xl text-lg text-white/70">From Nabor Days to Community Bingos and winter Sleigh Rides — there's always a reason to gather in Cadott.</p>
+				<p class="mt-4 max-w-xl text-lg text-white/70">From Nabor Days to Community Bingos and winter Wagon Rides — there's always a reason to gather in Cadott.</p>
 			</div>
 		</section>
 		<!-- ══════ SIGNATURE EVENTS ══════ -->
@@ -28,7 +28,7 @@ templ Events() {
 				<div class="grid gap-6 md:grid-cols-3">
 					@EventCardNaborDays()
 					@EventCardBingos()
-					@EventCardSleighRides()
+					@EventCardWagonRides()
 				</div>
 			</div>
 		</section>
@@ -49,12 +49,12 @@ templ Events() {
 templ EventCardNaborDays() {
 	<a href="/events/nabor-days" class="group block overflow-hidden rounded-2xl border border-cca-line bg-white shadow-sm card-lift no-underline">
 		<div class="aspect-[16/10] w-full overflow-hidden bg-cca-wash">
-			<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/legacy/church-band-parade.jpg" alt="Nabor Days parade" loading="lazy"/>
+			<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/nabor-days-2025/royalty-cadott-float.jpg" alt="Cadott Nabor Days parade royalty float" loading="lazy"/>
 		</div>
 		<div class="space-y-2 p-6">
-			<p class="text-xs font-bold uppercase tracking-wider text-cca-gold-500">Late July 2026</p>
+			<p class="text-xs font-bold uppercase tracking-wider text-cca-gold-500">Thursday–Sunday · Late July 2026</p>
 			<h3 class="font-display text-xl font-bold text-cca-ink">Nabor Days Festival</h3>
-			<p class="text-sm text-cca-body">Cadott's biggest summer weekend — grand parade, softball, live music, Truck &amp; Tractor Pull, Mud Bog, Fun Run, and fireworks.</p>
+			<p class="text-sm text-cca-body">Nabor Days is our community's signature 4-day celebration filled with fun for all ages. From the Kid Zone and live music to the parade, fireworks, Truck &amp; Tractor Pull, Mud Bog, vendors, and more, there's something for everyone to enjoy!</p>
 			<p class="inline-flex items-center gap-1 pt-2 text-sm font-semibold text-cca-gold-500">Learn more →</p>
 		</div>
 	</a>
@@ -62,27 +62,27 @@ templ EventCardNaborDays() {
 
 templ EventCardBingos() {
 	<a href="/events/community-bingos" class="group block overflow-hidden rounded-2xl border border-cca-line bg-white shadow-sm card-lift no-underline">
-		<div class="aspect-[16/10] w-full bg-cca-teal-600 flex items-center justify-center">
-			<span class="text-6xl opacity-90">🎯</span>
+		<div class="aspect-[16/10] w-full overflow-hidden bg-cca-wash">
+			<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src="/static/images/community-bingos/purse-bingo-crowd.jpg" alt="Crowd of attendees at a Cadott Purse Bingo night" loading="lazy"/>
 		</div>
 		<div class="space-y-2 p-6">
 			<p class="text-xs font-bold uppercase tracking-wider text-cca-teal-600">Throughout the year</p>
 			<h3 class="font-display text-xl font-bold text-cca-ink">Community Bingos</h3>
-			<p class="text-sm text-cca-body">Purse Bingo is our new headline night. We've also run meat raffles — and we're open to new themes if you've got an idea.</p>
+			<p class="text-sm text-cca-body">From Halloween Bingo to Purse Bingo and other exciting themes, each gathering offers a unique experience filled with prizes, laughter, and community connection for all ages.</p>
 			<p class="inline-flex items-center gap-1 pt-2 text-sm font-semibold text-cca-teal-600">Learn more →</p>
 		</div>
 	</a>
 }
 
-templ EventCardSleighRides() {
-	<a href="/events/sleigh-rides" class="group block overflow-hidden rounded-2xl border border-cca-line bg-white shadow-sm card-lift no-underline">
+templ EventCardWagonRides() {
+	<a href="/events/wagon-rides" class="group block overflow-hidden rounded-2xl border border-cca-line bg-white shadow-sm card-lift no-underline">
 		<div class="aspect-[16/10] w-full bg-cca-purple flex items-center justify-center">
-			<span class="text-6xl opacity-90">🛷</span>
+			<span class="text-6xl opacity-90">🐴</span>
 		</div>
 		<div class="space-y-2 p-6">
-			<p class="text-xs font-bold uppercase tracking-wider text-cca-purple">December · Downtown Cadott</p>
-			<h3 class="font-display text-xl font-bold text-cca-ink">Sleigh Rides</h3>
-			<p class="text-sm text-cca-body">Horse-drawn sleigh rides through town paired with a community vendor event, live jazz, and soup fundraiser.</p>
+			<p class="text-xs font-bold uppercase tracking-wider text-cca-purple">December · Riverview Park</p>
+			<h3 class="font-display text-xl font-bold text-cca-ink">Wagon Rides</h3>
+			<p class="text-sm text-cca-body">Free horse-drawn wagon rides through Riverview Park paired with a community vendor event, live jazz music, and soup fundraiser.</p>
 			<p class="inline-flex items-center gap-1 pt-2 text-sm font-semibold text-cca-purple">Learn more →</p>
 		</div>
 	</a>
