@@ -131,11 +131,16 @@ templ EventNaborDays() {
 						<div class="space-y-3">
 							<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-gold-500">Sunday at Noon</p>
 							<h3 class="font-display text-2xl font-bold text-white">Register for the parade</h3>
-							<p class="text-white/70">Want your business, group, or family in the Nabor Days parade? Scan the QR code (or grab the link from a printed flyer or our Facebook page) to fill out the registration form.</p>
+							<p class="text-white/70">Want your business, group, or family in the Nabor Days parade? On your phone, scan the QR code. On a computer, click below to open the form.</p>
+							<div class="flex flex-wrap gap-3 pt-1">
+								@components.ButtonPrimary("https://docs.google.com/forms/d/e/1FAIpQLSdR7GPQaTMEOIeibpgwrYdozp-Jx_16Gfbgp9w-qUaT-fniTA/viewform?pli=1", "Open the registration form")
+							</div>
 							<p class="text-sm text-white/60">Questions? Email <a href="mailto:cadott-community@googlegroups.com" class="text-cca-teal-600 underline decoration-cca-teal-600/30 hover:decoration-cca-teal-600 transition">cadott-community@googlegroups.com</a>.</p>
 						</div>
 						<figure class="mx-auto w-44 sm:w-full">
-							<img class="w-full rounded-lg bg-white p-3" src="/static/images/nabor-days/parade-registration-qr.jpg" alt="QR code linking to the Nabor Days parade registration form" loading="lazy"/>
+							<a href="https://docs.google.com/forms/d/e/1FAIpQLSdR7GPQaTMEOIeibpgwrYdozp-Jx_16Gfbgp9w-qUaT-fniTA/viewform?pli=1" target="_blank" rel="noreferrer noopener" aria-label="Open the parade registration form">
+								<img class="w-full rounded-lg bg-white p-3" src="/static/images/nabor-days/parade-registration-qr.jpg" alt="QR code linking to the Nabor Days parade registration form" loading="lazy"/>
+							</a>
 						</figure>
 					</div>
 				</div>
