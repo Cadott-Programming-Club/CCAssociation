@@ -7,7 +7,7 @@ import (
 )
 
 templ EventWagonRides() {
-	@layouts.Base(meta.New("Wagon Rides", "Free horse-drawn wagon rides through Cadott's Riverview Park, paired with a community vendor event, live jazz music, and a soup fundraiser.").WithCanonical("https://www.cadottcommunity.com/events/wagon-rides"), "Events") {
+	@layouts.Base(meta.New("Wagon Rides", "Free horse-drawn wagon rides through Cadott's Riverview Park, paired with a community vendor event, live jazz music, and a soup fundraiser.").WithCanonical("https://www.cadottcommunity.com/events/wagon-rides").WithOGImageInfo("/static/images/wagon-rides/wagon-night-ride.jpg", "Rider's-eye view from a horse-drawn wagon at Cadott's Christmas Village event, with two horses pulling on a snowy night surrounded by lit displays", 1200, 630), "Events") {
 		<!-- JSON-LD Breadcrumb -->
 		<script type="application/ld+json">
 		{
@@ -46,7 +46,10 @@ templ EventWagonRides() {
 						<p class="text-sm text-cca-muted">Exact date announced each fall on Facebook. Offerings may vary year to year.</p>
 					</div>
 					<figure class="relative overflow-hidden rounded-xl shadow-lg">
-						<img class="h-72 w-full object-cover sm:h-96" src="/static/images/legacy/wagon-rides-classic.jpg" alt="Horse-drawn wagon ride through Cadott during the winter community event" loading="lazy"/>
+						<img class="h-72 w-full object-cover sm:h-96" src="/static/images/wagon-rides/wagon-night-ride.jpg" alt="Rider's-eye view from a horse-drawn wagon at Cadott's Christmas Village event, with two horses pulling on a snowy night surrounded by lit displays" loading="lazy"/>
+						<figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-white">
+							<p class="text-sm font-semibold">A view from the wagon</p>
+						</figcaption>
 					</figure>
 				</div>
 			</div>
