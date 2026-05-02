@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"context"
+	"net/http"
 	"strings"
 
 	"github.com/labstack/echo/v4"
@@ -15,6 +16,7 @@ func Setup(e *echo.Echo, cfg *config.Config) {
 	e.Use(middleware.RequestID())
 	e.Use(middleware.Recover())
 	e.Use(SiteConfigMiddleware(cfg.Site))
+	e.Use(CanonicalHostMiddleware())
 	e.Use(StaticCacheMiddleware())
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
@@ -37,6 +39,22 @@ func SiteConfigMiddleware(site config.SiteConfig) echo.MiddlewareFunc {
 		return func(c echo.Context) error {
 			ctx := context.WithValue(c.Request().Context(), ctxkeys.SiteConfig, site)
 			c.SetRequest(c.Request().WithContext(ctx))
+			return next(c)
+		}
+	}
+}
+
+// CanonicalHostMiddleware 301-redirects requests for the apex domain
+// (cadottcommunity.com) to the www subdomain so the site has a single
+// canonical URL. Other hosts (localhost, dokploy preview, www itself)
+// pass through unchanged.
+func CanonicalHostMiddleware() echo.MiddlewareFunc {
+	return func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) error {
+			if c.Request().Host == "cadottcommunity.com" {
+				target := "https://www.cadottcommunity.com" + c.Request().URL.RequestURI()
+				return c.Redirect(http.StatusMovedPermanently, target)
+			}
 			return next(c)
 		}
 	}
