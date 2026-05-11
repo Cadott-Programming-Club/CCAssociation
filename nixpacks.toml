@@ -3,9 +3,13 @@ nixpkgsArchive = 'e607cb5360ff1234862ac9f8839522becb853bb9'
 nixPkgs = ["go_1_26", "nodejs_20", "sqlite"]
 
 [phases.install]
+# Install the templ CLI at the same version pinned in go.mod so the
+# generated `_templ.go` files match the runtime API. Using `@latest`
+# here breaks when the templ project releases a new generator that
+# emits calls into APIs newer than the runtime we depend on.
 cmds = [
     "npm install",
-    "go install github.com/a-h/templ/cmd/templ@latest",
+    "go install github.com/a-h/templ/cmd/templ@$(go list -m -f '{{.Version}}' github.com/a-h/templ)",
 ]
 
 [phases.build]
