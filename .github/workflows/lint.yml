@@ -19,8 +19,11 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
       - name: Generate code
+        # Pin the templ CLI to the runtime version in go.mod so the
+        # generated _templ.go files match the API we actually link against.
         run: |
-          go install github.com/a-h/templ/cmd/templ@latest
+          TEMPL_VERSION=$(go list -m -f '{{.Version}}' github.com/a-h/templ)
+          go install github.com/a-h/templ/cmd/templ@${TEMPL_VERSION}
           go generate ./...
       - name: Run golangci-lint
         uses: golangci/golangci-lint-action@v7
