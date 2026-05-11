@@ -54,6 +54,31 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 	e.GET("/grand-marshals", h.GrandMarshals)
 	e.GET("/contact", h.Contact)
 
+	// 301 redirects from the old Weebly URLs Google has indexed. The
+	// first four (frequently-asked-questions, relocation, index,
+	// meeting--member-information) are the exact slugs from the
+	// 2026-05-11 Search Console "Not found (404)" report. The
+	// remaining entries are belt-and-suspenders mappings for plausible
+	// alternate paths so bookmarks and old inbound links still work.
+	for from, to := range map[string]string{
+		"/index.html":                       "/",
+		"/home":                             "/",
+		"/home.html":                        "/",
+		"/frequently-asked-questions.html":  "/faq",
+		"/faq.html":                         "/faq",
+		"/meeting--member-information.html": "/contact",
+		"/meeting-member-information.html":  "/contact",
+		"/contact.html":                     "/contact",
+		"/relocation.html":                  "/",
+		"/events.html":                      "/events",
+		"/gallery.html":                     "/gallery",
+	} {
+		dest := to
+		e.GET(from, func(c echo.Context) error {
+			return c.Redirect(http.StatusMovedPermanently, dest)
+		})
+	}
+
 	// Custom 404
 	e.HTTPErrorHandler = func(err error, c echo.Context) {
 		code := http.StatusInternalServerError
