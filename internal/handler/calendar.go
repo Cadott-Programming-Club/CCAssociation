@@ -45,8 +45,7 @@ func (h *Handler) EventsCalendar(c echo.Context) error {
 	}
 
 	monthEvents := events.Month(h.events, year, month, chicagoLoc)
-	gridStart, gridEnd := events.MonthGridRange(year, month, chicagoLoc)
-	listGroups := events.GroupByDay(h.events, now.Truncate(24*time.Hour), gridEnd.AddDate(0, 6, 0), chicagoLoc)
+	gridStart, _ := events.MonthGridRange(year, month, chicagoLoc)
 
 	data := pages.CalendarData{
 		Year:        year,
@@ -55,7 +54,6 @@ func (h *Handler) EventsCalendar(c echo.Context) error {
 		View:        view,
 		GridStart:   gridStart,
 		MonthEvents: monthEvents,
-		ListGroups:  listGroups,
 		Location:    chicagoLoc,
 	}
 	return pages.EventCalendar(data).Render(c.Request().Context(), c.Response().Writer)

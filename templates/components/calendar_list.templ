@@ -2,24 +2,20 @@ package components
 
 import "ccassociation/internal/events"
 
-// CalendarList renders the agenda view: events grouped by date with
-// sticky date headers and a card per event.
-templ CalendarList(groups []events.DayGroup) {
-	<div class="space-y-6">
-		if len(groups) == 0 {
-			<p class="rounded-2xl border border-cca-line bg-white p-8 text-center text-cca-muted">No upcoming events. Check back soon!</p>
-		}
-		for _, g := range groups {
-			<div class="space-y-3">
-				<h3 class="sticky top-16 z-10 -mx-2 bg-cca-wash/95 px-2 py-2 font-display text-sm font-bold uppercase tracking-wider text-cca-muted backdrop-blur">
-					{ g.Date.Format("Monday, January 2, 2006") }
-				</h3>
-				<div class="grid gap-3 sm:grid-cols-2">
-					for _, e := range g.Events {
-						@EventCard(e)
-					}
-				</div>
-			</div>
-		}
-	</div>
+// CalendarList renders the agenda view as a responsive grid of image-top
+// event cards (one card per event, not per day — multi-day events are not
+// duplicated). The selected month's events appear in chronological order.
+templ CalendarList(monthEvents []events.Event, monthLabel string) {
+	if len(monthEvents) == 0 {
+		<div class="rounded-2xl border border-cca-line bg-white p-10 text-center">
+			<p class="font-display text-lg font-bold text-cca-ink">Nothing on the calendar in { monthLabel }.</p>
+			<p class="mt-2 text-sm text-cca-muted">Use the arrows above to browse another month, or follow us on Facebook for the latest.</p>
+		</div>
+	} else {
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			for _, e := range monthEvents {
+				@EventCard(e)
+			}
+		</div>
+	}
 }

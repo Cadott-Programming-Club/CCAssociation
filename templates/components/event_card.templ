@@ -2,33 +2,38 @@ package components
 
 import "ccassociation/internal/events"
 
-// EventCard is the agenda-list / home-widget card for a single event.
-// It uses a left color stripe + the project's existing card-lift styling.
+// EventCard is the image-top card used in the calendar list view and the
+// home-page upcoming widget. It mirrors the existing signature-event card
+// pattern on /events: rounded-2xl border, hover-lift, aspect-[16/10]
+// imagery, uppercase colored label, font-display title, optional summary,
+// and a "Learn more →" affordance.
 templ EventCard(e events.Event) {
-	<a
-		href={ templ.SafeURL(e.URL()) }
-		class={ "group flex gap-3 rounded-2xl border border-cca-line bg-white p-4 shadow-sm card-lift no-underline event-stripe-" + e.ColorClass() }
-	>
-		<div class="flex w-16 shrink-0 flex-col items-center justify-center rounded-xl bg-cca-wash p-2 text-center">
-			<span class="text-[10px] font-bold uppercase tracking-wider text-cca-muted">{ e.StartDate.Format("Jan") }</span>
-			<span class="font-display text-2xl font-bold leading-none text-cca-ink">{ e.StartDate.Format("2") }</span>
-			<span class="mt-0.5 text-[10px] text-cca-muted">{ e.StartDate.Format("Mon") }</span>
-		</div>
-		<div class="min-w-0 flex-1 space-y-1">
-			<h3 class="font-display text-base font-bold text-cca-ink truncate">{ e.Name }</h3>
-			<p class="text-xs text-cca-muted">
-				if e.AllDay {
-					All day
-				} else {
-					{ e.StartDate.Format("3:04 PM") }
-				}
+	<a href={ templ.SafeURL(e.URL()) } class="group block overflow-hidden rounded-2xl border border-cca-line bg-white shadow-sm card-lift no-underline">
+		if e.Image != "" {
+			<div class="aspect-[16/10] w-full overflow-hidden bg-cca-wash">
+				<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src={ e.Image } alt="" loading="lazy"/>
+			</div>
+		} else {
+			<div class={ "flex aspect-[16/10] w-full flex-col items-center justify-center text-white", e.AccentBgClass() }>
+				<span class="font-display text-5xl font-bold">{ e.StartDate.Format("2") }</span>
+				<span class="mt-1 text-xs font-bold uppercase tracking-[0.2em]">{ e.StartDate.Format("Jan 2006") }</span>
+			</div>
+		}
+		<div class="space-y-2 p-6">
+			<p class={ "text-xs font-bold uppercase tracking-wider", e.AccentTextClass() }>
+				{ e.DateRangeLabel() } · { e.WeekdayRangeLabel() }
+			</p>
+			<h3 class="font-display text-xl font-bold text-cca-ink">{ e.Name }</h3>
+			<p class="text-sm text-cca-muted">
+				{ e.TimeLabel() }
 				if e.Location.Name != "" {
 					· { e.Location.Name }
 				}
 			</p>
 			if e.Summary != "" {
-				<p class="line-clamp-2 text-sm text-cca-body">{ e.Summary }</p>
+				<p class="line-clamp-3 text-sm text-cca-body">{ e.Summary }</p>
 			}
+			<p class={ "inline-flex items-center gap-1 pt-2 text-sm font-semibold", e.AccentTextClass() }>Learn more →</p>
 		</div>
 	</a>
 }

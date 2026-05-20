@@ -15,10 +15,9 @@ type CalendarData struct {
 	Year        int
 	Month       time.Month
 	Today       time.Time
-	View        string // "month" or "list"
+	View        string // "month", "list", or "auto"
 	GridStart   time.Time
-	MonthEvents []events.Event
-	ListGroups  []events.DayGroup
+	MonthEvents []events.Event // events overlapping the grid (used by the grid view and the list)
 	Location    *time.Location
 }
 
@@ -121,7 +120,7 @@ templ EventCalendar(d CalendarData) {
 					@components.CalendarGrid(d.GridStart, d.Month, d.Today, d.MonthEvents, d.Location)
 				</div>
 				<div data-view-list class={ listWrapperClass(d.View) }>
-					@components.CalendarList(d.ListGroups)
+					@components.CalendarList(d.MonthEvents, d.MonthLabel())
 				</div>
 			</div>
 		</section>

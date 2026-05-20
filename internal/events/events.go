@@ -209,3 +209,81 @@ func (e Event) ColorClass() string {
 	}
 	return "teal"
 }
+
+// AccentTextClass returns the Tailwind text-* class matching the event's
+// accent color — used for the small uppercase date/location label that
+// sits above the title on event cards (matches the /events page pattern).
+func (e Event) AccentTextClass() string {
+	switch e.ColorClass() {
+	case "gold":
+		return "text-cca-gold-500"
+	case "purple":
+		return "text-cca-purple"
+	case "coral":
+		return "text-cca-coral"
+	case "lime":
+		return "text-cca-lime"
+	}
+	return "text-cca-teal-600"
+}
+
+// AccentBgClass returns the Tailwind bg-* class matching the event's
+// accent color — used as a fallback placeholder when no image is set.
+func (e Event) AccentBgClass() string {
+	switch e.ColorClass() {
+	case "gold":
+		return "bg-cca-gold-500"
+	case "purple":
+		return "bg-cca-purple"
+	case "coral":
+		return "bg-cca-coral"
+	case "lime":
+		return "bg-cca-lime"
+	}
+	return "bg-cca-teal-600"
+}
+
+// DateRangeLabel returns a compact human range like "JUL 23" or
+// "JUL 23–26" (uppercase, en-dash) matching the site's uppercase
+// section-label convention.
+func (e Event) DateRangeLabel() string {
+	s := e.StartDate
+	t := e.EndDate
+	if t.IsZero() || sameDay(s, t) {
+		return strings.ToUpper(s.Format("Jan 2"))
+	}
+	if s.Year() == t.Year() && s.Month() == t.Month() {
+		return strings.ToUpper(s.Format("Jan 2")) + "–" + t.Format("2")
+	}
+	return strings.ToUpper(s.Format("Jan 2") + "–" + t.Format("Jan 2"))
+}
+
+// TimeLabel returns the event's time as a compact string: "All day",
+// "5:00 PM", or "5:00 PM – 10:00 PM".
+func (e Event) TimeLabel() string {
+	if e.AllDay {
+		return "All day"
+	}
+	if e.EndDate.IsZero() || e.StartDate.Equal(e.EndDate) {
+		return e.StartDate.Format("3:04 PM")
+	}
+	if sameDay(e.StartDate, e.EndDate) {
+		return e.StartDate.Format("3:04 PM") + " – " + e.EndDate.Format("3:04 PM")
+	}
+	return e.StartDate.Format("3:04 PM")
+}
+
+// WeekdayRangeLabel returns "Thursday" or "Thursday–Sunday" for the
+// event's date range. Used as a secondary line on cards.
+func (e Event) WeekdayRangeLabel() string {
+	s := e.StartDate
+	t := e.EndDate
+	if t.IsZero() || sameDay(s, t) {
+		return s.Format("Monday")
+	}
+	return s.Format("Monday") + "–" + t.Format("Monday")
+}
+
+func sameDay(a, b time.Time) bool {
+	return a.Year() == b.Year() && a.YearDay() == b.YearDay()
+}

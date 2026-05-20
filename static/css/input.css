@@ -143,13 +143,6 @@
 .event-pill-coral  { background-color: color-mix(in srgb, var(--cca-coral) 15%, white);  color: var(--cca-coral); }
 .event-pill-lime   { background-color: color-mix(in srgb, var(--cca-lime) 18%, white);   color: #4d7a26; }
 
-/* Event calendar — left color stripe on cards (agenda + modal + home widget) */
-.event-stripe-gold   { box-shadow: inset 4px 0 0 0 var(--cca-gold-500); }
-.event-stripe-teal   { box-shadow: inset 4px 0 0 0 var(--cca-teal-600); }
-.event-stripe-purple { box-shadow: inset 4px 0 0 0 var(--cca-purple); }
-.event-stripe-coral  { box-shadow: inset 4px 0 0 0 var(--cca-coral); }
-.event-stripe-lime   { box-shadow: inset 4px 0 0 0 var(--cca-lime); }
-
 /* Modal: hide native disclosure marker on <details>-based add-to-calendar */
 [data-add-to-calendar] > summary {
   list-style: none;

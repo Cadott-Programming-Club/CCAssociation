@@ -175,6 +175,93 @@ func TestEvent_URLAndAutoDetail(t *testing.T) {
 	}
 }
 
+func TestDateAndTimeLabels(t *testing.T) {
+	loc, _ := time.LoadLocation("America/Chicago")
+	if loc == nil {
+		loc = time.UTC
+	}
+	cases := []struct {
+		name        string
+		e           Event
+		wantRange   string
+		wantTime    string
+		wantWeekday string
+	}{
+		{
+			name: "multi-day same month",
+			e: Event{
+				StartDate: time.Date(2026, 7, 23, 17, 0, 0, 0, loc),
+				EndDate:   time.Date(2026, 7, 26, 22, 0, 0, 0, loc),
+			},
+			wantRange:   "JUL 23–26",
+			wantTime:    "5:00 PM",
+			wantWeekday: "Thursday–Sunday",
+		},
+		{
+			name: "single day with end time",
+			e: Event{
+				StartDate: time.Date(2026, 6, 1, 18, 30, 0, 0, loc),
+				EndDate:   time.Date(2026, 6, 1, 20, 0, 0, 0, loc),
+			},
+			wantRange:   "JUN 1",
+			wantTime:    "6:30 PM – 8:00 PM",
+			wantWeekday: "Monday",
+		},
+		{
+			name: "all day",
+			e: Event{
+				AllDay:    true,
+				StartDate: time.Date(2026, 8, 15, 0, 0, 0, 0, loc),
+				EndDate:   time.Date(2026, 8, 15, 0, 0, 0, 0, loc),
+			},
+			wantRange:   "AUG 15",
+			wantTime:    "All day",
+			wantWeekday: "Saturday",
+		},
+		{
+			name: "range crossing months",
+			e: Event{
+				StartDate: time.Date(2026, 12, 30, 10, 0, 0, 0, loc),
+				EndDate:   time.Date(2027, 1, 2, 18, 0, 0, 0, loc),
+			},
+			wantRange:   "DEC 30–JAN 2",
+			wantTime:    "10:00 AM",
+			wantWeekday: "Wednesday–Saturday",
+		},
+	}
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			if got := tc.e.DateRangeLabel(); got != tc.wantRange {
+				t.Errorf("DateRangeLabel = %q, want %q", got, tc.wantRange)
+			}
+			if got := tc.e.TimeLabel(); got != tc.wantTime {
+				t.Errorf("TimeLabel = %q, want %q", got, tc.wantTime)
+			}
+			if got := tc.e.WeekdayRangeLabel(); got != tc.wantWeekday {
+				t.Errorf("WeekdayRangeLabel = %q, want %q", got, tc.wantWeekday)
+			}
+		})
+	}
+}
+
+func TestAccentClasses(t *testing.T) {
+	cases := map[string]struct{ text, bg string }{
+		"gold":   {"text-cca-gold-500", "bg-cca-gold-500"},
+		"teal":   {"text-cca-teal-600", "bg-cca-teal-600"},
+		"purple": {"text-cca-purple", "bg-cca-purple"},
+		"":       {"text-cca-teal-600", "bg-cca-teal-600"},
+	}
+	for in, want := range cases {
+		got := Event{Color: in}
+		if got.AccentTextClass() != want.text {
+			t.Errorf("%q AccentTextClass = %q, want %q", in, got.AccentTextClass(), want.text)
+		}
+		if got.AccentBgClass() != want.bg {
+			t.Errorf("%q AccentBgClass = %q, want %q", in, got.AccentBgClass(), want.bg)
+		}
+	}
+}
+
 func TestColorClass_FallsBackToTeal(t *testing.T) {
 	cases := map[string]string{
 		"gold":       "gold",

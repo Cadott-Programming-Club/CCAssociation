@@ -7,38 +7,35 @@ import (
 )
 
 // EventModal is the partial returned by GET /events/calendar/day/:date.
-// It is swapped into #cal-modal by HTMX, which then opens the dialog.
+// It's swapped into #cal-modal by HTMX and then opened as a <dialog>.
 templ EventModal(day time.Time, dayEvents []events.Event) {
-	<form method="dialog" class="flex items-center justify-between border-b border-cca-line px-5 py-3">
-		<h2 class="font-display text-lg font-bold text-cca-ink">{ day.Format("Monday, January 2") }</h2>
+	<form method="dialog" class="flex items-start justify-between gap-4 border-b border-cca-line px-6 py-4">
+		<div>
+			<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-teal-600">{ day.Format("Monday") }</p>
+			<h2 class="mt-1 font-display text-xl font-bold text-cca-ink">{ day.Format("January 2, 2006") }</h2>
+		</div>
 		<button class="rounded-lg p-1.5 text-cca-muted transition hover:bg-cca-wash hover:text-cca-ink" aria-label="Close">
 			<svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
 		</button>
 	</form>
-	<div class="max-h-[70vh] space-y-4 overflow-y-auto p-5">
+	<div class="max-h-[70vh] space-y-5 overflow-y-auto p-6">
 		if len(dayEvents) == 0 {
-			<p class="py-6 text-center text-sm text-cca-muted">No events scheduled.</p>
+			<p class="py-6 text-center text-sm text-cca-muted">Nothing scheduled for this day.</p>
 		}
 		for _, e := range dayEvents {
-			<article class={ "rounded-xl border border-cca-line p-4 event-stripe-" + e.ColorClass() }>
-				<h3 class="font-display text-base font-bold text-cca-ink">{ e.Name }</h3>
-				<p class="mt-1 text-xs text-cca-muted">
-					if e.AllDay {
-						All day
-					} else {
-						{ e.StartDate.Format("3:04 PM") } – { e.EndDate.Format("3:04 PM") }
-					}
+			<article class="rounded-xl border border-cca-line bg-cca-wash p-5">
+				<p class={ "text-xs font-bold uppercase tracking-[0.2em]", e.AccentTextClass() }>
+					{ e.TimeLabel() }
 					if e.Location.Name != "" {
 						· { e.Location.Name }
 					}
 				</p>
+				<h3 class="mt-1 font-display text-lg font-bold text-cca-ink">{ e.Name }</h3>
 				if e.Summary != "" {
 					<p class="mt-2 text-sm text-cca-body">{ e.Summary }</p>
 				}
-				<div class="mt-3 flex flex-wrap gap-2">
-					<a href={ templ.SafeURL(e.URL()) } class="inline-flex items-center gap-1 text-sm font-semibold text-cca-teal-600 transition hover:text-cca-teal-700">View full details →</a>
-				</div>
-				<div class="mt-3 flex flex-wrap gap-2">
+				<a href={ templ.SafeURL(e.URL()) } class={ "mt-3 inline-flex items-center gap-1 text-sm font-semibold transition", e.AccentTextClass() }>View full details →</a>
+				<div class="mt-4 flex flex-wrap gap-2 border-t border-cca-line pt-4">
 					@ShareButtons(e)
 					@AddToCalendar(e)
 				</div>
