@@ -10,8 +10,8 @@ import (
 	"syscall"
 	"time"
 
-	chimw "github.com/go-chi/chi/v5/middleware"
 	"github.com/labstack/echo/v4"
+	slogecho "github.com/samber/slog-echo"
 
 	"ccassociation/internal/config"
 	"ccassociation/internal/database"
@@ -45,10 +45,21 @@ func main() {
 
 	middleware.Setup(e, cfg)
 
+	// Structured request logger. Registered before route handlers so the
+	// middleware chain wraps the response writer first and observes the
+	// final status code (including 404s emitted by Echo's HTTPErrorHandler).
+	// The previous chi.Logger wrapped via echo.WrapMiddleware missed those
+	// writes and logged them as status 000.
+	e.Use(slogecho.NewWithConfig(slog.Default(), slogecho.Config{
+		DefaultLevel:     slog.LevelInfo,
+		ClientErrorLevel: slog.LevelWarn,
+		ServerErrorLevel: slog.LevelError,
+		WithUserAgent:    true,
+		WithRequestID:    true,
+	}))
+
 	h := handler.New(cfg, db)
 	h.RegisterRoutes(e)
-
-	e.Use(echo.WrapMiddleware(chimw.Logger))
 
 	go func() {
 		slog.Info("starting server", "url", fmt.Sprintf("http://localhost:%s", cfg.Port), "env", cfg.Env)
