@@ -72,6 +72,14 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 		"/relocation.html":                  "/",
 		"/events.html":                      "/events",
 		"/gallery.html":                     "/gallery",
+		"/nabor-days.html":                  "/events/nabor-days",
+		"/community-bingos.html":            "/events/community-bingos",
+		"/bingo.html":                       "/events/community-bingos",
+		"/sleigh-rides.html":                "/events/wagon-rides",
+		"/wagon-rides.html":                 "/events/wagon-rides",
+		"/grand-marshals.html":              "/grand-marshals",
+		"/support.html":                     "/support",
+		"/donate.html":                      "/support",
 	} {
 		dest := to
 		e.GET(from, func(c echo.Context) error {
