@@ -338,8 +338,8 @@ func TestEmbeddedJSON_Loads(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Load(EmbeddedJSON): %v", err)
 	}
-	if len(got) < 3 {
-		t.Errorf("expected at least 3 seeded events, got %d", len(got))
+	if len(got) == 0 {
+		t.Error("expected at least one seeded event, got 0")
 	}
 }
 

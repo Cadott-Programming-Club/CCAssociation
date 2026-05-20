@@ -19,65 +19,6 @@
       "detailURL": "/events/nabor-days",
       "facebookURL": "https://www.facebook.com/cadottcommunityassociation",
       "tags": ["festival", "family", "parade", "fireworks"]
-    },
-    {
-      "slug": "community-bingos-2026",
-      "name": "Community Bingos",
-      "startDate": "2026-06-13T18:00:00-05:00",
-      "endDate":   "2026-06-13T21:00:00-05:00",
-      "allDay": false,
-      "category": "signature",
-      "color": "teal",
-      "summary": "Themed community bingo nights — purse bingo, Halloween bingo, and more. Prizes, laughter, and connection for all ages.",
-      "description": "Doors open early. Bring friends, bring cash for raffle, and bring your luck. Check Facebook for the night's theme and prizes.",
-      "location": {
-        "name": "Cadott American Legion",
-        "address": "Cadott, WI",
-        "mapsURL": "https://maps.google.com/?q=Cadott+American+Legion"
-      },
-      "image": "/static/images/community-bingos/purse-bingo-crowd.jpg",
-      "detailURL": "/events/community-bingos",
-      "facebookURL": "https://www.facebook.com/cadottcommunityassociation",
-      "tags": ["bingo", "fundraiser", "indoor"]
-    },
-    {
-      "slug": "wagon-rides-2026",
-      "name": "Christmas Wagon Rides",
-      "startDate": "2026-12-12T17:00:00-06:00",
-      "endDate":   "2026-12-12T21:00:00-06:00",
-      "allDay": false,
-      "category": "signature",
-      "color": "purple",
-      "summary": "Free horse-drawn wagon rides through Riverview Park, with a community vendor event, live jazz music, and a soup fundraiser.",
-      "description": "Cadott's Christmas Village comes alive: warm soup, live jazz, vendor booths, and free horse-drawn wagon rides through the park.",
-      "location": {
-        "name": "Riverview Park",
-        "address": "Cadott, WI",
-        "mapsURL": "https://maps.google.com/?q=Riverview+Park+Cadott+WI"
-      },
-      "image": "/static/images/wagon-rides/wagon-night-ride.jpg",
-      "detailURL": "/events/wagon-rides",
-      "facebookURL": "https://www.facebook.com/cadottcommunityassociation",
-      "tags": ["winter", "family", "holiday"]
-    },
-    {
-      "slug": "cca-monthly-meeting-june-2026",
-      "name": "CCA Monthly Meeting",
-      "startDate": "2026-06-01T18:30:00-05:00",
-      "endDate":   "2026-06-01T20:00:00-05:00",
-      "allDay": false,
-      "category": "meeting",
-      "color": "teal",
-      "summary": "Monthly CCA board meeting — open to the community.",
-      "description": "First Monday of every month. Come share ideas, hear updates, and help plan upcoming events. Light refreshments.",
-      "location": {
-        "name": "Rick's Halfway",
-        "address": "Cadott, WI",
-        "mapsURL": "https://maps.google.com/?q=Ricks+Halfway+Cadott+WI"
-      },
-      "image": "",
-      "facebookURL": "https://www.facebook.com/cadottcommunityassociation",
-      "tags": ["meeting", "community"]
     }
   ]
 }

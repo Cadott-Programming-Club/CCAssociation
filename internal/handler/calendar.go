@@ -36,9 +36,12 @@ func (h *Handler) EventsCalendar(c echo.Context) error {
 			year, month = t.Year(), t.Month()
 		}
 	}
+	// view = "month" or "list" only when the user explicitly chooses one.
+	// When the param is absent, "auto" lets CSS pick: list on mobile,
+	// grid on >=sm. JS may upgrade to a saved localStorage choice.
 	view := c.QueryParam("view")
-	if view != "list" {
-		view = "month"
+	if view != "month" && view != "list" {
+		view = "auto"
 	}
 
 	monthEvents := events.Month(h.events, year, month, chicagoLoc)
