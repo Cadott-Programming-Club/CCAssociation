@@ -1,0 +1,46 @@
+package components
+
+import "ccassociation/internal/events"
+
+// ShareButtons renders the native-share button plus desktop fallbacks
+// (Facebook share dialog, mailto, copy link). calendar.js wires up the
+// data-share-* hooks to navigator.share / clipboard.
+templ ShareButtons(e events.Event) {
+	{{ publicURL := events.CanonicalURL(e) }}
+	<div class="flex flex-wrap gap-2" data-share data-share-title={ e.Name } data-share-text={ e.Summary } data-share-url={ publicURL }>
+		<button
+			type="button"
+			data-share-native
+			class="inline-flex items-center gap-2 rounded-lg bg-cca-teal-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-cca-teal-700"
+		>
+			<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M16 6l-4-4m0 0L8 6m4-4v12"></path></svg>
+			Share
+		</button>
+		<div class="contents" data-share-fallback>
+			<a
+				href={ templ.SafeURL(events.FacebookShareURL(publicURL)) }
+				target="_blank"
+				rel="noreferrer noopener"
+				class="inline-flex items-center gap-2 rounded-lg border border-cca-facebook/30 bg-cca-facebook/5 px-4 py-2 text-sm font-semibold text-cca-facebook transition hover:bg-cca-facebook/10"
+			>
+				@IconFacebook()
+				Facebook
+			</a>
+			<a
+				href={ templ.SafeURL(events.MailtoShareURL(e, publicURL)) }
+				class="inline-flex items-center gap-2 rounded-lg border border-cca-line bg-white px-4 py-2 text-sm font-semibold text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600"
+			>
+				@IconEmail()
+				Email
+			</a>
+			<button
+				type="button"
+				data-share-copy
+				class="inline-flex items-center gap-2 rounded-lg border border-cca-line bg-white px-4 py-2 text-sm font-semibold text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600"
+			>
+				<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2v-2m-6-7h8a2 2 0 002-2V5a2 2 0 00-2-2h-8a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+				Copy link
+			</button>
+		</div>
+	</div>
+}

@@ -122,3 +122,39 @@
 .card-lift:hover {
   @apply -translate-y-1 shadow-lg;
 }
+
+/* Event calendar — grid cells */
+.cal-cell {
+  min-height: 5rem;
+}
+@media (min-width: 640px) {
+  .cal-cell {
+    min-height: 6.5rem;
+  }
+}
+
+/* Event calendar — colored event pills inside a grid cell */
+.cal-pill {
+  @apply block truncate rounded px-1.5 py-0.5 text-[10px] font-semibold leading-tight;
+}
+.event-pill-gold   { @apply bg-cca-gold-100 text-cca-gold-600; }
+.event-pill-teal   { @apply bg-cca-teal-100 text-cca-teal-800; }
+.event-pill-purple { background-color: color-mix(in srgb, var(--cca-purple) 15%, white); color: var(--cca-purple); }
+.event-pill-coral  { background-color: color-mix(in srgb, var(--cca-coral) 15%, white);  color: var(--cca-coral); }
+.event-pill-lime   { background-color: color-mix(in srgb, var(--cca-lime) 18%, white);   color: #4d7a26; }
+
+/* Event calendar — left color stripe on cards (agenda + modal + home widget) */
+.event-stripe-gold   { box-shadow: inset 4px 0 0 0 var(--cca-gold-500); }
+.event-stripe-teal   { box-shadow: inset 4px 0 0 0 var(--cca-teal-600); }
+.event-stripe-purple { box-shadow: inset 4px 0 0 0 var(--cca-purple); }
+.event-stripe-coral  { box-shadow: inset 4px 0 0 0 var(--cca-coral); }
+.event-stripe-lime   { box-shadow: inset 4px 0 0 0 var(--cca-lime); }
+
+/* Modal: hide native disclosure marker on <details>-based add-to-calendar */
+[data-add-to-calendar] > summary {
+  list-style: none;
+}
+[data-add-to-calendar] > summary::-webkit-details-marker,
+[data-add-to-calendar] > summary::marker {
+  display: none;
+}

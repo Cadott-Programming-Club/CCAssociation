@@ -1,0 +1,74 @@
+package components
+
+import (
+	"strconv"
+	"time"
+
+	"ccassociation/internal/events"
+)
+
+// CalendarGrid renders a Sunday-start 6-row month grid. Each cell links
+// (via HTMX) to /events/calendar/day/YYYY-MM-DD which returns the modal
+// body for that day.
+templ CalendarGrid(gridStart time.Time, month time.Month, today time.Time, monthEvents []events.Event, loc *time.Location) {
+	<div class="rounded-2xl border border-cca-line bg-white shadow-sm overflow-hidden">
+		<div class="grid grid-cols-7 border-b border-cca-line bg-cca-wash text-center text-[11px] font-bold uppercase tracking-[0.1em] text-cca-muted">
+			<div class="px-2 py-2">Sun</div>
+			<div class="px-2 py-2">Mon</div>
+			<div class="px-2 py-2">Tue</div>
+			<div class="px-2 py-2">Wed</div>
+			<div class="px-2 py-2">Thu</div>
+			<div class="px-2 py-2">Fri</div>
+			<div class="px-2 py-2">Sat</div>
+		</div>
+		<div class="grid grid-cols-7">
+			for i := 0; i < 42; i++ {
+				@calendarCell(gridStart.AddDate(0, 0, i), month, today, monthEvents, loc)
+			}
+		</div>
+	</div>
+}
+
+templ calendarCell(day time.Time, month time.Month, today time.Time, monthEvents []events.Event, loc *time.Location) {
+	{{ dayEvents := events.ByDay(monthEvents, day, loc) }}
+	{{ inMonth := day.Month() == month }}
+	{{ isToday := day.Year() == today.Year() && day.YearDay() == today.YearDay() }}
+	<a
+		href={ templ.SafeURL("/events/calendar/day/" + day.Format("2006-01-02")) }
+		hx-get={ "/events/calendar/day/" + day.Format("2006-01-02") }
+		hx-target="#cal-modal"
+		hx-swap="innerHTML"
+		hx-on::after-request="document.getElementById('cal-modal').showModal()"
+		class={
+			"cal-cell flex flex-col gap-1 border-r border-b border-cca-line p-1.5 text-left transition no-underline",
+			templ.KV("bg-white", inMonth),
+			templ.KV("bg-cca-wash/40 text-cca-subtle", !inMonth),
+			templ.KV("ring-2 ring-inset ring-cca-teal-600", isToday),
+			templ.KV("hover:bg-cca-teal-50", len(dayEvents) > 0),
+		}
+		aria-label={ day.Format("Monday, January 2") }
+	>
+		<span
+			class={
+				"text-xs font-semibold",
+				templ.KV("text-cca-ink", inMonth),
+				templ.KV("text-cca-subtle", !inMonth),
+				templ.KV("text-cca-teal-700", isToday),
+			}
+		>
+			{ day.Format("2") }
+		</span>
+		if len(dayEvents) > 0 {
+			<div class="space-y-1">
+				for i, e := range dayEvents {
+					if i < 2 {
+						<span class={ "cal-pill event-pill-" + e.ColorClass() }>{ e.Name }</span>
+					}
+				}
+				if len(dayEvents) > 2 {
+					<span class="cal-pill bg-cca-line text-cca-muted">+{ strconv.Itoa(len(dayEvents) - 2) } more</span>
+				}
+			</div>
+		}
+	</a>
+}

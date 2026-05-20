@@ -1,24 +1,32 @@
 package handler
 
 import (
+	"log/slog"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
 
 	"ccassociation/internal/config"
 	"ccassociation/internal/database"
+	"ccassociation/internal/events"
 	"ccassociation/templates/pages"
 )
 
 type Handler struct {
-	cfg *config.Config
-	db  *database.DB
+	cfg    *config.Config
+	db     *database.DB
+	events []events.Event
 }
 
 func New(cfg *config.Config, db *database.DB) *Handler {
+	loaded, err := events.Load(events.EmbeddedJSON())
+	if err != nil {
+		slog.Error("events: failed to load embedded calendar", "error", err)
+	}
 	return &Handler{
-		cfg: cfg,
-		db:  db,
+		cfg:    cfg,
+		db:     db,
+		events: loaded,
 	}
 }
 
@@ -41,6 +49,9 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 	// Pages
 	e.GET("/", h.Home)
 	e.GET("/events", h.Events)
+	e.GET("/events/calendar", h.EventsCalendar)
+	e.GET("/events/calendar/day/:date", h.EventsDay)
+	e.GET("/events/c/:slug", h.EventDetailOrICS)
 	e.GET("/events/nabor-days", h.EventNaborDays)
 	e.GET("/events/community-bingos", h.EventCommunityBingos)
 	e.GET("/events/wagon-rides", h.EventWagonRides)

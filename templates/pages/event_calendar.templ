@@ -1,0 +1,89 @@
+package pages
+
+import (
+	"time"
+
+	"ccassociation/internal/events"
+	"ccassociation/internal/meta"
+	"ccassociation/templates/components"
+	"ccassociation/templates/layouts"
+)
+
+// CalendarData bundles everything the calendar page template needs from
+// the handler.
+type CalendarData struct {
+	Year        int
+	Month       time.Month
+	Today       time.Time
+	View        string // "month" or "list"
+	GridStart   time.Time
+	MonthEvents []events.Event
+	ListGroups  []events.DayGroup
+	Location    *time.Location
+}
+
+// prevMonth and nextMonth produce ?m= query values for navigation links.
+func (d CalendarData) PrevMonth() string {
+	t := time.Date(d.Year, d.Month, 1, 0, 0, 0, 0, d.Location).AddDate(0, -1, 0)
+	return t.Format("2006-01")
+}
+
+func (d CalendarData) NextMonth() string {
+	t := time.Date(d.Year, d.Month, 1, 0, 0, 0, 0, d.Location).AddDate(0, 1, 0)
+	return t.Format("2006-01")
+}
+
+func (d CalendarData) MonthLabel() string {
+	return time.Date(d.Year, d.Month, 1, 0, 0, 0, 0, d.Location).Format("January 2006")
+}
+
+templ EventCalendar(d CalendarData) {
+	@layouts.Base(
+		meta.New(
+			"Event Calendar",
+			"Browse upcoming Cadott Community Association events: Nabor Days, Community Bingos, Wagon Rides, monthly meetings, and more.",
+		).WithCanonical("https://www.cadottcommunity.com/events/calendar"),
+		"Events",
+	) {
+		<!-- ══════ HERO ══════ -->
+		<section class="bg-cca-ink px-4 py-10 sm:py-14">
+			<div class="mx-auto max-w-6xl space-y-3">
+				<p class="section-label-light">🗓️ Event Calendar</p>
+				<h1 class="font-display text-3xl font-bold text-white sm:text-4xl">What's happening in Cadott</h1>
+				<p class="max-w-2xl text-white/70">Browse upcoming events month by month, or scan the agenda. Click any day for full details, share with a neighbor, or add it to your calendar.</p>
+			</div>
+		</section>
+		<!-- ══════ CONTROLS ══════ -->
+		<section class="border-b border-cca-line bg-white px-4 py-4">
+			<div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+				<div class="flex items-center gap-2">
+					<a href={ templ.SafeURL("/events/calendar?m=" + d.PrevMonth() + "&view=" + d.View) } class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-cca-line text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600" aria-label="Previous month">‹</a>
+					<span class="min-w-[10rem] text-center font-display text-lg font-bold text-cca-ink">{ d.MonthLabel() }</span>
+					<a href={ templ.SafeURL("/events/calendar?m=" + d.NextMonth() + "&view=" + d.View) } class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-cca-line text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600" aria-label="Next month">›</a>
+					<a href="/events/calendar" class="ml-2 text-xs font-semibold text-cca-teal-600 transition hover:text-cca-teal-700">Today</a>
+				</div>
+				<div class="inline-flex rounded-lg border border-cca-line bg-white p-1" role="tablist" data-view-toggle>
+					if d.View == "month" {
+						<button type="button" data-view="month" class="rounded-md bg-cca-teal-600 px-3 py-1.5 text-xs font-semibold text-white">Month</button>
+						<button type="button" data-view="list" class="rounded-md px-3 py-1.5 text-xs font-semibold text-cca-muted">List</button>
+					} else {
+						<button type="button" data-view="month" class="rounded-md px-3 py-1.5 text-xs font-semibold text-cca-muted">Month</button>
+						<button type="button" data-view="list" class="rounded-md bg-cca-teal-600 px-3 py-1.5 text-xs font-semibold text-white">List</button>
+					}
+				</div>
+			</div>
+		</section>
+		<!-- ══════ CONTENT ══════ -->
+		<section class="px-4 py-8">
+			<div class="mx-auto max-w-6xl">
+				<div data-view-month class={ "calendar-view", templ.KV("hidden sm:hidden", d.View == "list") }>
+					@components.CalendarGrid(d.GridStart, d.Month, d.Today, d.MonthEvents, d.Location)
+				</div>
+				<div data-view-list class={ "calendar-view mt-6 sm:mt-0", templ.KV("hidden sm:block", d.View == "month") }>
+					@components.CalendarList(d.ListGroups)
+				</div>
+			</div>
+		</section>
+		<dialog id="cal-modal" class="w-[min(36rem,90vw)] rounded-2xl border border-cca-line p-0 shadow-2xl backdrop:bg-cca-ink/50"></dialog>
+	}
+}
