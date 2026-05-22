@@ -199,6 +199,41 @@ type DayGroup struct {
 	Events []Event
 }
 
+// MonthGroup is a single calendar month's bucket of events, used by the
+// agenda list view to break a long upcoming-events list into scannable
+// "JULY 2026" / "AUGUST 2026" sections.
+type MonthGroup struct {
+	Year   int
+	Month  time.Month
+	Events []Event
+}
+
+// Label returns the human heading for a month bucket, e.g. "July 2026".
+func (g MonthGroup) Label() string {
+	return time.Date(g.Year, g.Month, 1, 0, 0, 0, 0, time.UTC).Format("January 2006")
+}
+
+// GroupByMonth buckets already-sorted events by their start-date month
+// in loc, preserving chronological order. Used by the list view to show
+// every upcoming event regardless of which month the user is "on" in
+// the grid.
+func GroupByMonth(events []Event, loc *time.Location) []MonthGroup {
+	if loc == nil {
+		loc = time.UTC
+	}
+	var groups []MonthGroup
+	for _, e := range events {
+		local := e.StartDate.In(loc)
+		y, m := local.Year(), local.Month()
+		if n := len(groups); n > 0 && groups[n-1].Year == y && groups[n-1].Month == m {
+			groups[n-1].Events = append(groups[n-1].Events, e)
+			continue
+		}
+		groups = append(groups, MonthGroup{Year: y, Month: m, Events: []Event{e}})
+	}
+	return groups
+}
+
 // ColorClass returns a CSS class fragment for the event's color, falling
 // back to teal when the color is unknown.
 func (e Event) ColorClass() string {

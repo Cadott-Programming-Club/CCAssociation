@@ -1,20 +1,41 @@
 package components
 
-import "ccassociation/internal/events"
+import (
+	"strconv"
 
-// CalendarList renders the agenda view as a responsive grid of image-top
-// event cards (one card per event, not per day — multi-day events are not
-// duplicated). The selected month's events appear in chronological order.
-templ CalendarList(monthEvents []events.Event, monthLabel string) {
-	if len(monthEvents) == 0 {
+	"ccassociation/internal/events"
+)
+
+// CalendarList renders the agenda view: every upcoming event bucketed
+// by month, with a subtle month header per group. The selected month
+// in the URL deliberately doesn't filter this view — users should see
+// what's coming up across all months at a glance.
+templ CalendarList(groups []events.MonthGroup) {
+	if len(groups) == 0 {
 		<div class="rounded-2xl border border-cca-line bg-white p-10 text-center">
-			<p class="font-display text-lg font-bold text-cca-ink">Nothing on the calendar in { monthLabel }.</p>
-			<p class="mt-2 text-sm text-cca-muted">Use the arrows above to browse another month, or follow us on Facebook for the latest.</p>
+			<p class="font-display text-lg font-bold text-cca-ink">No upcoming events.</p>
+			<p class="mt-2 text-sm text-cca-muted">Check back soon, or follow us on Facebook for the latest.</p>
 		</div>
 	} else {
-		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			for _, e := range monthEvents {
-				@EventCard(e)
+		<div class="space-y-12">
+			for _, g := range groups {
+				<div>
+					<div class="mb-6 flex items-baseline justify-between gap-4 border-b border-cca-line pb-3">
+						<h3 class="font-display text-xl font-bold text-cca-ink">{ g.Label() }</h3>
+						<span class="text-xs font-bold uppercase tracking-[0.2em] text-cca-muted">
+							if len(g.Events) == 1 {
+								1 event
+							} else {
+								{ strconv.Itoa(len(g.Events)) } events
+							}
+						</span>
+					</div>
+					<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+						for _, e := range g.Events {
+							@EventCard(e)
+						}
+					</div>
+				</div>
 			}
 		</div>
 	}

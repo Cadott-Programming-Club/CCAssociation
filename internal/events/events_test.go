@@ -430,6 +430,35 @@ func TestEmbeddedJSON_Loads(t *testing.T) {
 	}
 }
 
+func TestGroupByMonth(t *testing.T) {
+	loc := time.UTC
+	events := []Event{
+		{Slug: "june-1", StartDate: time.Date(2026, 6, 1, 10, 0, 0, 0, loc), EndDate: time.Date(2026, 6, 1, 11, 0, 0, 0, loc)},
+		{Slug: "june-15", StartDate: time.Date(2026, 6, 15, 10, 0, 0, 0, loc), EndDate: time.Date(2026, 6, 15, 11, 0, 0, 0, loc)},
+		{Slug: "july-23", StartDate: time.Date(2026, 7, 23, 10, 0, 0, 0, loc), EndDate: time.Date(2026, 7, 26, 11, 0, 0, 0, loc)},
+		{Slug: "dec-12", StartDate: time.Date(2026, 12, 12, 10, 0, 0, 0, loc), EndDate: time.Date(2026, 12, 12, 11, 0, 0, 0, loc)},
+	}
+	groups := GroupByMonth(events, loc)
+	if len(groups) != 3 {
+		t.Fatalf("got %d groups, want 3", len(groups))
+	}
+	if groups[0].Label() != "June 2026" || len(groups[0].Events) != 2 {
+		t.Errorf("group[0] = %s, %d events; want June 2026, 2", groups[0].Label(), len(groups[0].Events))
+	}
+	if groups[1].Label() != "July 2026" || len(groups[1].Events) != 1 {
+		t.Errorf("group[1] = %s, %d events; want July 2026, 1", groups[1].Label(), len(groups[1].Events))
+	}
+	if groups[2].Label() != "December 2026" || len(groups[2].Events) != 1 {
+		t.Errorf("group[2] = %s, %d events; want December 2026, 1", groups[2].Label(), len(groups[2].Events))
+	}
+}
+
+func TestGroupByMonth_EmptyInput(t *testing.T) {
+	if got := GroupByMonth(nil, time.UTC); got != nil {
+		t.Errorf("GroupByMonth(nil) = %v, want nil", got)
+	}
+}
+
 func TestGroupByDay_BucketsMultiDay(t *testing.T) {
 	loc := time.UTC
 	events := []Event{

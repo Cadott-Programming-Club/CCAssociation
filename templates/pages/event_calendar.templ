@@ -12,13 +12,14 @@ import (
 // CalendarData bundles everything the calendar page template needs from
 // the handler.
 type CalendarData struct {
-	Year        int
-	Month       time.Month
-	Today       time.Time
-	View        string // "month", "list", or "auto"
-	GridStart   time.Time
-	MonthEvents []events.Event // events overlapping the grid (used by the grid view and the list)
-	Location    *time.Location
+	Year           int
+	Month          time.Month
+	Today          time.Time
+	View           string              // "month", "list", or "auto"
+	GridStart      time.Time           // top-left day of the Sunday-start grid
+	MonthEvents    []events.Event      // events overlapping the visible grid (drives the grid)
+	UpcomingGroups []events.MonthGroup // every upcoming event, bucketed by month (drives the list)
+	Location       *time.Location
 }
 
 // prevMonth and nextMonth produce ?m= query values for navigation links.
@@ -47,6 +48,33 @@ func monthWrapperClass(view string) string {
 		return "calendar-view hidden"
 	default:
 		return "calendar-view hidden sm:block"
+	}
+}
+
+// monthNavVisibilityClass returns the visibility classes for the
+// prev/next month nav. The nav is shown only when the grid is visible:
+// always for "month", >=sm for "auto", and never for "list".
+func monthNavVisibilityClass(view string) string {
+	switch view {
+	case "month":
+		return "flex"
+	case "list":
+		return "hidden"
+	default:
+		return "hidden sm:flex"
+	}
+}
+
+// listLabelVisibilityClass mirrors monthNavVisibilityClass for the
+// "All upcoming events" label that replaces the month nav in list mode.
+func listLabelVisibilityClass(view string) string {
+	switch view {
+	case "list":
+		return "block"
+	case "month":
+		return "hidden"
+	default:
+		return "block sm:hidden"
 	}
 }
 
@@ -101,12 +129,15 @@ templ EventCalendar(d CalendarData) {
 		<!-- ══════ CONTROLS ══════ -->
 		<section class="border-b border-cca-line bg-white px-4 py-4">
 			<div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
-				<div class="flex items-center gap-2">
+				<!-- Month nav: shown when the grid is visible (always for month, sm+ for auto, never for list). -->
+				<div class={ "items-center gap-2", monthNavVisibilityClass(d.View) }>
 					<a href={ templ.SafeURL("/events/calendar?" + monthNavQuery(d.PrevMonth(), d.View)) } class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-cca-line text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600" aria-label="Previous month">‹</a>
 					<span class="min-w-[10rem] text-center font-display text-lg font-bold text-cca-ink">{ d.MonthLabel() }</span>
 					<a href={ templ.SafeURL("/events/calendar?" + monthNavQuery(d.NextMonth(), d.View)) } class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-cca-line text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600" aria-label="Next month">›</a>
 					<a href="/events/calendar" class="ml-2 text-xs font-semibold text-cca-teal-600 transition hover:text-cca-teal-700">Today</a>
 				</div>
+				<!-- List label: shown when the agenda is visible (always for list, mobile-only for auto, never for month). -->
+				<p class={ "font-display text-lg font-bold text-cca-ink", listLabelVisibilityClass(d.View) }>All upcoming events</p>
 				<div class="inline-flex rounded-lg border border-cca-line bg-white p-1" role="tablist" data-view-toggle>
 					<button type="button" data-view="month" class={ viewToggleClass(d.View == "month") }>Month</button>
 					<button type="button" data-view="list" class={ viewToggleClass(d.View == "list") }>List</button>
@@ -120,7 +151,7 @@ templ EventCalendar(d CalendarData) {
 					@components.CalendarGrid(d.GridStart, d.Month, d.Today, d.MonthEvents, d.Location)
 				</div>
 				<div data-view-list class={ listWrapperClass(d.View) }>
-					@components.CalendarList(d.MonthEvents, d.MonthLabel())
+					@components.CalendarList(d.UpcomingGroups)
 				</div>
 			</div>
 		</section>

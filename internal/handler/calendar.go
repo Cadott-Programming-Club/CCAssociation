@@ -47,14 +47,22 @@ func (h *Handler) EventsCalendar(c echo.Context) error {
 	monthEvents := events.Month(h.events, year, month, chicagoLoc)
 	gridStart, _ := events.MonthGridRange(year, month, chicagoLoc)
 
+	// List view is intentionally NOT filtered by the selected month —
+	// it shows every upcoming event grouped by month so users don't see
+	// "nothing on the calendar in May" when something is just a month
+	// away. The month picker only affects the grid.
+	upcoming := events.Upcoming(h.events, now, 1000)
+	upcomingGroups := events.GroupByMonth(upcoming, chicagoLoc)
+
 	data := pages.CalendarData{
-		Year:        year,
-		Month:       month,
-		Today:       now,
-		View:        view,
-		GridStart:   gridStart,
-		MonthEvents: monthEvents,
-		Location:    chicagoLoc,
+		Year:           year,
+		Month:          month,
+		Today:          now,
+		View:           view,
+		GridStart:      gridStart,
+		MonthEvents:    monthEvents,
+		UpcomingGroups: upcomingGroups,
+		Location:       chicagoLoc,
 	}
 	return pages.EventCalendar(data).Render(c.Request().Context(), c.Response().Writer)
 }
