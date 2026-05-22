@@ -1,12 +1,13 @@
 package pages
 
 import (
+	"ccassociation/internal/events"
 	"ccassociation/internal/meta"
 	"ccassociation/templates/components"
 	"ccassociation/templates/layouts"
 )
 
-templ Home() {
+templ Home(upcoming []events.Event) {
 	@layouts.Base(meta.New("Neighbors Since 1970", "Cadott Community Association — Nabor Days, Community Bingos, Wagon Rides, and more. Neighbors building Cadott since 1970.").WithCanonical("https://www.cadottcommunity.com/").WithOGImageInfo("/static/images/nabor-days-2025/royalty-cadott-float.jpg", "Cadott Nabor Days Queen and Princesses on the Cadott parade float", 1200, 630), "home") {
 		<!-- ══════ HERO ══════ -->
 		<section class="relative overflow-hidden bg-cca-ink">
@@ -114,6 +115,8 @@ templ Home() {
 				</div>
 			</div>
 		</section>
+		<!-- ══════ UPCOMING EVENTS ══════ -->
+		@components.UpcomingEvents(upcoming)
 		<!-- ══════ STAY CONNECTED — SIDEBAR LAYOUT ══════ -->
 		<section class="bg-cca-wash px-4 py-14">
 			<div class="mx-auto max-w-6xl">

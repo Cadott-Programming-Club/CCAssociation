@@ -1,0 +1,147 @@
+package pages
+
+import (
+	"encoding/json"
+
+	"ccassociation/internal/events"
+	"ccassociation/internal/meta"
+	"ccassociation/templates/components"
+	"ccassociation/templates/layouts"
+)
+
+templ EventDetail(e events.Event) {
+	@layouts.Base(eventDetailMeta(e), "Events") {
+		@eventDetailJSONLD(e)
+		<!-- ══════ HERO ══════ -->
+		<section class="relative overflow-hidden bg-cca-ink">
+			if e.Image != "" {
+				<div class="absolute inset-0">
+					<img class="h-full w-full object-cover opacity-30" src={ e.Image } alt="" aria-hidden="true"/>
+				</div>
+			}
+			<div class="relative mx-auto max-w-4xl px-4 py-14 sm:py-20">
+				<nav class="flex items-center gap-1 text-xs text-white/60" aria-label="Breadcrumb">
+					<a href="/" class="hover:text-white transition">Home</a>
+					<span>›</span>
+					<a href="/events" class="hover:text-white transition">Events</a>
+					<span>›</span>
+					<a href="/events/calendar" class="hover:text-white transition">Calendar</a>
+					<span>›</span>
+					<span class="text-white">{ e.Name }</span>
+				</nav>
+				<p class="mt-4 section-label-light">{ e.StartDate.Format("Monday, January 2 · 3:04 PM") }</p>
+				<h1 class="mt-2 font-display text-4xl font-bold leading-[1.1] text-white sm:text-5xl">{ e.Name }</h1>
+				if e.Summary != "" {
+					<p class="mt-4 max-w-2xl text-lg text-white/70">{ e.Summary }</p>
+				}
+			</div>
+		</section>
+		<!-- ══════ DETAIL ══════ -->
+		<section class="px-4 py-12">
+			<div class="mx-auto max-w-4xl space-y-8">
+				<div class="grid gap-6 sm:grid-cols-2">
+					<div class="rounded-2xl border border-cca-line bg-white p-5 shadow-sm">
+						<p class="section-label">When</p>
+						<p class="mt-2 font-display text-lg font-bold text-cca-ink">{ e.StartDate.Format("Monday, January 2, 2006") }</p>
+						if e.AllDay {
+							<p class="text-sm text-cca-muted">All day</p>
+						} else {
+							<p class="text-sm text-cca-muted">{ e.StartDate.Format("3:04 PM") } – { e.EndDate.Format("3:04 PM") }</p>
+						}
+					</div>
+					if e.Location.Name != "" {
+						<div class="rounded-2xl border border-cca-line bg-white p-5 shadow-sm">
+							<p class="section-label">Where</p>
+							<p class="mt-2 font-display text-lg font-bold text-cca-ink">{ e.Location.Name }</p>
+							if e.Location.Address != "" {
+								<p class="text-sm text-cca-muted">{ e.Location.Address }</p>
+							}
+							if e.Location.MapsURL != "" {
+								<a href={ templ.SafeURL(e.Location.MapsURL) } target="_blank" rel="noreferrer noopener" class="mt-2 inline-flex text-sm font-semibold text-cca-teal-600 transition hover:text-cca-teal-700">Open in Maps →</a>
+							}
+						</div>
+					}
+				</div>
+				if e.Description != "" {
+					<div class="rounded-2xl border border-cca-line bg-white p-6 shadow-sm">
+						<p class="section-label">About this event</p>
+						<p class="mt-3 whitespace-pre-line text-cca-body">{ e.Description }</p>
+					</div>
+				}
+				<div class="flex flex-wrap gap-3">
+					@components.ShareButtons(e)
+					@components.AddToCalendar(e)
+				</div>
+				if e.FacebookURL != "" {
+					<a href={ templ.SafeURL(e.FacebookURL) } target="_blank" rel="noreferrer noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-cca-facebook transition hover:opacity-80">View on Facebook →</a>
+				}
+				<div>
+					<a href="/events/calendar" class="text-sm font-semibold text-cca-teal-600 transition hover:text-cca-teal-700">← Back to calendar</a>
+				</div>
+			</div>
+		</section>
+	}
+}
+
+func eventDetailMeta(e events.Event) meta.PageMeta {
+	m := meta.New(e.Name, e.Summary).WithCanonical("https://www.cadottcommunity.com/events/c/" + e.Slug)
+	if e.Image != "" {
+		m = m.WithOGImageInfo("https://www.cadottcommunity.com"+e.Image, e.Name, 1200, 630)
+	}
+	return m.AsArticle()
+}
+
+templ eventDetailJSONLD(e events.Event) {
+	<script type="application/ld+json">
+		@templ.Raw(eventJSONLDString(e))
+	</script>
+}
+
+func eventJSONLDString(e events.Event) string {
+	b, err := json.Marshal(eventJSONLD(e))
+	if err != nil {
+		return "{}"
+	}
+	return string(b)
+}
+
+func eventJSONLD(e events.Event) map[string]any {
+	loc := map[string]any{
+		"@type": "Place",
+		"name":  e.Location.Name,
+		"address": map[string]any{
+			"@type":           "PostalAddress",
+			"addressLocality": "Cadott",
+			"addressRegion":   "WI",
+			"postalCode":      "54727",
+			"addressCountry":  "US",
+		},
+	}
+	data := map[string]any{
+		"@context":            "https://schema.org",
+		"@type":               "Event",
+		"name":                e.Name,
+		"description":         firstNonEmpty(e.Description, e.Summary),
+		"startDate":           e.StartDate.Format("2006-01-02T15:04:05-07:00"),
+		"endDate":             e.EndDate.Format("2006-01-02T15:04:05-07:00"),
+		"eventStatus":         "https://schema.org/EventScheduled",
+		"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+		"location":            loc,
+		"organizer": map[string]any{
+			"@type": "Organization",
+			"name":  "Cadott Community Association",
+			"url":   "https://www.cadottcommunity.com",
+		},
+	}
+	if e.Image != "" {
+		data["image"] = "https://www.cadottcommunity.com" + e.Image
+	}
+	return data
+}
+
+func firstNonEmpty(a, b string) string {
+	if a != "" {
+		return a
+	}
+	return b
+}

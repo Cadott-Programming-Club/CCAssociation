@@ -1,0 +1,26 @@
+package components
+
+import "ccassociation/internal/events"
+
+// UpcomingEvents is the home-page widget showing the next N events.
+// Renders nothing when the list is empty (the whole section disappears).
+templ UpcomingEvents(list []events.Event) {
+	if len(list) > 0 {
+		<section class="bg-cca-wash px-4 py-14">
+			<div class="mx-auto max-w-6xl space-y-8">
+				<div class="flex items-end justify-between gap-3">
+					<div>
+						<p class="section-label">What's next</p>
+						<h2 class="mt-2 font-display text-3xl font-bold text-cca-ink">Upcoming events</h2>
+					</div>
+					<a href="/events/calendar" class="text-sm font-semibold text-cca-teal-600 transition hover:text-cca-teal-700">View full calendar →</a>
+				</div>
+				<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					for _, e := range list {
+						@EventCard(e)
+					}
+				</div>
+			</div>
+		</section>
+	}
+}

@@ -1,0 +1,38 @@
+package components
+
+import "ccassociation/internal/events"
+
+// AddToCalendar renders a dropdown with Google Calendar (server-built
+// template URL) and a single .ics download link that works with Apple /
+// Outlook / Other.
+templ AddToCalendar(e events.Event) {
+	<details class="relative inline-block" data-add-to-calendar>
+		<summary class="inline-flex cursor-pointer list-none items-center gap-2 rounded-lg border border-cca-line bg-white px-4 py-2 text-sm font-semibold text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600">
+			<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+			Add to Calendar
+			@IconChevronDown()
+		</summary>
+		<div class="absolute right-0 z-20 mt-2 w-56 overflow-hidden rounded-xl border border-cca-line bg-white shadow-lg">
+			<a
+				href={ templ.SafeURL(events.GoogleCalendarURL(e)) }
+				target="_blank"
+				rel="noreferrer noopener"
+				class="flex items-center gap-2 px-4 py-3 text-sm text-cca-ink transition hover:bg-cca-wash no-underline"
+			>
+				<span class="text-base">📅</span> Google Calendar
+			</a>
+			<a
+				href={ templ.SafeURL(e.ICSURL()) }
+				class="flex items-center gap-2 px-4 py-3 text-sm text-cca-ink transition hover:bg-cca-wash no-underline"
+			>
+				<span class="text-base">🍎</span> Apple Calendar (.ics)
+			</a>
+			<a
+				href={ templ.SafeURL(e.ICSURL()) }
+				class="flex items-center gap-2 px-4 py-3 text-sm text-cca-ink transition hover:bg-cca-wash no-underline"
+			>
+				<span class="text-base">📥</span> Outlook / Other (.ics)
+			</a>
+		</div>
+	</details>
+}

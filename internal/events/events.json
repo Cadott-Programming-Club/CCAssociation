@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "slug": "nabor-days-2026",
+      "name": "Nabor Days Festival",
+      "startDate": "2026-07-23T17:00:00-05:00",
+      "endDate":   "2026-07-26T22:00:00-05:00",
+      "allDay": false,
+      "category": "signature",
+      "color": "gold",
+      "summary": "Cadott's signature 4-day celebration: Kid Zone, live music, parade, fireworks, Truck & Tractor Pull, Mud Bog, vendors, and more.",
+      "description": "Four days of hometown fun for all ages. Events kick off Thursday evening and run through Sunday's noon parade down Main Street.",
+      "location": {
+        "name": "Riverview Park",
+        "address": "Cadott, WI",
+        "mapsURL": "https://maps.google.com/?q=Riverview+Park+Cadott+WI"
+      },
+      "image": "/static/images/nabor-days-2025/royalty-cadott-float.jpg",
+      "detailURL": "/events/nabor-days",
+      "facebookURL": "https://www.facebook.com/cadottcommunityassociation",
+      "tags": ["festival", "family", "parade", "fireworks"]
+    }
+  ]
+}
