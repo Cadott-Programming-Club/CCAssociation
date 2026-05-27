@@ -1,24 +1,224 @@
 {
   "events": [
     {
-      "slug": "nabor-days-2026",
-      "name": "Nabor Days Festival",
-      "startDate": "2026-07-23T17:00:00-05:00",
-      "endDate":   "2026-07-26T22:00:00-05:00",
+      "slug": "pre-sale-wristbands-2026",
+      "name": "Family Fun Zone Pre-Sale Wristbands",
+      "startDate": "2026-07-20T09:00:00-05:00",
+      "endDate":   "2026-07-24T17:00:00-05:00",
+      "allDay": false,
+      "category": "community",
+      "color": "lime",
+      "summary": "$10 weekend wristbands available all week at Styles on Main Salon and Boutique — discounted from full price.",
+      "description": "Stop into Styles on Main Salon and Boutique to grab Family Fun Zone wristbands for a discounted price of $10 for the whole Nabor Days weekend! Store hours: Monday 9am–5pm, Tuesday 9am–8pm, Thursday 9am–7pm, Friday 9am–5pm.",
+      "location": {
+        "name": "Styles on Main Salon and Boutique",
+        "address": "133 N Main St, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=133+N+Main+St+Cadott+WI+54727"
+      },
+      "image": "/static/images/nabor-days-2026/pre-sale-wristbands.jpg",
+      "facebookURL": "https://www.facebook.com/events/1515800186766855/",
+      "tags": ["wristbands", "pre-sale", "family-fun-zone", "nabor-days"]
+    },
+    {
+      "slug": "royalty-crowning-2026",
+      "name": "Royalty Crowning & Grand Marshal Presentation",
+      "startDate": "2026-07-23T18:00:00-05:00",
       "allDay": false,
       "category": "signature",
       "color": "gold",
-      "summary": "Cadott's signature 4-day celebration: Kid Zone, live music, parade, fireworks, Truck & Tractor Pull, Mud Bog, vendors, and more.",
-      "description": "Four days of hometown fun for all ages. Events kick off Thursday evening and run through Sunday's noon parade down Main Street.",
+      "summary": "Royalty send-off, new royalty crowning, and Grand Marshal presentation. Everyone welcome. FREE admission.",
+      "description": "Join us for the 2025 Cadott Royalty send-off, 2026 Cadott Royalty crowning, and the Grand Marshal presentation. Everyone is welcome! Raffle ticket drawing winners will also be announced — no need to be present to win. Held in the Cadott High School Auditorium. FREE admission.",
+      "location": {
+        "name": "Cadott High School Auditorium",
+        "address": "466 E Mills St, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=466+E+Mills+St+Cadott+WI"
+      },
+      "image": "/static/images/nabor-days-2026/royalty-crowning.jpg",
+      "facebookURL": "https://www.facebook.com/events/1448910969859476/",
+      "tags": ["royalty", "grand-marshal", "ceremony", "nabor-days"]
+    },
+    {
+      "slug": "truck-tractor-pull-2026",
+      "name": "Truck & Tractor Pull",
+      "startDate": "2026-07-24T19:00:00-05:00",
+      "allDay": false,
+      "category": "sports",
+      "color": "coral",
+      "summary": "Friday-night Mid-State Pullers action at Riverview Park East. Gates and registration open at 5 PM, drivers meeting 6:30, first pull at 7 PM.",
+      "description": "Cadott Nabor Days Truck & Tractor Pull — Friday, July 24, 2026 at Riverview Park, east side of Hwy 27. Gates and registration open at 4 PM, drivers meeting at 6:30 PM, first pull at 7 PM. Food and beverages available on the grounds. Limited seating — please bring lawn chairs.\n\nPulling Classes: 8000# LTD Pro; 6200# Superstock 4x4 Trucks; 8000# 2.6 Diesel 4x4 Trucks; 6500# Light Super Stocks; 6200# Street Altered Gas Trucks; 11000# 12 MPH Altered Farm Tractor; 6200# Hot Farm; King of the Street; Street Stock 4x4; Hot Stock Diesel.\n\nAdmission: Adults 15+ $15, Kids 6–14 $10, Children 5 & under FREE. Drivers: see Mid-State Pullers website for class rules. Sled: Track Patrol Red. Mid-State payouts for all Mid-State classes. Event promoter: Steve Green (Mid-State) — 715-305-7177.",
+      "location": {
+        "name": "Riverview Park (East side, Hwy 27)",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "/static/images/nabor-days-2025/tractor-pull.jpg",
+      "facebookURL": "https://www.facebook.com/events/1018328463863707/",
+      "tags": ["truck-tractor-pull", "sports", "motorsports", "nabor-days"]
+    },
+    {
+      "slug": "bean-bag-tournament-friday-2026",
+      "name": "Friday Bean Bag Tournament",
+      "startDate": "2026-07-24T18:00:00-05:00",
+      "allDay": false,
+      "category": "games",
+      "color": "teal",
+      "summary": "Open-to-all bean bag tournament at the beer tent. Registration 5–5:45 PM, start at 6 PM. $20 entry per team, 100% payback.",
+      "description": "Registration 5:00–5:45 PM. Start time 6:00 PM. Held at the beer tent on the west side of Riverview Park. Teams of 2 — random draw for partners. $20 entry, 100% payback. Best 2-of-3. No bust. Bags and boards provided by the Cadott Community Association.",
+      "location": {
+        "name": "Riverview Park (West side beer tent)",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "/static/images/nabor-days-2026/bean-bag-tournament-friday.jpg",
+      "facebookURL": "https://www.facebook.com/events/1926099348110537/",
+      "tags": ["bean-bag", "tournament", "games", "nabor-days"]
+    },
+    {
+      "slug": "another-road-band-2026",
+      "name": "Another Road — Live at the Beer Tent",
+      "startDate": "2026-07-24T19:00:00-05:00",
+      "endDate":   "2026-07-24T23:00:00-05:00",
+      "allDay": false,
+      "category": "music",
+      "color": "purple",
+      "summary": "Friday-night live music with Another Road. No cover charge to listen. Must be 21+ to enter the beer tent.",
+      "description": "We're excited to welcome the band Another Road back to Nabor Days! Come out and enjoy great music, dancing, and ice-cold beverages. No entry fee to listen. Must be 21+ to enter the beer tent. Riverview Park, off Hwy 27.",
+      "location": {
+        "name": "Riverview Park Beer Tent",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "/static/images/nabor-days-2026/another-road-band.jpg",
+      "facebookURL": "https://www.facebook.com/events/837598096076246/",
+      "tags": ["music", "band", "live", "nabor-days"]
+    },
+    {
+      "slug": "dart-tournament-2026",
+      "name": "Dart Tournament",
+      "startDate": "2026-07-25T12:00:00-05:00",
+      "allDay": false,
+      "category": "games",
+      "color": "teal",
+      "summary": "Chicago-style dart tournament at the beer tent. Registration 11:30 AM, noon start. $10 entry, 100% payback plus money added.",
+      "description": "Join us for the annual Cadott Nabor Days Dart Tournament. Chicago style — race to 3 winners, race to 2 losers. Registration 11:30 AM, noon start. $10 entry fee. Held at the Riverview Park beer tent. 100% payback plus money added. Co-hosted by Cadott Nabor Days and DJ Schnitcke.",
+      "location": {
+        "name": "Riverview Park Beer Tent",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "/static/images/nabor-days-2026/dart-tournament.jpg",
+      "facebookURL": "https://www.facebook.com/events/2117082635876524/",
+      "tags": ["darts", "tournament", "games", "nabor-days"]
+    },
+    {
+      "slug": "mud-bog-2026",
+      "name": "Firemans Mud Bog",
+      "startDate": "2026-07-25T14:00:00-05:00",
+      "allDay": false,
+      "category": "sports",
+      "color": "coral",
+      "summary": "New 2 PM start time this year. Six MMA mud-drag classes — STREET, OPEN STREET, SUPER, PRO, MODIFIED, OPEN. Bring lawn chairs.",
+      "description": "The annual Firemans Mud Bog returns to East Riverview Park. New earlier 2:00 PM start time this year. Limited seating — please bring lawn chairs.\n\nThe Midwest Motorsports Association formula is simple: take conventional drag racing off the asphalt and run it through 150 feet of the most premium local sludge available. Lights and electronic timing traps just like NHRA — the difference is the racing surface. Six classes of MMA Mud Drags: STREET, OPEN STREET, SUPER, PRO, MODIFIED, and OPEN. Top finishers get cash, trophies, and awards.\n\nAdmission: Adults $15, Kids 6–12 $10, Kids 5 & under FREE. Drivers: registration starts at noon, entry $30 per run with 75% payback. Questions: contact Mike at 1-608-385-2894.",
+      "location": {
+        "name": "Riverview Park (East side)",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "/static/images/nabor-days-2026/mud-bog.jpg",
+      "facebookURL": "https://www.facebook.com/events/1715542889620423/",
+      "tags": ["mud-bog", "sports", "motorsports", "nabor-days"]
+    },
+    {
+      "slug": "man2man-band-2026",
+      "name": "The Man2Man Band with Margie-Ann",
+      "startDate": "2026-07-25T14:30:00-05:00",
+      "endDate":   "2026-07-25T18:00:00-05:00",
+      "allDay": false,
+      "category": "music",
+      "color": "purple",
+      "summary": "Saturday-afternoon live music with Margie-Ann. FREE event at Riverview Park.",
+      "description": "We're excited to welcome back The Man2Man Band with Margie-Ann this year! Join us for an afternoon of great music, dancing, and ice-cold beverages. FREE event. Riverview Park, off Hwy 27.",
       "location": {
         "name": "Riverview Park",
-        "address": "Cadott, WI",
-        "mapsURL": "https://maps.google.com/?q=Riverview+Park+Cadott+WI"
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
       },
-      "image": "/static/images/nabor-days-2025/royalty-cadott-float.jpg",
-      "detailURL": "/events/nabor-days",
-      "facebookURL": "https://www.facebook.com/cadottcommunityassociation",
-      "tags": ["festival", "family", "parade", "fireworks"]
+      "image": "/static/images/nabor-days-2026/man2man-band.jpg",
+      "facebookURL": "https://www.facebook.com/events/1014785797903466/",
+      "tags": ["music", "band", "live", "nabor-days"]
+    },
+    {
+      "slug": "the-cragars-2026",
+      "name": "The Cragars — Saturday Night Headliner",
+      "startDate": "2026-07-25T19:00:00-05:00",
+      "endDate":   "2026-07-25T23:30:00-05:00",
+      "allDay": false,
+      "category": "music",
+      "color": "purple",
+      "summary": "Saturday-night dance music with The Cragars. FREE event, plays through and after the fireworks.",
+      "description": "The Cragars are back at Nabor Days for 2026! Come out and enjoy great music, dancing, and ice-cold beverages. Plays straight through Saturday evening — the band keeps going during and after the fireworks. FREE event. Riverview Park, off Hwy 27.",
+      "location": {
+        "name": "Riverview Park",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "/static/images/nabor-days-2026/the-cragars.jpg",
+      "facebookURL": "https://www.facebook.com/events/1897031244145295/",
+      "tags": ["music", "band", "live", "dance", "nabor-days"]
+    },
+    {
+      "slug": "fireworks-2026",
+      "name": "Nabor Days Fireworks",
+      "startDate": "2026-07-25T21:30:00-05:00",
+      "allDay": false,
+      "category": "signature",
+      "color": "gold",
+      "summary": "Saturday-night family tradition. Lit at 9:30 PM at the East Park area by Crestwood Corners Fireworks. FREE.",
+      "description": "It wouldn't be Nabor Days without Saturday-night fireworks! Enjoy this family tradition for what is sure to be a spectacular show. Fireworks will be lit shortly after dusk — around 9:30 PM at the East Park area — by Crestwood Corners Fireworks. FREE.",
+      "location": {
+        "name": "Riverview Park (East Park area)",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "/static/images/nabor-days-2026/fireworks.jpg",
+      "facebookURL": "https://www.facebook.com/events/1636288477671664/",
+      "tags": ["fireworks", "family", "signature", "nabor-days"]
+    },
+    {
+      "slug": "nabor-days-parade-2026",
+      "name": "72nd Annual Nabor Days Parade",
+      "startDate": "2026-07-26T12:00:00-05:00",
+      "allDay": false,
+      "category": "signature",
+      "color": "gold",
+      "summary": "NEW START TIME: NOON. 2026 theme is Red, White & Blue for the USA 250th anniversary. Wear your patriotic best.",
+      "description": "Join us for the 72nd Annual Cadott Nabor Days Parade! One of the community's favorite traditions — local businesses, community clubs, police and fire departments, the Grand Marshal(s), the royalty court, and so much more.\n\nNew start time for 2026: NOON. Plan accordingly.\n\n2026 Theme — Red, White & Blue: In celebration of the United States' 250th anniversary on July 4, this year's parade features a patriotic red, white, and blue theme. Dress in your patriotic attire whether you're in the parade or just watching!\n\nParade route: starts at the corner of Hwy X (Chippewa Street) and Main Street, proceeds north on Main Street, and concludes at the intersection of N Main Street and E Mills Street.\n\nWant to be in the parade? Invitations and registration forms have been mailed. If you're not on the mailing list, contact Ashley Anderson-Pozarski at cadottchirodc@gmail.com for registration details.",
+      "location": {
+        "name": "Main Street, Cadott",
+        "address": "N Main St, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=N+Main+St+Cadott+WI+54727"
+      },
+      "image": "/static/images/nabor-days-2026/parade.jpg",
+      "facebookURL": "https://www.facebook.com/events/940861318524609/",
+      "tags": ["parade", "family", "main-street", "signature", "nabor-days"]
+    },
+    {
+      "slug": "bean-bag-tournament-sunday-2026",
+      "name": "Sunday Bean Bag Tournament — Locals Only",
+      "startDate": "2026-07-26T14:00:00-05:00",
+      "allDay": false,
+      "category": "games",
+      "color": "teal",
+      "summary": "Locals-only (20-mile radius) bean bag tournament after the parade. Registration 2 PM, tournament starts 2:30. $20 per team, 100% payback.",
+      "description": "Join us for a locals-only bean bag tournament Sunday after the parade. Registration starts at 2:00 PM at the beer tent on the west side of Riverview Park, with the tournament beginning at 2:30 PM. Teams of 2, random draw. $20 entry per team. 100% payback. Best 2-of-3. No bust. Bags and boards provided by the Cadott Community Association.\n\n\"Locals only\" means players must reside within a 20-mile radius of Cadott.",
+      "location": {
+        "name": "Riverview Park (West side beer tent)",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "/static/images/nabor-days-2026/bean-bag-tournament-sunday.jpg",
+      "facebookURL": "https://www.facebook.com/events/1518021986732928/",
+      "tags": ["bean-bag", "tournament", "games", "locals", "nabor-days"]
     }
   ]
 }
