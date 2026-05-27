@@ -7,8 +7,14 @@ import "ccassociation/internal/events"
 // pattern on /events: rounded-2xl border, hover-lift, aspect-[16/10]
 // imagery, uppercase colored label, font-display title, optional summary,
 // and a "Learn more →" affordance.
+//
+// The card is a <div>, not an <a>, so the secondary action buttons
+// (add-to-calendar, share) can live inside without nesting interactive
+// elements. A position-absolute stretched-link covers the card for the
+// primary nav; the action buttons sit on relative z-10 above it.
 templ EventCard(e events.Event) {
-	<a href={ templ.SafeURL(e.URL()) } class="group block overflow-hidden rounded-2xl border border-cca-line bg-white shadow-sm card-lift no-underline">
+	<div class="group relative block overflow-hidden rounded-2xl border border-cca-line bg-white shadow-sm card-lift">
+		<a href={ templ.SafeURL(e.URL()) } class="absolute inset-0 z-0" aria-label={ "View details for " + e.Name }></a>
 		if e.Image != "" {
 			<div class="aspect-[16/10] w-full overflow-hidden bg-cca-wash">
 				<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src={ e.Image } alt="" loading="lazy"/>
@@ -33,7 +39,31 @@ templ EventCard(e events.Event) {
 			if e.Summary != "" {
 				<p class="line-clamp-3 text-sm text-cca-body">{ e.Summary }</p>
 			}
-			<p class={ "inline-flex items-center gap-1 pt-2 text-sm font-semibold", e.AccentTextClass() }>Learn more →</p>
+			<div class="flex items-center justify-between pt-2">
+				<p class={ "inline-flex items-center gap-1 text-sm font-semibold", e.AccentTextClass() }>Learn more →</p>
+				<div class="relative z-10 flex gap-1">
+					<button
+						type="button"
+						hx-get={ "/events/c/" + e.Slug + "/actions" }
+						hx-target="#cal-modal"
+						hx-swap="innerHTML"
+						aria-label={ "Add to calendar: " + e.Name }
+						class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-cca-line bg-white text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600"
+					>
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+					</button>
+					<button
+						type="button"
+						hx-get={ "/events/c/" + e.Slug + "/actions" }
+						hx-target="#cal-modal"
+						hx-swap="innerHTML"
+						aria-label={ "Share: " + e.Name }
+						class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-cca-line bg-white text-cca-ink transition hover:border-cca-teal-600 hover:text-cca-teal-600"
+					>
+						<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M16 6l-4-4m0 0L8 6m4-4v12"></path></svg>
+					</button>
+				</div>
+			</div>
 		</div>
-	</a>
+	</div>
 }

@@ -100,6 +100,17 @@ func (h *Handler) eventDetail(c echo.Context, slug string) error {
 	return pages.EventDetail(e).Render(c.Request().Context(), c.Response().Writer)
 }
 
+// EventActions returns the quick-actions modal body (add-to-calendar +
+// share controls) for the given event. HTMX swaps it into #cal-modal.
+func (h *Handler) EventActions(c echo.Context) error {
+	slug := c.Param("slug")
+	e, ok := events.Find(h.events, slug)
+	if !ok {
+		return echo.NewHTTPError(http.StatusNotFound, "event not found")
+	}
+	return components.EventActionsModal(e).Render(c.Request().Context(), c.Response().Writer)
+}
+
 func (h *Handler) eventICS(c echo.Context, slug string) error {
 	e, ok := events.Find(h.events, slug)
 	if !ok {

@@ -52,6 +52,7 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 	e.GET("/events/calendar", h.EventsCalendar)
 	e.GET("/events/calendar/day/:date", h.EventsDay)
 	e.GET("/events/c/:slug", h.EventDetailOrICS)
+	e.GET("/events/c/:slug/actions", h.EventActions)
 	e.GET("/events/nabor-days", h.EventNaborDays)
 	e.GET("/events/community-bingos", h.EventCommunityBingos)
 	e.GET("/events/wagon-rides", h.EventWagonRides)

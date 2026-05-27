@@ -38,6 +38,10 @@ templ Base(m meta.PageMeta, activePage string) {
 				{ children... }
 			</main>
 			@Footer()
+			<!-- Shared dialog used for the day-modal and per-event quick-actions
+			     modals across the site. HTMX swaps content into this element,
+			     then calendar.js opens it. -->
+			<dialog id="cal-modal" class="w-[min(36rem,90vw)] rounded-2xl border border-cca-line p-0 shadow-2xl backdrop:bg-cca-ink/50"></dialog>
 			<script src="/static/js/main.js" defer></script>
 			<script src="/static/js/calendar.js" defer></script>
 		</body>
