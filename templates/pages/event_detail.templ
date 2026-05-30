@@ -92,9 +92,7 @@ func eventDetailMeta(e events.Event) meta.PageMeta {
 }
 
 templ eventDetailJSONLD(e events.Event) {
-	<script type="application/ld+json">
-		@templ.Raw(eventJSONLDString(e))
-	</script>
+	@templ.Raw(`<script type="application/ld+json">` + eventJSONLDString(e) + `</script>`)
 }
 
 func eventJSONLDString(e events.Event) string {
