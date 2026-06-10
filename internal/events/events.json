@@ -93,6 +93,25 @@
       "tags": ["music", "band", "live", "nabor-days"]
     },
     {
+      "slug": "vendor-market-2026",
+      "name": "Nabor Days Vendor Market",
+      "startDate": "2026-07-25T09:00:00-05:00",
+      "endDate":   "2026-07-25T15:00:00-05:00",
+      "allDay": false,
+      "category": "community",
+      "color": "lime",
+      "summary": "Farmers market and vendor fair at Riverview Park, Saturday 9 AM–3 PM. Vendor booths $20 per 10'x10' space — sign up by July 20.",
+      "description": "Shop local at the Nabor Days Vendor Market — a farmers market and vendor event at Riverview Park on Saturday, July 25 from 9 AM to 3 PM (some vendors may stay open until 6 PM).\n\nWant a booth? Spaces are $20 per 10' x 10' booth — FREE for existing Cadott farmers market vendors. Setup begins at 8 AM. No power is available. Booth fees are collected in cash on the day of the event — we never ask for payment online in advance, so please be aware of scammers.\n\nSign up by Monday, July 20. Late registrations are accepted if space allows. Questions: contact Cory LaNou at 715-313-0145 or cory@lanou.com.",
+      "location": {
+        "name": "Riverview Park",
+        "address": "Riverview Park, Cadott, WI 54727",
+        "mapsURL": "https://maps.google.com/?q=44.953655,-91.147205"
+      },
+      "image": "",
+      "registrationURL": "https://docs.google.com/forms/d/e/1FAIpQLSecMGAMOVwMU9bCG5SBPgO6UmjtegvmISIcupDhzTknEvnXVg/viewform",
+      "tags": ["vendor-market", "farmers-market", "vendors", "shopping", "nabor-days"]
+    },
+    {
       "slug": "dart-tournament-2026",
       "name": "Dart Tournament",
       "startDate": "2026-07-25T12:00:00-05:00",
@@ -191,14 +210,15 @@
       "allDay": false,
       "category": "signature",
       "color": "gold",
-      "summary": "NEW START TIME: NOON. 2026 theme is Red, White & Blue for the USA 250th anniversary. Wear your patriotic best.",
-      "description": "Join us for the 72nd Annual Cadott Nabor Days Parade! One of the community's favorite traditions — local businesses, community clubs, police and fire departments, the Grand Marshal(s), the royalty court, and so much more.\n\nNew start time for 2026: NOON. Plan accordingly.\n\n2026 Theme — Red, White & Blue: In celebration of the United States' 250th anniversary on July 4, this year's parade features a patriotic red, white, and blue theme. Dress in your patriotic attire whether you're in the parade or just watching!\n\nParade route: starts at the corner of Hwy X (Chippewa Street) and Main Street, proceeds north on Main Street, and concludes at the intersection of N Main Street and E Mills Street.\n\nWant to be in the parade? Invitations and registration forms have been mailed. If you're not on the mailing list, contact Ashley Anderson-Pozarski at cadottchirodc@gmail.com for registration details.",
+      "summary": "NEW START TIME: NOON. 2026 theme is Stars, Stripes & Small-Town Pride for the USA 250th anniversary. Pre-register by July 18.",
+      "description": "Join us for the 72nd Annual Cadott Nabor Days Parade! One of the community's favorite traditions — local businesses, community clubs, police and fire departments, the Grand Marshal(s), the royalty court, and so much more.\n\nNew start time for 2026: NOON. Plan accordingly.\n\n2026 Theme — Stars, Stripes & Small-Town Pride: In honor of the United States celebrating its 250th anniversary, this year's parade features a patriotic theme. Dress in your patriotic attire whether you're in the parade or just watching!\n\nParade route: starts at the corner of Hwy X (Chippewa Street) and Main Street, proceeds north on Main Street, and concludes at the intersection of N Main Street and E Mills Street.\n\nWant to be in the parade? Pre-register online by July 18, 2026 — use the registration link on this page. Invitations and registration forms have also been mailed. Questions: contact Ashley Anderson-Pozarski at cadottchirodc@gmail.com or 715-978-0600.",
       "location": {
         "name": "Main Street, Cadott",
         "address": "N Main St, Cadott, WI 54727",
         "mapsURL": "https://maps.google.com/?q=N+Main+St+Cadott+WI+54727"
       },
       "image": "/static/images/nabor-days-2026/parade.jpg",
+      "registrationURL": "https://docs.google.com/forms/d/e/1FAIpQLSdR7GPQaTMEOIeibpgwrYdozp-Jx_16Gfbgp9w-qUaT-fniTA/viewform?pli=1",
       "facebookURL": "https://www.facebook.com/events/940861318524609/",
       "tags": ["parade", "family", "main-street", "signature", "nabor-days"]
     },

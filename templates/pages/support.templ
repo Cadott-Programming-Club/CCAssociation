@@ -40,6 +40,22 @@ templ Support() {
 						<p class="text-sm text-cca-body">Every event runs on volunteers. Sign up for bingo nights, wagon ride helpers, or a Nabor Days shift.</p>
 					</div>
 				</div>
+				<!-- Sponsorship levels -->
+				<div class="rounded-xl border border-cca-line bg-white p-6 shadow-sm sm:p-8">
+					<h3 class="font-display text-xl font-bold text-cca-ink">Sponsorship levels</h3>
+					<p class="mt-2 text-cca-body">Our community is great because of the incredible support from local businesses and community members. Every level helps fund Nabor Days, Music in the Park, Holiday Wagon Rides, and park upgrades.</p>
+					<div class="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
+						@SponsorTier("Diamond", "$2,000+")
+						@SponsorTier("Platinum", "$1,000")
+						@SponsorTier("Gold", "$750")
+						@SponsorTier("Silver", "$500")
+						@SponsorTier("Bronze", "$250")
+						@SponsorTier("Supporter", "$100+")
+					</div>
+					<p class="mt-5 text-sm text-cca-body">Pay by check: make checks payable to the Cadott Community Association and mail them — along with your business name, contact person, email, and phone — to <span class="font-semibold text-cca-ink">Cadott Community Association, P.O. Box 24, Cadott, WI 54727</span>.</p>
+					<p class="mt-2 text-sm text-cca-body">Business sponsors: please email your logo in high-resolution PNG, JPG, or EPS format unless you provided it in a previous year.</p>
+					<p class="mt-2 text-sm text-cca-body">Questions or logo submissions: contact Sponsorship Director Alisha (Lucy) Meinen at <a href="mailto:alishameinen@gmail.com" class="font-semibold text-cca-teal-600 transition hover:text-cca-teal-700">alishameinen@gmail.com</a> or <a href="tel:+17157033218" class="font-semibold text-cca-teal-600 transition hover:text-cca-teal-700">(715) 703-3218</a>.</p>
+				</div>
 				<!-- Packet request -->
 				<div class="rounded-xl border border-cca-line bg-cca-wash p-6 sm:p-8">
 					<h3 class="font-display text-xl font-bold text-cca-ink">Sponsorship &amp; Grand Marshal packet</h3>
@@ -60,4 +76,11 @@ templ Support() {
 			</div>
 		</section>
 	}
+}
+
+templ SponsorTier(name string, amount string) {
+	<div class="rounded-lg border border-cca-line bg-cca-wash p-4 text-center">
+		<p class="text-xs font-bold uppercase tracking-[0.2em] text-cca-muted">{ name }</p>
+		<p class="mt-1 font-display text-lg font-bold text-cca-ink">{ amount }</p>
+	</div>
 }

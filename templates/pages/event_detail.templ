@@ -68,6 +68,11 @@ templ EventDetail(e events.Event) {
 						<p class="mt-3 whitespace-pre-line text-cca-body">{ e.Description }</p>
 					</div>
 				}
+				if e.RegistrationURL != "" {
+					<div>
+						<a href={ templ.SafeURL(e.RegistrationURL) } target="_blank" rel="noreferrer noopener" class="inline-flex items-center gap-2 rounded-lg bg-cca-teal-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-cca-teal-700">Register online →</a>
+					</div>
+				}
 				<div class="flex flex-wrap gap-3">
 					@components.ShareButtons(e)
 					@components.AddToCalendar(e)

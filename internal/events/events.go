@@ -40,7 +40,10 @@ type Event struct {
 	Image       string    `json:"image"`
 	DetailURL   string    `json:"detailURL,omitempty"`
 	FacebookURL string    `json:"facebookURL,omitempty"`
-	Tags        []string  `json:"tags,omitempty"`
+	// RegistrationURL links to an external signup form (e.g. Google Forms)
+	// for events that take registrations — parade entries, vendor booths.
+	RegistrationURL string   `json:"registrationURL,omitempty"`
+	Tags            []string `json:"tags,omitempty"`
 }
 
 // URL returns the canonical detail URL for this event. Signature events
